@@ -1,0 +1,8 @@
+{
+  "kind": "fake-provider infrastructure test (not a study result)",
+  "grading": "v1.1",
+  "trials": 180,
+  "behaviours": 10,
+  "passed": true,
+  "failures": []
+}
