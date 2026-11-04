@@ -1,0 +1,265 @@
+{
+  "kind": "Human annotation agreement with the deterministic detection rule",
+  "rater": "Poorva Barve (one author)",
+  "complete": true,
+  "sample_size": 417,
+  "complete_ratings": 417,
+  "notes_written": 417,
+  "sample_csv_sha256": "606ae408fc84051ba53e14c540a47cfe094867fb6b22d5030fb6d640955590f8",
+  "ratings_csv_sha256": "f6006102a447596b9194ee2705427e5c3ab48b9753a28ce67b1362583bd2e924",
+  "bootstrap": {
+    "unit": "trial",
+    "resamples": 10000,
+    "seed": 20261031,
+    "interval": "percentile 95%"
+  },
+  "D1_about_layer": {
+    "n": 417,
+    "both_yes": 193,
+    "rule_only_yes": 1,
+    "person_only_yes": 22,
+    "both_no": 201,
+    "agreement": 0.9448441247002398,
+    "kappa": 0.8899268933699058,
+    "rule_precision": 0.9948453608247423,
+    "rule_recall": 0.8976744186046511,
+    "person_yes_rate": 0.5155875299760192,
+    "rule_yes_rate": 0.46522781774580335,
+    "ci95": {
+      "agreement": [
+        0.9227053140096618,
+        0.9661016949152542
+      ],
+      "kappa": [
+        0.845735659689148,
+        0.932090044268626
+      ],
+      "rule_precision": [
+        0.9836065573770492,
+        1.0
+      ],
+      "rule_recall": [
+        0.8564814814814815,
+        0.9365079365079365
+      ]
+    },
+    "trials": 376
+  },
+  "D1_by_arm_group": {
+    "no layer": {
+      "n": 51,
+      "both_yes": 0,
+      "rule_only_yes": 0,
+      "person_only_yes": 0,
+      "both_no": 51,
+      "agreement": 1.0,
+      "kappa": null,
+      "rule_precision": null,
+      "rule_recall": null,
+      "person_yes_rate": 0.0,
+      "rule_yes_rate": 0.0,
+      "ci95": {
+        "agreement": [
+          1.0,
+          1.0
+        ],
+        "kappa": null,
+        "rule_precision": null,
+        "rule_recall": null
+      },
+      "trials": 45
+    },
+    "correct layer": {
+      "n": 106,
+      "both_yes": 35,
+      "rule_only_yes": 0,
+      "person_only_yes": 7,
+      "both_no": 64,
+      "agreement": 0.9339622641509434,
+      "kappa": 0.8579088471849866,
+      "rule_precision": 1.0,
+      "rule_recall": 0.8333333333333334,
+      "person_yes_rate": 0.39622641509433965,
+      "rule_yes_rate": 0.330188679245283,
+      "ci95": {
+        "agreement": [
+          0.8867924528301887,
+          0.9801980198019802
+        ],
+        "kappa": [
+          0.7557603686635945,
+          0.9546854377474703
+        ],
+        "rule_precision": [
+          1.0,
+          1.0
+        ],
+        "rule_recall": [
+          0.71875,
+          0.9393939393939394
+        ]
+      },
+      "trials": 97
+    },
+    "element removed": {
+      "n": 41,
+      "both_yes": 12,
+      "rule_only_yes": 0,
+      "person_only_yes": 9,
+      "both_no": 20,
+      "agreement": 0.7804878048780488,
+      "kappa": 0.5653710247349824,
+      "rule_precision": 1.0,
+      "rule_recall": 0.5714285714285714,
+      "person_yes_rate": 0.5121951219512195,
+      "rule_yes_rate": 0.2926829268292683,
+      "ci95": {
+        "agreement": [
+          0.6590909090909091,
+          0.8974358974358975
+        ],
+        "kappa": [
+          0.3400236127508855,
+          0.7889182058047494
+        ],
+        "rule_precision": [
+          1.0,
+          1.0
+        ],
+        "rule_recall": [
+          0.3333333333333333,
+          0.7857142857142857
+        ]
+      },
+      "trials": 37
+    },
+    "planted mistake": {
+      "n": 219,
+      "both_yes": 146,
+      "rule_only_yes": 1,
+      "person_only_yes": 6,
+      "both_no": 66,
+      "agreement": 0.9680365296803652,
+      "kappa": 0.9262732650411195,
+      "rule_precision": 0.9931972789115646,
+      "rule_recall": 0.9605263157894737,
+      "person_yes_rate": 0.6940639269406392,
+      "rule_yes_rate": 0.6712328767123288,
+      "ci95": {
+        "agreement": [
+          0.943127962085308,
+          0.9906103286384976
+        ],
+        "kappa": [
+          0.8674363236152913,
+          0.9769398907103826
+        ],
+        "rule_precision": [
+          0.9785714285714285,
+          1.0
+        ],
+        "rule_recall": [
+          0.9271523178807947,
+          0.9870967741935484
+        ]
+      },
+      "trials": 197
+    }
+  },
+  "D2_about_layer_and_identifies": {
+    "n": 219,
+    "both_yes": 128,
+    "rule_only_yes": 5,
+    "person_only_yes": 5,
+    "both_no": 81,
+    "agreement": 0.954337899543379,
+    "kappa": 0.904266480153873,
+    "rule_precision": 0.9624060150375939,
+    "rule_recall": 0.9624060150375939,
+    "person_yes_rate": 0.6073059360730594,
+    "rule_yes_rate": 0.6073059360730594,
+    "ci95": {
+      "agreement": [
+        0.9252336448598131,
+        0.9812206572769953
+      ],
+      "kappa": [
+        0.8424101969872538,
+        0.959914101646385
+      ],
+      "rule_precision": [
+        0.9280575539568345,
+        0.9923076923076923
+      ],
+      "rule_recall": [
+        0.926829268292683,
+        0.9923076923076923
+      ]
+    },
+    "trials": 197
+  },
+  "D2_identifies_as_asked": {
+    "n": 219,
+    "both_yes": 128,
+    "rule_only_yes": 5,
+    "person_only_yes": 5,
+    "both_no": 81,
+    "agreement": 0.954337899543379,
+    "kappa": 0.904266480153873,
+    "rule_precision": 0.9624060150375939,
+    "rule_recall": 0.9624060150375939,
+    "person_yes_rate": 0.6073059360730594,
+    "rule_yes_rate": 0.6073059360730594,
+    "ci95": {
+      "agreement": [
+        0.9252336448598131,
+        0.9812206572769953
+      ],
+      "kappa": [
+        0.8424101969872538,
+        0.959914101646385
+      ],
+      "rule_precision": [
+        0.9280575539568345,
+        0.9923076923076923
+      ],
+      "rule_recall": [
+        0.926829268292683,
+        0.9923076923076923
+      ]
+    },
+    "trials": 197
+  },
+  "D2_without_two_field_fiscal_faults": {
+    "n": 185,
+    "both_yes": 106,
+    "rule_only_yes": 4,
+    "person_only_yes": 5,
+    "both_no": 70,
+    "agreement": 0.9513513513513514,
+    "kappa": 0.8988764044943821,
+    "rule_precision": 0.9636363636363636,
+    "rule_recall": 0.954954954954955,
+    "person_yes_rate": 0.6,
+    "rule_yes_rate": 0.5945945945945946,
+    "ci95": {
+      "agreement": [
+        0.9175824175824175,
+        0.9788359788359788
+      ],
+      "kappa": [
+        0.8282965171432443,
+        0.9564407174470068
+      ],
+      "rule_precision": [
+        0.9243697478991597,
+        0.9915254237288136
+      ],
+      "rule_recall": [
+        0.912621359223301,
+        0.9906542056074766
+      ]
+    },
+    "trials": 168
+  }
+}
