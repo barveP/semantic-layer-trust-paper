@@ -1,0 +1,418 @@
+item,trial_id,about_layer,identifies_fault,note
+1,sl1-main-Q02-F2N-opus-r2#c0,yes,yes,Points at total_profit using ss_net_paid_inc_tax (the planted change)
+2,sl1-main-Q12-C0-haiku-r2#c0,no,na,No layer shown; about the question (which sales channel)
+3,sl1-main-Q11-C0-haiku-r2#c0,no,na,No layer shown; about the question/schema (no department field)
+4,sl1-main-Q05-C0-opus-r1#c2,no,na,No layer shown; about the data (store history rows)
+5,sl1-main-Q01-C1N-opus-r1#c0,yes,na,About total_sales's description vs its expression
+6,sl1-main-Q20-C1A-sol-r2#c0,no,na,"Borderline: cites store-name uniqueness, but it is really about data grain"
+7,sl1-main-Q11-F2A-opus-r2#c3,yes,no,"Different element (i_brand synonym), not the department synonym"
+8,sl1-main-Q10-F2A-opus-r2#c2,no,no,"About the data (empty-string categories), not the 'net revenue' synonym"
+9,sl1-main-Q18-F1N-haiku-r1#c1,no,no,"About the query (ties at LIMIT 5), not the customer relationship"
+10,sl1-main-Q06-F2-sol-r1#c0,yes,yes,Points at the planted NULL-store filter in total_quantity
+11,sl1-main-Q15-C0-haiku-r2#c2,no,na,No layer shown; about the question (which sales channel)
+12,sl1-main-Q09-F2N-sol-r1#c0,yes,yes,Points at 'gross sales' moved onto net_sales
+13,sl1-main-Q05-F1-haiku-r2#c0,yes,yes,"Filed under question, but it describes the planted customer filter on total_sales"
+14,sl1-main-Q10-F2-opus-r1#c0,yes,yes,"Points at 'net revenue' sitting on total_sales (gross, not net)"
+15,sl1-main-Q01-E-opus-r2#c0,yes,na,About the missing total_sales metric and net_sales as the alternative
+16,sl1-main-Q17-F2N-haiku-r2#c0,yes,yes,Points at ss_addr_sk in the store_sales_to_customer relationship
+17,sl1-main-Q20-F2-haiku-r1#c1,no,no,"About the data (employee count is point-in-time), not the store relationship"
+18,sl1-main-Q16-C0-opus-r2#c2,no,na,No layer shown; about the data (ticket-number uniqueness)
+19,sl1-main-Q15-F2-opus-r1#c1,yes,yes,fiscal_quarter was changed together with fiscal_year in this fault (the page shows only fiscal_year)
+20,sl1-main-Q24-C1-opus-r2#c1,no,na,"About the join/data (NULL store keys), not the layer"
+21,sl1-main-Q07-C0-opus-r1#c0,no,na,No layer shown; about the question (what 'profit' means)
+22,sl1-main-Q14-F2A-opus-r2#c2,yes,yes,"Points at the July start in the fiscal expressions, though unsure which side is wrong"
+23,sl1-main-Q12-F2A-sol-r1#c0,yes,yes,Points at 'net profit' as a synonym of gross_profit
+24,sl1-main-Q06-F2A-opus-r1#c0,yes,yes,Points at the planted NULL-store filter in total_quantity
+25,sl1-main-Q10-C1b-opus-r1#c1,no,na,About the question (calendar vs fiscal year); the layer is only context
+26,sl1-main-Q16-F2A-opus-r2#c0,yes,yes,Points at d_moy >= 7 versus the February start
+27,sl1-main-Q02-F2A-sol-r2#c0,yes,yes,Points at ss_net_paid_inc_tax in total_profit
+28,sl1-main-Q14-F2A-haiku-r1#c2,yes,no,"Different element (total_profit), and not a real problem: ss_net_profit = net paid minus wholesale"
+29,sl1-main-Q02-C1A-haiku-r1#c0,no,na,About the question (calendar vs fiscal year); the layer field is only context
+30,sl1-main-Q19-F1-haiku-r1#c1,no,no,"About the data (store names, history rows), not the ss_store_sk = s_market_id join"
+31,sl1-main-Q20-F1-opus-r1#c1,no,no,"About the data (store names, history rows), not the store join"
+32,sl1-main-Q16-F2A-haiku-r2#c1,yes,yes,fiscal_quarter was part of the planted change
+33,sl1-main-Q10-F1-opus-r1#c1,no,no,"About the question (calendar vs fiscal year), not the 'net revenue' synonym"
+34,sl1-main-Q08-F2A-opus-r1#c0,yes,yes,Points at the ss_net_profit > 0 filter in distinct_customers
+35,sl1-main-Q18-F1A-opus-r1#c2,no,no,"About the question (gross vs net sales), not the customer relationship"
+36,sl1-main-Q16-F2-opus-r1#c0,yes,yes,Points at the July start in fiscal_year
+37,sl1-main-Q10-C1a-opus-r1#c1,no,na,About the question (calendar vs fiscal year)
+38,sl1-main-Q01-F1A-haiku-r2#c1,yes,yes,Borderline Q2: says total_sales = SUM(ss_net_paid) duplicates net_sales but not which is wrong
+39,sl1-main-Q12-F1A-opus-r1#c1,yes,yes,Points at 'net profit' going to the wrong metric
+40,sl1-main-Q06-C0-opus-r1#c0,no,na,No layer shown; about the data (empty-string categories)
+41,sl1-main-Q02-F2N-opus-r1#c0,yes,yes,Points at ss_net_paid_inc_tax in total_profit
+42,sl1-main-Q03-C1A-opus-r2#c1,yes,na,About customer_lifetime_value depending on the join type
+43,sl1-main-Q01-F1A-opus-r2#c2,no,no,Follows total_sales = ss_net_paid without calling it wrong
+44,sl1-main-Q02-E-haiku-r2#c1,no,na,About the question (what 'profit' means); does not mention the missing metric
+45,sl1-main-Q02-F2-haiku-r2#c0,yes,yes,Points at ss_net_paid_inc_tax in total_profit
+46,sl1-main-Q12-F1A-haiku-r2#c1,yes,yes,Points at 'net profit' as a synonym of gross_profit
+47,sl1-main-Q07-E-opus-r2#c1,yes,na,Borderline: about the layer's fiscal_quarter being misapplied
+48,sl1-main-Q09-F2A-haiku-r2#c0,yes,yes,Points at 'gross sales' on net_sales
+49,sl1-main-Q11-F1A-opus-r1#c2,yes,no,Different element (i_brand synonym)
+50,sl1-main-Q08-F1-opus-r1#c0,yes,yes,Points at the profit filter in distinct_customers
+51,sl1-main-Q04-C1-opus-r1#c0,yes,na,About which amount average_ticket_value uses
+52,sl1-main-Q09-C1b-haiku-r2#c1,yes,na,About how the layer maps 'gross sales' (total_sales)
+53,sl1-main-Q03-F1-sol-r2#c0,yes,yes,"Points at customer_lifetime_value dividing by purchase lines, not distinct customers"
+54,sl1-main-Q11-F1A-opus-r1#c3,yes,no,Different element (d_date is_time flag)
+55,sl1-main-Q12-E-opus-r2#c0,no,na,About the join (NULL date keys); does not mention the missing metric
+56,sl1-main-Q05-F2N-sol-r1#c0,yes,yes,Points at the ss_customer_sk IS NOT NULL filter in total_sales
+57,sl1-main-Q21-C1A-opus-r1#c0,no,na,"About the data (flag is current status, NULL flags)"
+58,sl1-main-Q09-C1A-opus-r2#c1,yes,na,Borderline: about confusable layer synonyms
+59,sl1-main-Q06-F1A-sol-r2#c0,yes,yes,"Names the planted NULL-store filter, but kept it"
+60,sl1-main-Q21-C1a-haiku-r1#c0,no,na,About the question (gross vs net sales)
+61,sl1-main-Q18-F1-opus-r2#c1,no,no,"About the question (gross vs net sales), not the customer relationship"
+62,sl1-main-Q20-F1A-opus-r2#c1,no,no,"About the data (non-unique store names), not the store join"
+63,sl1-main-Q01-F2N-opus-r1#c0,yes,yes,Points at total_sales = ss_net_paid versus its description
+64,sl1-main-Q23-F1A-opus-r2#c0,yes,yes,Points at is_apparel leaving out Children (the planted change)
+65,sl1-main-Q08-F2-sol-r1#c0,yes,yes,Points at the profit filter in distinct_customers
+66,sl1-main-Q21-C1A-opus-r1#c1,no,na,About the question (gross vs net sales)
+67,sl1-main-Q15-C1A-haiku-r1#c1,no,na,About the data (exact category spelling)
+68,sl1-main-Q02-C1b-haiku-r2#c0,no,na,About the question (calendar vs fiscal year)
+69,sl1-main-Q08-E-haiku-r2#c0,no,na,About the query (no customer join); does not mention the missing metric
+70,sl1-main-Q05-F2-sol-r2#c0,yes,yes,Points at the null-customer filter in total_sales
+71,sl1-main-Q15-F2A-opus-r1#c2,no,no,"About the question (sales channel), not fiscal_year"
+72,sl1-main-Q05-C1N-opus-r2#c0,yes,na,About whether total_sales's description is accurate
+73,sl1-main-Q10-C1A-opus-r2#c3,no,na,About the data (NULL categories)
+74,sl1-main-Q06-C1N-opus-r2#c0,no,na,About the data (NULL quantities); total_quantity is only mentioned as fine
+75,sl1-main-Q02-C1N-opus-r1#c1,yes,na,About overlapping 'profit' synonyms across layer elements
+76,sl1-main-Q11-F2-opus-r2#c2,no,no,"About the join (NULL item keys), not the department synonym"
+77,sl1-main-Q04-C0-haiku-r1#c0,no,na,No layer shown; about the question (what 'ticket value' means)
+78,sl1-main-Q20-C0-opus-r2#c0,no,na,No layer shown; about the data (non-unique store names)
+79,sl1-main-Q20-C1-opus-r2#c1,no,na,About the data (employee count on the linked store version)
+80,sl1-main-Q04-F2-sol-r1#c0,yes,yes,Points at ss_sales_price (unit price) in average_ticket_value
+81,sl1-main-Q06-C1-opus-r2#c0,no,na,About the question (calendar vs fiscal year)
+82,sl1-main-Q01-F1N-opus-r1#c1,yes,yes,Points at total_sales = ss_net_paid duplicating net_sales and differing from other metrics
+83,sl1-main-Q11-C1-haiku-r2#c1,no,na,About the question (calendar vs fiscal year)
+84,sl1-main-Q08-F1-sol-r2#c0,yes,yes,Points at the profit filter in distinct_customers
+85,sl1-main-Q08-F1A-sol-r2#c0,yes,yes,Points at the profit filter in distinct_customers
+86,sl1-main-Q09-C1a-haiku-r1#c0,yes,na,About the layer having no gross sales metric
+87,sl1-main-Q15-F2A-sol-r1#c0,yes,yes,Points at the July start in fiscal_year
+88,sl1-main-Q11-C0-haiku-r1#c0,no,na,No layer shown; about the question/schema (no department field)
+89,sl1-main-Q04-F1A-sol-r2#c0,yes,yes,Points at unit prices in average_ticket_value
+90,sl1-main-Q24-C0-opus-r1#c1,no,na,No layer shown; about the question (what 'total sales' means)
+91,sl1-main-Q17-C1A-haiku-r1#c0,yes,na,About total_profit's description vs expression (not a real problem)
+92,sl1-main-Q10-F1N-opus-r1#c1,no,no,"About the question (what 'net revenue' means), not the synonym"
+93,sl1-main-Q07-F1A-haiku-r1#c2,yes,no,"About fiscal fields being confusable, not the coupon filter"
+94,sl1-main-Q06-F2A-haiku-r1#c0,no,no,"About the question (calendar vs fiscal year), not the total_quantity filter"
+95,sl1-main-Q01-F1N-opus-r2#c1,yes,yes,Points at total_sales = ss_net_paid duplicating net_sales
+96,sl1-main-Q09-F1A-opus-r1#c1,no,no,"About the question (what 'gross sales' means), not the synonym move"
+97,sl1-main-Q14-C1b-opus-r2#c0,yes,na,About the layer's fiscal_year versus d_fy_year
+98,sl1-main-Q10-F1A-opus-r2#c0,yes,yes,Points at 'net revenue' on total_sales
+99,sl1-main-Q15-F2A-haiku-r2#c2,no,no,"About the data (exact category spelling), not fiscal_year"
+100,sl1-main-Q08-F1-opus-r2#c1,no,no,"About the data (NULL customer keys), not the profit filter"
+101,sl1-main-Q02-F2-haiku-r1#c0,yes,yes,Points at ss_net_paid_inc_tax in total_profit
+102,sl1-main-Q06-F2N-haiku-r1#c1,no,no,"About the question (calendar vs fiscal year), not the total_quantity filter"
+103,sl1-main-Q10-F1A-haiku-r2#c0,yes,yes,Points at 'net revenue' on total_sales
+104,sl1-main-Q20-C1A-opus-r2#c2,no,na,About the data (NULL or zero employees)
+105,sl1-main-Q22-C1a-opus-r1#c1,no,na,About the question (revenue vs transaction count)
+106,sl1-main-Q03-C0-sol-r2#c0,no,na,No layer shown; about the question (what CLV means)
+107,sl1-main-Q16-F2-haiku-r2#c2,no,no,"About the data (ticket-number uniqueness), not fiscal_year"
+108,sl1-main-Q15-C0-opus-r2#c1,no,na,No layer shown; about the data (d_fy_year vs d_year)
+109,sl1-main-Q20-F2A-sol-r1#c0,yes,yes,Points at ss_store_sk = s_market_id in store_sales_to_store
+110,sl1-main-Q21-F1N-opus-r1#c1,no,no,"About the data (NULL flags, missing customers), not the flipped 'N' flag"
+111,sl1-main-Q24-C0-opus-r2#c0,no,na,No layer shown; about the question (what 'large stores' means)
+112,sl1-main-Q18-F1N-haiku-r2#c1,no,no,"About the query (ties at LIMIT 5), not the customer relationship"
+113,sl1-main-Q09-F1-opus-r1#c0,yes,yes,Points at 'gross sales' on net_sales
+114,sl1-main-Q13-C1A-opus-r2#c0,yes,na,"Filed under data, but it questions the layer's fiscal_year definition against d_fy_year"
+115,sl1-main-Q06-F2A-haiku-r2#c0,yes,yes,Points at the planted NULL-store filter in total_quantity
+116,sl1-main-Q19-C1A-opus-r1#c1,yes,na,About whether total_sales's description is accurate
+117,sl1-main-Q14-C1a-opus-r2#c0,no,na,About the data (NULL sale dates)
+118,sl1-main-Q02-F1-opus-r1#c1,no,no,"About the data (empty-string categories), not the tax in total_profit"
+119,sl1-main-Q13-F2N-sol-r1#c0,yes,yes,Points at the July start in fiscal_year
+120,sl1-main-Q11-F2A-haiku-r2#c1,no,no,"About the question (what 'department' means), not the synonym move"
+121,sl1-main-Q16-C0-haiku-r2#c0,no,na,No layer shown; about the question (what 'ticket value' means)
+122,sl1-main-Q09-F1N-opus-r2#c0,yes,yes,Points at 'gross sales' on net_sales
+123,sl1-main-Q15-C1-opus-r1#c0,no,na,About the question/scope (store channel only)
+124,sl1-main-Q20-F2-haiku-r1#c0,yes,yes,Points at s_market_id in store_sales_to_store
+125,sl1-main-Q18-F1A-sol-r2#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+126,sl1-main-Q08-C1A-opus-r1#c1,no,na,About the join (NULL or unmatched dates)
+127,sl1-main-Q24-E-opus-r2#c2,no,na,About the data (store history rows); does not mention the missing field
+128,sl1-main-Q05-C1A-haiku-r1#c1,yes,na,About total_profit's description vs expression (not a real problem)
+129,sl1-main-Q23-C0-haiku-r1#c2,no,na,No layer shown; says only that no model was given
+130,sl1-main-Q13-C1a-haiku-r1#c1,yes,na,About the layer's fiscal_year versus d_fy_year
+131,sl1-main-Q06-F1A-opus-r1#c1,no,no,"About the data (empty-string categories), not the total_quantity filter"
+132,sl1-main-Q10-E-opus-r2#c0,yes,na,About the missing 'net revenue' synonym (the removed element)
+133,sl1-main-Q24-C0-opus-r1#c2,no,na,No layer shown; about the data (store history rows)
+134,sl1-main-Q05-C1N-opus-r1#c0,yes,na,About whether total_sales's description is accurate
+135,sl1-main-Q07-F1A-opus-r2#c0,yes,yes,Points at the coupon exclusion in total_profit
+136,sl1-main-Q22-C1A-opus-r2#c0,yes,na,About is_weekend's expression versus d_weekend
+137,sl1-main-Q08-E-opus-r2#c0,no,na,About the data (NULL customer keys); does not mention the missing metric
+138,sl1-main-Q12-F2-haiku-r1#c0,yes,no,"total_profit description vs expression, not the moved 'net profit' synonym"
+139,sl1-main-Q05-E-opus-r2#c0,yes,na,About the missing total_sales metric (the removed element)
+140,sl1-main-Q23-F2A-opus-r1#c2,no,no,"About the question (what 'apparel' means), not the is_apparel list"
+141,sl1-main-Q02-F2N-haiku-r1#c0,yes,yes,Points at ss_net_paid_inc_tax in total_profit
+142,sl1-main-Q03-C1-haiku-r2#c0,yes,na,About customer_lifetime_value's name and period
+143,sl1-main-Q01-F1-opus-r1#c2,no,no,About the question; follows total_sales = ss_net_paid without calling it wrong
+144,sl1-main-Q03-C1-haiku-r1#c0,yes,na,About customer_lifetime_value's name and period
+145,sl1-main-Q10-F1N-opus-r1#c0,yes,yes,Points at 'net revenue' on total_sales
+146,sl1-main-Q22-F1A-haiku-r2#c0,yes,no,Names is_weekend but calls it equivalent to d_weekend; no mistake identified
+147,sl1-main-Q24-F2-haiku-r1#c0,yes,yes,Points at the 240 threshold versus the 270 in the description
+148,sl1-main-Q10-E-haiku-r2#c0,yes,na,Borderline: notes the layer lacks 'net revenue'
+149,sl1-main-Q19-F2-haiku-r1#c0,yes,yes,Points at s_market_id in store_sales_to_store
+150,sl1-main-Q02-F1N-opus-r2#c0,yes,yes,Points at tax being counted in total_profit
+151,sl1-main-Q20-E-haiku-r2#c2,no,na,About the data (NULL or zero employees); does not mention the missing relationship
+152,sl1-main-Q16-C0-sol-r2#c0,no,na,No layer shown; about the question (what 'ticket value' means)
+153,sl1-main-Q21-C1a-opus-r2#c1,no,na,About the join (NULL customer keys)
+154,sl1-main-Q22-C1b-opus-r2#c0,yes,na,Borderline: about the layer's fiscal_year vs calendar year
+155,sl1-main-Q01-F2-opus-r2#c0,yes,yes,Points at total_sales = ss_net_paid versus its description
+156,sl1-main-Q10-C1-opus-r2#c0,no,na,About the question (calendar vs fiscal year)
+157,sl1-main-Q19-F1-opus-r1#c1,no,no,"About the data (store names, history rows), not the store join"
+158,sl1-main-Q10-F1-sol-r1#c0,yes,yes,Names the planted mapping as a contradiction but followed it
+159,sl1-main-Q07-F2-sol-r1#c0,yes,yes,Points at the coupon filter in total_profit
+160,sl1-main-Q17-F1A-opus-r1#c1,no,no,"About the data (NULL birth years and customers), not the relationship"
+161,sl1-main-Q10-C1N-opus-r2#c0,no,na,About the question (calendar vs fiscal year)
+162,sl1-main-Q07-C0-haiku-r2#c0,no,na,No layer shown; about the question (which sales channel)
+163,sl1-main-Q08-E-opus-r1#c0,no,na,About the data (NULL customer keys); does not mention the missing metric
+164,sl1-main-Q05-C1-opus-r1#c1,no,na,About the question (gross vs net sales)
+165,sl1-main-Q13-F2A-sol-r1#c0,yes,yes,Points at the July start in fiscal_year
+166,sl1-main-Q09-C0-haiku-r1#c1,no,na,No layer shown; about the question (which sales channel)
+167,sl1-main-Q22-C1b-opus-r2#c1,yes,na,"Filed under data, but it questions the is_weekend definition"
+168,sl1-main-Q11-E-sol-r1#c0,yes,na,Borderline: says the semantic model does not define department
+169,sl1-main-Q09-F2-opus-r1#c0,yes,yes,Points at 'gross sales' on net_sales
+170,sl1-main-Q24-F1-haiku-r2#c0,yes,no,"Right element (store_size_class), wrong aspect: null handling, not the 240 threshold"
+171,sl1-main-Q05-C1b-opus-r1#c1,no,na,About the data (city names repeat across states)
+172,sl1-main-Q11-F2-opus-r1#c2,no,no,"About the join (NULL item keys), not the department synonym"
+173,sl1-main-Q06-F1A-opus-r2#c1,no,no,"About the data (empty-string categories), not the total_quantity filter"
+174,sl1-main-Q10-F2N-sol-r1#c0,yes,yes,Points at 'net revenue' on total_sales
+175,sl1-main-Q02-C1A-haiku-r2#c0,no,na,About the question (calendar vs fiscal year)
+176,sl1-main-Q11-C0-opus-r1#c1,no,na,No layer shown; about the data (empty-string categories)
+177,sl1-main-Q11-F2-opus-r1#c1,no,no,"About the question (calendar vs fiscal year), not the department synonym"
+178,sl1-main-Q24-E-opus-r2#c0,yes,na,Borderline: says the semantic model does not define large stores
+179,sl1-main-Q07-C1-opus-r2#c0,yes,na,About overlapping 'profit' synonyms across layer elements
+180,sl1-main-Q17-C1b-opus-r1#c0,no,na,About the data (NULL birth years)
+181,sl1-main-Q17-F2N-opus-r2#c1,no,no,"About the data (NULL birth years and customers), not the relationship"
+182,sl1-main-Q02-F1-sol-r2#c0,yes,yes,"Flags that the metric includes tax, then followed it"
+183,sl1-main-Q16-F2A-haiku-r1#c0,yes,yes,Points at d_moy >= 7 versus the February start
+184,sl1-main-Q22-E-opus-r1#c0,yes,na,About the missing weekend field (the removed element)
+185,sl1-main-Q24-E-haiku-r2#c0,yes,na,Borderline: says the semantic model does not define large stores
+186,sl1-main-Q04-C1A-opus-r2#c0,no,na,About the data (NULL sale dates)
+187,sl1-main-Q09-F1-opus-r2#c0,yes,yes,Points at 'gross sales' on net_sales
+188,sl1-main-Q10-F1N-opus-r2#c1,yes,yes,Points at 'net revenue' missing from net_sales and resolving to the wrong metric
+189,sl1-main-Q24-C0-haiku-r2#c1,no,na,No layer shown; about the question (what 'total sales' means)
+190,sl1-main-Q20-F1-opus-r1#c0,yes,yes,Points at s_market_id in store_sales_to_store
+191,sl1-main-Q22-F1N-opus-r2#c2,no,no,"About the join (NULL sale dates), not is_weekend"
+192,sl1-main-Q20-F1A-sol-r1#c0,yes,yes,Points at s_market_id in store_sales_to_store
+193,sl1-main-Q17-F1A-haiku-r2#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+194,sl1-main-Q18-F2-opus-r2#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+195,sl1-main-Q19-F2-haiku-r2#c0,yes,yes,Points at s_market_id in store_sales_to_store
+196,sl1-main-Q11-F2A-opus-r1#c0,no,no,"A consequence of following department = i_class, but it does not question the synonym"
+197,sl1-main-Q09-C1N-opus-r1#c0,yes,na,About whether total_sales's description is accurate
+198,sl1-main-Q10-C1A-opus-r2#c2,no,na,About the question (net revenue with or without tax)
+199,sl1-main-Q07-F2-haiku-r2#c0,yes,yes,Points at the coupon filter in total_profit
+200,sl1-main-Q20-E-opus-r2#c0,yes,na,About the missing store relationship (the removed element)
+201,sl1-main-Q22-F1A-opus-r2#c1,yes,no,Different element (d_date is_time flag)
+202,sl1-main-Q24-F2-opus-r1#c1,no,no,About the join (store versions); not the 240 threshold
+203,sl1-main-Q22-C1a-opus-r1#c0,yes,na,"A claim about the layer (wrong, since total_sales exists), so still about the layer"
+204,sl1-main-Q10-F2N-opus-r2#c1,no,no,"About the data (empty-string categories), not the 'net revenue' synonym"
+205,sl1-main-Q10-C1b-opus-r2#c1,no,na,About the question (calendar vs fiscal year)
+206,sl1-main-Q09-F1N-sol-r2#c0,yes,yes,Points at 'gross sales' on net_sales
+207,sl1-main-Q07-F1A-haiku-r1#c1,yes,yes,"Filed under question, but it describes the coupon exclusion in total_profit"
+208,sl1-main-Q24-C1A-opus-r2#c0,no,na,About the data (store history rows)
+209,sl1-main-Q16-F2-sol-r2#c0,yes,yes,Points at the July start in fiscal_year
+210,sl1-main-Q15-C0-haiku-r1#c0,no,na,No layer shown; about the question (which sales channel)
+211,sl1-main-Q23-F2-opus-r2#c1,no,no,"About the question (gross vs net sales), not the is_apparel list"
+212,sl1-main-Q17-F1-haiku-r1#c1,no,no,"About the data (NULL birth years), not the customer relationship"
+213,sl1-main-Q17-F1N-opus-r1#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+214,sl1-main-Q20-F2A-opus-r1#c0,yes,yes,Points at s_market_id in store_sales_to_store
+215,sl1-main-Q02-F2N-haiku-r2#c1,no,no,"About the question (calendar vs fiscal year), not the tax in total_profit"
+216,sl1-main-Q10-C0-haiku-r1#c1,no,na,No layer shown; about the data (no returns table)
+217,sl1-main-Q21-F1-opus-r2#c0,yes,yes,Points at the inverted 'N' preferred flag
+218,sl1-main-Q17-C1a-haiku-r2#c1,no,na,About the data (NULL birth years)
+219,sl1-main-Q05-C1a-haiku-r1#c0,no,na,About the question (what 'total sales' means)
+220,sl1-main-Q14-C0-opus-r1#c0,no,na,No layer shown; about the question (what 'profit' means)
+221,sl1-main-Q05-C1A-opus-r2#c1,yes,na,About the i_brand 'manufacturer' synonym
+222,sl1-main-Q17-C0-haiku-r1#c1,no,na,No layer shown; about the data (NULL birth years)
+223,sl1-main-Q05-F1A-sol-r2#c0,yes,yes,Points at total_sales leaving out anonymous sales
+224,sl1-main-Q02-C0-haiku-r2#c0,no,na,No layer shown; about the question (what 'profit' means)
+225,sl1-main-Q22-F2N-haiku-r1#c0,yes,yes,"Borderline Q2: raises that d_weekend may not match Saturday/Sunday, but hedges"
+226,sl1-main-Q16-E-haiku-r2#c1,yes,na,About average_ticket_value's ticket count; does not mention the missing fiscal_year
+227,sl1-main-Q02-C1A-opus-r1#c1,no,na,About the data (NULL and blank categories)
+228,sl1-main-Q01-C1a-haiku-r1#c0,no,na,About the question (what 'total sales' means)
+229,sl1-main-Q02-E-opus-r2#c1,no,na,About the question (calendar vs fiscal year); does not mention the missing metric
+230,sl1-main-Q08-F1-haiku-r2#c0,yes,yes,Points at the profit filter in distinct_customers
+231,sl1-main-Q01-F2A-opus-r1#c0,yes,yes,Points at total_sales = ss_net_paid versus its description
+232,sl1-main-Q19-E-haiku-r2#c0,no,na,"About the data (store names, history rows); does not mention the missing relationship"
+233,sl1-main-Q03-E-sol-r1#c0,yes,na,About the missing customer_lifetime_value metric (the removed element)
+234,sl1-main-Q20-E-opus-r1#c0,yes,na,About the missing store relationship (the removed element)
+235,sl1-main-Q19-E-opus-r1#c2,no,na,About the question (one row per store or per name)
+236,sl1-main-Q22-E-opus-r2#c1,no,na,About the data (d_weekend's meaning); does not mention the missing field
+237,sl1-main-Q13-E-sol-r1#c0,yes,na,About the missing fiscal_year field (the removed element)
+238,sl1-main-Q22-C0-opus-r2#c2,no,na,No layer shown; about the question/scope (channels)
+239,sl1-main-Q16-C1-opus-r2#c1,yes,na,About which amount average_ticket_value uses
+240,sl1-main-Q19-F2-haiku-r1#c1,no,no,"About the data (non-unique store names), not the store join"
+241,sl1-main-Q14-C0-haiku-r1#c0,no,na,No layer shown; about the data (no fiscal quarter column)
+242,sl1-main-Q17-F2A-sol-r1#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+243,sl1-main-Q18-F1N-sol-r2#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+244,sl1-main-Q23-F2A-opus-r2#c1,no,no,"About the question (gross vs net sales), not the is_apparel list"
+245,sl1-main-Q15-F2-haiku-r1#c0,yes,yes,Points at the July start in fiscal_year
+246,sl1-main-Q09-E-opus-r1#c1,no,na,About the question (gross could mean list price); does not mention the missing metric
+247,sl1-main-Q11-E-opus-r1#c2,no,na,About the question (calendar vs fiscal year); does not mention the missing field
+248,sl1-main-Q18-F2N-sol-r1#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+249,sl1-main-Q07-E-haiku-r2#c0,yes,na,Warns that the layer's fiscal_quarter could be misapplied
+250,sl1-main-Q06-C1a-haiku-r1#c0,no,na,About the question (calendar vs fiscal year)
+251,sl1-main-Q05-C1-opus-r2#c0,no,na,About the data (city names repeat across states)
+252,sl1-main-Q16-E-haiku-r1#c0,yes,na,About the missing fiscal_year field (the removed element)
+253,sl1-main-Q22-C1-opus-r2#c0,yes,na,"Filed under data, but it questions the is_weekend definition"
+254,sl1-main-Q03-F1A-sol-r1#c0,yes,yes,"Points at customer_lifetime_value dividing by sales lines, not distinct customers"
+255,sl1-main-Q03-E-opus-r2#c1,no,na,"About the question (one-year 'lifetime', calendar vs fiscal)"
+256,sl1-main-Q15-F1A-opus-r2#c1,yes,no,"Different element (i_brand synonym), not fiscal_year"
+257,sl1-main-Q20-C0-haiku-r2#c1,no,na,No layer shown; about the question (what 'sales' means)
+258,sl1-main-Q16-F2A-opus-r2#c2,yes,no,"About average_ticket_value's ticket-count assumption, not fiscal_year"
+259,sl1-main-Q18-C1b-haiku-r2#c0,no,na,About the question (what 'sales' means)
+260,sl1-main-Q17-C1b-opus-r2#c2,no,na,"About the question (what 'total sales' means, which channels)"
+261,sl1-main-Q04-F1A-opus-r2#c0,yes,yes,Points at ss_sales_price (unit price) in average_ticket_value
+262,sl1-main-Q24-C0-opus-r2#c2,no,na,No layer shown; about the data (store history rows)
+263,sl1-main-Q20-F2A-opus-r2#c0,yes,yes,Points at s_market_id in store_sales_to_store
+264,sl1-main-Q15-F1-opus-r2#c0,no,no,Follows the planted July-start convention
+265,sl1-main-Q16-F2A-haiku-r1#c1,yes,yes,fiscal_quarter was part of the planted change
+266,sl1-main-Q01-F1A-opus-r1#c2,no,no,About the question; follows total_sales = ss_net_paid without calling it wrong
+267,sl1-main-Q13-C0-sol-r2#c0,no,na,No layer shown; about the question (what 'total sales' means)
+268,sl1-main-Q05-F2-opus-r1#c1,no,no,"About the data (city names repeat), not the customer filter on total_sales"
+269,sl1-main-Q22-C1b-haiku-r1#c0,yes,na,About is_weekend's expression versus d_weekend
+270,sl1-main-Q05-F2A-opus-r2#c1,no,no,"About the data (city names repeat), not the customer filter on total_sales"
+271,sl1-main-Q03-F2A-opus-r1#c3,yes,no,Different element (missing datatypes)
+272,sl1-main-Q06-F1A-haiku-r1#c0,yes,yes,Points at the planted NULL-store filter in total_quantity
+273,sl1-main-Q20-F1-haiku-r1#c2,no,no,"About the data (employee count snapshot), not the store join"
+274,sl1-main-Q24-C1-haiku-r1#c0,yes,na,About store_size_class's null handling
+275,sl1-main-Q17-C1-opus-r1#c0,no,na,About the data (NULL birth years and customers)
+276,sl1-main-Q10-C1-haiku-r1#c0,no,na,About the question (which revenue metric)
+277,sl1-main-Q18-C1b-haiku-r2#c1,no,na,About the query (ties at LIMIT 5)
+278,sl1-main-Q20-C0-opus-r1#c2,no,na,No layer shown; about the question (what 'sales' means)
+279,sl1-main-Q17-F2-opus-r2#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+280,sl1-main-Q05-F1N-haiku-r1#c0,yes,yes,Points at the ss_customer_sk IS NOT NULL filter in total_sales
+281,sl1-main-Q03-C1-opus-r1#c1,yes,na,About customer_lifetime_value's name and period
+282,sl1-main-Q10-F2N-opus-r1#c0,yes,yes,Points at 'net revenue' on total_sales
+283,sl1-main-Q24-F2A-sol-r1#c0,yes,yes,Points at the 240 threshold versus the 270 in the description
+284,sl1-main-Q07-E-opus-r2#c0,yes,na,"About overlapping 'profit' metrics, since total_profit was removed"
+285,sl1-main-Q24-F2A-haiku-r1#c1,no,no,About the question (what 'large stores' means); assumes the layer is right
+286,sl1-main-Q01-C1a-opus-r1#c1,no,na,About the question (what 'sales' means)
+287,sl1-main-Q22-C1N-opus-r2#c1,yes,na,About is_weekend's literal comparison (padded day names)
+288,sl1-main-Q08-F1A-opus-r2#c1,no,no,"About the data (NULL customer keys), not the profit filter"
+289,sl1-main-Q18-C1a-opus-r1#c1,no,na,About the query (ties at LIMIT 5)
+290,sl1-main-Q09-F2-sol-r1#c0,yes,yes,Points at 'gross sales' on net_sales
+291,sl1-main-Q05-C1-opus-r1#c0,no,na,About the data (city names repeat across states)
+292,sl1-main-Q22-C1a-haiku-r2#c0,no,na,About the question (what 'total sales' means)
+293,sl1-main-Q24-F2A-opus-r2#c1,no,no,"About the question (gross vs net sales), not the 240 threshold"
+294,sl1-main-Q24-F1A-opus-r2#c0,no,no,"About the data (store history rows), not the 240 threshold"
+295,sl1-main-Q08-F1-haiku-r1#c0,yes,yes,Points at the profit filter in distinct_customers
+296,sl1-main-Q01-C1N-sol-r1#c0,yes,na,About whether total_sales's description is accurate
+297,sl1-main-Q18-F2N-opus-r1#c1,no,no,"About the question (gross vs net sales), not the customer relationship"
+298,sl1-main-Q03-F2A-opus-r2#c1,no,no,"About the question (calendar vs fiscal year), not customer_lifetime_value"
+299,sl1-main-Q17-F1-opus-r1#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+300,sl1-main-Q13-F1A-opus-r1#c0,yes,no,Compares the layer's fiscal_year with d_fy_year but accepts the July–June definition
+301,sl1-main-Q10-F2-opus-r2#c1,no,no,"About the question (calendar vs fiscal year), not the 'net revenue' synonym"
+302,sl1-main-Q10-F1-haiku-r2#c1,no,no,"About the question (what 'net revenue' means), not the synonym"
+303,sl1-main-Q18-F2A-sol-r1#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+304,sl1-main-Q03-E-opus-r2#c0,yes,na,About the missing customer_lifetime_value metric (the removed element)
+305,sl1-main-Q09-F1-haiku-r2#c0,yes,yes,Points at 'gross sales' on net_sales
+306,sl1-main-Q10-C0-haiku-r2#c0,no,na,No layer shown; about the question (what 'net revenue' means)
+307,sl1-main-Q08-F2A-haiku-r1#c1,yes,no,Different element (store_sales primary key)
+308,sl1-main-Q21-F1N-haiku-r1#c0,yes,yes,Points at the inverted 'N' preferred flag
+309,sl1-main-Q19-F2A-haiku-r2#c0,yes,yes,Points at s_market_id in store_sales_to_store
+310,sl1-main-Q15-F2-haiku-r2#c0,yes,yes,Points at the July start in fiscal_year
+311,sl1-main-Q14-F1N-opus-r2#c1,no,no,"About the join (NULL sale dates), not fiscal_year"
+312,sl1-main-Q10-C0-sol-r2#c0,no,na,No layer shown; about the data (no returns table)
+313,sl1-main-Q19-F1-haiku-r1#c0,yes,yes,Points at s_market_id in store_sales_to_store
+314,sl1-main-Q21-C1b-opus-r1#c0,no,na,About the data (flag is current status)
+315,sl1-main-Q17-E-opus-r1#c1,no,na,About the data (NULL birth years); does not mention the missing relationship
+316,sl1-main-Q03-E-haiku-r2#c1,no,na,About the question (what CLV means); does not mention the missing metric
+317,sl1-main-Q05-F1-opus-r2#c1,no,no,"About the data (store city across versions), not the customer filter on total_sales"
+318,sl1-main-Q11-E-haiku-r1#c1,no,na,About the question (category vs class); does not mention the layer
+319,sl1-main-Q08-F2A-opus-r1#c1,no,no,"About the data (NULL customer keys), not the profit filter"
+320,sl1-main-Q24-C0-haiku-r2#c2,no,na,No layer shown; about the data (store history rows)
+321,sl1-main-Q23-F1-opus-r1#c0,yes,yes,Points at is_apparel leaving out Children (the planted change)
+322,sl1-main-Q06-C1a-opus-r1#c0,no,na,About the question (calendar vs fiscal year)
+323,sl1-main-Q09-E-opus-r2#c1,yes,na,About total_sales's 'before discounts' description
+324,sl1-main-Q10-C0-opus-r2#c2,no,na,No layer shown; about the data (item history rows)
+325,sl1-main-Q23-C0-opus-r2#c2,no,na,No layer shown; about the data/scope (channels)
+326,sl1-main-Q20-C0-sol-r2#c0,no,na,No layer shown; about the data (headcount across store versions)
+327,sl1-main-Q16-C1A-opus-r1#c0,no,na,About the data (tickets crossing a year boundary)
+328,sl1-main-Q17-C1A-opus-r1#c0,no,na,About the data (NULL birth years)
+329,sl1-main-Q18-E-opus-r2#c1,no,na,About the question (gross vs net sales); does not mention the missing relationship
+330,sl1-main-Q09-C1A-haiku-r2#c1,yes,na,Borderline: notes 'gross sales' is only a synonym in the layer
+331,sl1-main-Q06-F2N-haiku-r1#c0,yes,yes,Points at the planted NULL-store filter in total_quantity
+332,sl1-main-Q21-F1-sol-r1#c0,yes,yes,"Flags 'N' = preferred as odd, then followed it"
+333,sl1-main-Q04-F1A-haiku-r1#c0,yes,yes,Points at ss_sales_price (unit price) in average_ticket_value
+334,sl1-main-Q02-C0-opus-r1#c0,no,na,No layer shown; about the question (what 'profit' means)
+335,sl1-main-Q16-F2A-sol-r2#c1,yes,yes,fiscal_quarter was part of the planted change
+336,sl1-main-Q19-F1A-sol-r1#c0,yes,yes,Points at s_market_id in store_sales_to_store
+337,sl1-main-Q23-C0-opus-r2#c0,no,na,No layer shown; about the question (what 'apparel' means)
+338,sl1-main-Q13-F1N-opus-r2#c1,yes,no,Checked fiscal_year and found no defect
+339,sl1-main-Q14-C1N-sol-r1#c0,yes,na,About the layer's fiscal_year versus d_fy_year
+340,sl1-main-Q17-C1-opus-r2#c1,no,na,About the question/scope (store channel only)
+341,sl1-main-Q06-C1b-opus-r1#c0,no,na,About the question (calendar vs fiscal year)
+342,sl1-main-Q14-F2N-opus-r1#c2,yes,no,Borderline Q1: raw fiscal columns vs the layer's definition; does not flag the July start
+343,sl1-main-Q21-F2N-opus-r2#c0,yes,yes,Points at the inverted 'N' preferred flag
+344,sl1-main-Q17-F2N-sol-r1#c0,yes,yes,Points at ss_addr_sk in store_sales_to_customer
+345,sl1-main-Q02-C1-opus-r2#c1,no,na,About the data (NULL and blank categories)
+346,sl1-main-Q18-C1a-haiku-r2#c1,no,na,About the join (NULL customer keys)
+347,sl1-main-Q10-F2-haiku-r1#c0,yes,yes,Points at 'net revenue' on total_sales
+348,sl1-main-Q09-C1b-opus-r2#c2,yes,na,About sales_by_brand duplicating total_sales
+349,sl1-main-Q20-F2A-opus-r1#c1,no,no,"About the data (non-unique store names), not the store join"
+350,sl1-main-Q06-C0-opus-r2#c2,no,na,"No layer shown; about the data (NULL quantities, joins)"
+351,sl1-main-Q21-C1N-opus-r1#c1,no,na,About the data (flag is current status)
+352,sl1-main-Q11-E-opus-r1#c0,yes,na,About the missing department mapping (the removed element)
+353,sl1-main-Q15-F2A-opus-r1#c0,yes,yes,Points at the July start in fiscal_year
+354,sl1-main-Q04-F1A-opus-r2#c2,yes,no,Different element (ss_sold_date_sk description)
+355,sl1-main-Q22-F2-haiku-r1#c0,yes,yes,Points at is_weekend now relying on the d_weekend flag
+356,sl1-main-Q01-C0-haiku-r2#c0,no,na,No layer shown; about the question (what 'total sales' means)
+357,sl1-main-Q15-F2A-sol-r2#c1,yes,yes,fiscal_quarter was part of the planted change
+358,sl1-main-Q11-F1A-haiku-r2#c0,yes,yes,Points at i_class being called 'department'
+359,sl1-main-Q23-F1A-haiku-r1#c1,yes,no,"Different element (total_sales), not the is_apparel list"
+360,sl1-main-Q10-C1A-opus-r2#c1,yes,na,"About shared synonyms ('price', 'location')"
+361,sl1-main-Q10-F1A-opus-r1#c2,no,no,"About the data (empty-string categories), not the 'net revenue' synonym"
+362,sl1-main-Q22-E-haiku-r2#c0,no,na,About the data (d_weekend encoding); does not mention the missing field
+363,sl1-main-Q17-C1N-opus-r2#c0,yes,na,Checks the relationship and finds no problem; still about the layer
+364,sl1-main-Q03-C1-opus-r2#c0,yes,na,About customer_lifetime_value depending on the join
+365,sl1-main-Q16-C1A-haiku-r2#c2,yes,na,About how the fiscal_year field must be applied
+366,sl1-main-Q24-C0-sol-r2#c0,no,na,No layer shown; about the question (what 'large stores' means)
+367,sl1-main-Q24-F2-haiku-r1#c1,no,no,"About store history in the data, not the threshold"
+368,sl1-main-Q06-C0-haiku-r2#c0,no,na,No layer shown; about the question (which sales channel)
+369,sl1-main-Q16-F2A-sol-r2#c0,yes,yes,Points at the July start in fiscal_year
+370,sl1-main-Q07-F1-opus-r2#c1,yes,yes,Borderline: points at a side effect of the planted coupon filter (NULL coupons dropped)
+371,sl1-main-Q12-F1-opus-r2#c0,yes,yes,Points at 'net profit' as a synonym of gross_profit
+372,sl1-main-Q09-C1a-haiku-r2#c1,yes,na,About ss_ext_sales_price's description and the gross mapping
+373,sl1-main-Q04-E-opus-r2#c1,no,na,About the question (what 'ticket value' means); does not mention the missing metric
+374,sl1-main-Q01-F2N-sol-r1#c0,yes,yes,Points at total_sales = ss_net_paid versus its description
+375,sl1-main-Q02-F2A-opus-r2#c2,no,no,"About the question (calendar vs fiscal year), not the tax in total_profit"
+376,sl1-main-Q15-F1-opus-r2#c2,no,no,"About the data/scope (store channel only), not fiscal_year"
+377,sl1-main-Q09-C1b-sol-r2#c0,yes,na,About how the layer defines gross sales
+378,sl1-main-Q10-F2A-opus-r1#c0,yes,yes,Points at 'net revenue' on total_sales
+379,sl1-main-Q13-C0-opus-r2#c1,no,na,No layer shown; about the data (d_fy_year vs d_year)
+380,sl1-main-Q16-F2-haiku-r1#c0,yes,yes,Points at the July start in fiscal_year
+381,sl1-main-Q11-F1A-haiku-r1#c0,yes,yes,Points at i_class being called 'department'
+382,sl1-main-Q13-F2A-opus-r2#c1,yes,yes,fiscal_quarter was part of the planted change
+383,sl1-main-Q21-C1A-haiku-r1#c0,yes,na,About total_profit's description vs expression (not a real problem)
+384,sl1-main-Q19-F1A-opus-r2#c0,yes,yes,Points at s_market_id in store_sales_to_store
+385,sl1-main-Q20-C0-opus-r2#c2,no,na,No layer shown; about the question (what 'sales' means)
+386,sl1-main-Q13-F2A-opus-r1#c1,yes,yes,fiscal_quarter was part of the planted change; ties it to the fiscal_year conflict
+387,sl1-main-Q22-F2-opus-r1#c1,no,no,"About the join (NULL sale dates), not is_weekend"
+388,sl1-main-Q01-F2-haiku-r1#c0,yes,yes,Points at total_sales = ss_net_paid versus its description
+389,sl1-main-Q11-C1-opus-r1#c1,no,na,About the data (empty-string categories)
+390,sl1-main-Q03-C0-opus-r1#c0,no,na,No layer shown; about the question (what CLV means)
+391,sl1-main-Q17-C1a-haiku-r1#c1,no,na,About the data (NULL birth years)
+392,sl1-main-Q22-F2-opus-r1#c0,yes,yes,Points at is_weekend = d_weekend possibly flagging the wrong days
+393,sl1-main-Q09-F1A-opus-r1#c0,yes,yes,Points at 'gross sales' on net_sales
+394,sl1-main-Q10-F1-opus-r2#c0,yes,yes,Points at 'net revenue' on total_sales
+395,sl1-main-Q06-C1A-haiku-r1#c1,no,na,About the data (blank or whitespace categories)
+396,sl1-main-Q05-F2A-opus-r1#c0,yes,yes,Points at the ss_customer_sk IS NOT NULL filter in total_sales
+397,sl1-main-Q17-C1-opus-r2#c0,no,na,About the data (NULL birth years)
+398,sl1-main-Q19-F2A-opus-r2#c1,no,no,"About the data (non-unique store names), not the store join"
+399,sl1-main-Q07-F1-haiku-r1#c0,yes,no,"Right element (total_profit), wrong aspect: ss_net_profit vs description, not the coupon filter"
+400,sl1-main-Q06-C1-opus-r1#c1,no,na,About the data (empty-string categories)
+401,sl1-main-Q20-C1A-haiku-r1#c2,no,na,About the data (NULL or zero employees)
+402,sl1-main-Q19-C1A-haiku-r1#c0,no,na,About the data (non-unique store names)
+403,sl1-main-Q04-F2-haiku-r2#c0,yes,yes,Points at ss_sales_price (unit price) in average_ticket_value
+404,sl1-main-Q01-F1N-sol-r2#c0,yes,yes,Points at the 'gross sales' synonym clashing with total_sales = ss_net_paid
+405,sl1-main-Q03-C1A-sol-r1#c0,yes,na,About customer_lifetime_value depending on the join
+406,sl1-main-Q10-F2N-haiku-r1#c1,no,no,"About the question (what 'net revenue' means), not the synonym"
+407,sl1-main-Q19-C0-haiku-r1#c0,no,na,No layer shown; about the question (what 'total sales' means)
+408,sl1-main-Q05-C1N-haiku-r2#c0,no,na,About the data (NULL cities and store keys)
+409,sl1-main-Q06-C0-opus-r2#c0,no,na,No layer shown; about the question (which sales channel)
+410,sl1-main-Q09-C1a-haiku-r1#c1,no,na,About the question (what 'gross sales' means)
+411,sl1-main-Q19-F2A-opus-r2#c0,yes,yes,Points at s_market_id in store_sales_to_store
+412,sl1-main-Q16-F2-opus-r2#c0,yes,yes,Points at the July start in fiscal_year
+413,sl1-main-Q24-C0-haiku-r1#c2,no,na,No layer shown; about the data (store history rows)
+414,sl1-main-Q14-E-opus-r1#c0,yes,na,About the missing fiscal fields (the removed element)
+415,sl1-main-Q10-F2N-opus-r1#c2,no,no,"About the question (what 'net revenue' means), not the synonym"
+416,sl1-main-Q24-F2-opus-r2#c1,no,no,"About the question (gross vs net sales), not the 240 threshold"
+417,sl1-main-Q14-F2A-opus-r1#c2,yes,yes,Points at the fiscal fields' July start contradicting their descriptions
