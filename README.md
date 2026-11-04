@@ -2,7 +2,7 @@
 
 Do LLM data agents follow or flag faulty business definitions? This study injects controlled faults into an [Apache Ossie](https://github.com/apache/ossie) model over TPC-DS and scores SQL execution results against Snowflake.
 
-The paper is [paper/paper.pdf](paper/paper.pdf), built from [paper/paper.tex](paper/paper.tex). This repository is a private publication artifact. The original experiment was completed before this artifact was assembled; the Git history records its import and subsequent revisions.
+The paper is [paper/paper.pdf](paper/paper.pdf), built from [paper/paper.tex](paper/paper.tex). This repository contains the publication artifact. The original experiment was completed before this artifact was assembled; the Git history records its import and subsequent revisions.
 
 ## Findings
 
