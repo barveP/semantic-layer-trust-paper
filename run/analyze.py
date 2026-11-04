@@ -93,6 +93,8 @@ def gee_check(df, outcome, arm_a, arm_b):
     sub["treat"] = (sub["arm"] == arm_a).astype(int)
     if sub[outcome].nunique() < 2 or sub["treat"].nunique() < 2:
         return {"note": "outcome or arm constant; model not fitted"}
+    if (sub.groupby("treat")[outcome].nunique() < 2).any():
+        return {"note": "not fitted: an arm has a constant outcome, causing separation"}
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         try:
