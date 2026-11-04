@@ -1,0 +1,11 @@
+# Credentials, raw model responses, data files, ratings and build output
+local/
+
+# LaTeX build output
+paper/build/
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
