@@ -174,7 +174,7 @@ def main():
     for r in out["by_model_arm"]:
         lines.append(f"| {r['model']} | {r['arm']} | {r['n']} | {fmt(r['correct'])} | {fmt(r['fault_match'])} | "
                      f"{fmt(r['other_wrong'])} | {fmt(r['failed'])} | {fmt(r['d1'])} | {fmt(r['d2'])} | {fmt(r['silent'])} |")
-    lines += ["", "## Comparisons (paired by question; cluster bootstrap 95% CI). H = pre-registered, X = exploratory\n",
+    lines += ["", "## Comparisons (paired by question; cluster bootstrap 95% CI). H = protocol-specified, X = exploratory\n",
               "| id | outcome | arms | pooled estimate [95% CI] | per model |", "|---|---|---|---|---|"]
     for name, h in out["hypotheses"].items():
         p = h["pooled"]
