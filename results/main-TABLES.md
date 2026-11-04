@@ -46,7 +46,7 @@ Trials: 1512. Answer counts: {'correct': 1165, 'fault_match': 258, 'other_wrong'
 | sol | F2A | 48 | 0.83 | 0.17 | 0.00 | 0.00 | 0.92 | 0.92 | 0.08 |
 | sol | F2N | 24 | 0.88 | 0.12 | 0.00 | 0.00 | 0.92 | 0.92 | 0.08 |
 
-## Comparisons (paired by question; cluster bootstrap 95% CI). H = pre-registered, X = exploratory
+## Comparisons (paired by question; cluster bootstrap 95% CI). H = protocol-specified, X = exploratory
 
 | id | outcome | arms | pooled estimate [95% CI] | per model |
 |---|---|---|---|---|
