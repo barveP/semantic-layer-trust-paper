@@ -1,0 +1,43 @@
+-- Snowflake setup for the semantic-layer study (least privilege, read-only).
+-- Run once as ACCOUNTADMIN. Replace <PUBLIC_KEY> with the single-line body of
+-- local/snowflake-slstudy/rsa_key.pub (no BEGIN/END lines). The private key
+-- never leaves the research host; nothing secret is stored in Git.
+
+USE ROLE ACCOUNTADMIN;
+
+CREATE ROLE IF NOT EXISTS SLSTUDY_RO;
+
+CREATE WAREHOUSE IF NOT EXISTS SLSTUDY_WH
+  WAREHOUSE_SIZE = 'XSMALL'
+  AUTO_SUSPEND = 60
+  AUTO_RESUME = TRUE
+  INITIALLY_SUSPENDED = TRUE;
+
+CREATE RESOURCE MONITOR IF NOT EXISTS SLSTUDY_RM
+  WITH CREDIT_QUOTA = 5
+  TRIGGERS ON 80 PERCENT DO NOTIFY
+           ON 100 PERCENT DO SUSPEND;
+
+ALTER WAREHOUSE SLSTUDY_WH SET
+  RESOURCE_MONITOR = SLSTUDY_RM
+  STATEMENT_TIMEOUT_IN_SECONDS = 120;
+
+GRANT USAGE ON WAREHOUSE SLSTUDY_WH TO ROLE SLSTUDY_RO;
+
+-- Shared sample data: read-only by construction.
+GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE_SAMPLE_DATA TO ROLE SLSTUDY_RO;
+
+CREATE USER IF NOT EXISTS SLSTUDY_USER
+  TYPE = SERVICE
+  DEFAULT_ROLE = SLSTUDY_RO
+  DEFAULT_WAREHOUSE = SLSTUDY_WH
+  RSA_PUBLIC_KEY = '<PUBLIC_KEY>';
+
+GRANT ROLE SLSTUDY_RO TO USER SLSTUDY_USER;
+
+-- Optional but recommended: restrict the service user to the research host's
+-- public IP with a network policy (CREATE NETWORK POLICY ... ALLOWED_IP_LIST;
+-- ALTER USER SLSTUDY_USER SET NETWORK_POLICY = ...).
+
+-- Check what the account offers before the scale factor is fixed:
+--   SHOW SCHEMAS IN DATABASE SNOWFLAKE_SAMPLE_DATA;   -- expect TPCDS_SF10TCL / TPCDS_SF100TCL

@@ -1,0 +1,29 @@
+{
+  "kind": "model-access probes (infrastructure, not results)",
+  "utc": "2026-10-31T09:50:09+00:00",
+  "note": "First invocation sent nothing (wrapper ID-pattern bug and a too-small probe envelope; see ENVELOPE-AMENDMENT-SL1-01 revisions). Second invocation: all three completed; each served model equals the requested ID.",
+  "probes": {
+    "claude-haiku-5-5@medium": {
+      "status": "completed",
+      "served_model": "claude-haiku-5-5",
+      "finish_reason": "end_turn",
+      "cost_micros": 9,
+      "attempt_id": "sl1-probe-haiku.a2"
+    },
+    "claude-opus-5-5@high": {
+      "status": "completed",
+      "served_model": "claude-opus-5-5",
+      "finish_reason": "end_turn",
+      "cost_micros": 340,
+      "attempt_id": "sl1-probe-opus.a2"
+    },
+    "gpt-6.1-sol@high": {
+      "status": "completed",
+      "served_model": "gpt-6.1-sol",
+      "finish_reason": "completed",
+      "cost_micros": 150,
+      "attempt_id": "sl1-probe-sol.a2"
+    }
+  },
+  "total_cost_micros": 499
+}

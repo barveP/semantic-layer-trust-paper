@@ -1,0 +1,1889 @@
+{
+  "kind": "data preparation receipt, not a study result",
+  "utc": "2026-10-31T09:41:05+00:00",
+  "generator": {
+    "tool": "duckdb tpcds extension dsdgen",
+    "duckdb": "1.2.2",
+    "scale_factor": 1
+  },
+  "parquet_sha256": {
+    "call_center": "39fd2c84351ff30c4537bc3d360080c38eae64f4257e191f91bb1fb244695774",
+    "catalog_page": "60bd4921e2a0c420ebd47602c823dfbd76b174cfed9adf7fd667790765aa83a5",
+    "catalog_returns": "5d9da34d1207b296645b0ba3eb186dd81678fa5578218cbcc0a231565ec9243f",
+    "catalog_sales": "af021d84364a5abb1a6bebdc32322e0e08c14f122ef9c8bba1fa86bca33339d4",
+    "customer": "2ab8ec81ad2274bf98f6910d5f980f966c22df4f596d5bae0ec1727da9039a27",
+    "customer_address": "1b3f54aa666c0c777f0cf940095e6aa858e88896736e4db17033371fe56c4741",
+    "customer_demographics": "b53e6e3455f23d0b340e123f3884fe6c8aa2cafbe306b0f770d60b05c01ae3bb",
+    "date_dim": "f9740f07e1a8dafb8fbfaa5aaf0dd8f30ebffde03ae8fc61eaf29d6827eb6586",
+    "household_demographics": "a4c607f6b869e9af0c30cfd8d62c02b1fe1caced8b494c36515d186ea6c711c8",
+    "income_band": "e12c52c66876461743d5a31a5713639e65ff2ca1e0fd3704cc26965c5d7796ed",
+    "inventory": "a8bfeac56889510abee09aeb86e45dba15be600035faec5a6f52748cd00ad27f",
+    "item": "cc9754b022935b41410d78aa1d746b43a47a345c5f0e2be61c6f2a985a026087",
+    "promotion": "521e533d5fcd19966671db5851ca08eb3c0ba720f2e10c96ba8ed00515492d02",
+    "reason": "3cc1edb66e427688e1b5ede9ee2151add792041f9d0472e7e883c068c2ddf237",
+    "ship_mode": "cc9aac17d86b504d8a1a9143626502525ef330455e7bd11f6fa244fc58e7b624",
+    "store": "bc18b355ca7de3e13c5b3ddc2b326d7760c5329f9b191957b2a92c009b2fce45",
+    "store_returns": "f0a6a3675d5008318b418a587cd1de6e29f77b2d165cacf2c8c00a7c1186f8be",
+    "store_sales": "761e5b1444c4401d7d2b763acd3737881e04ebe268a06625155af305e85ccc50",
+    "time_dim": "fe86eb5af0404fb0340887066d290e443fdba501911bacf005ccf2c25de48eab",
+    "warehouse": "4cad93808cb3b94a3a5eda399053c65bc6440b2c1ce38803a15be71089470779",
+    "web_page": "90044e385bd53e69c1382d59f26434d23b391410230543d6e1d618297113db1d",
+    "web_returns": "a4a5b9b8101a322361d72d75f8cec60627acb284a8a9db27d5f9ee3df334462d",
+    "web_sales": "a31d7571f78cc7198fa5cc71b9034a9c37565168216c7888e4534e5b14ed6ac0",
+    "web_site": "2c6a5f7957227ca7c5b17cc7bd5a7e819984ee6ca34a1179794d25ecb57b40fd"
+  },
+  "ddl_sha256": "749541992e92b6cbcf75889e90e4d1da3339646b35ea5ebee5e8ffacb6ee5359",
+  "duckdb_checksums": {
+    "call_center": {
+      "rows": 6,
+      "columns": {
+        "cc_call_center_sk": {
+          "agg": "21",
+          "nulls": 0
+        },
+        "cc_call_center_id": {
+          "agg": "96",
+          "nulls": 0
+        },
+        "cc_rec_start_date": {
+          "agg": "64650",
+          "nulls": 0
+        },
+        "cc_rec_end_date": {
+          "agg": "33966",
+          "nulls": 3
+        },
+        "cc_closed_date_sk": {
+          "agg": null,
+          "nulls": 6
+        },
+        "cc_open_date_sk": {
+          "agg": "14706341",
+          "nulls": 0
+        },
+        "cc_name": {
+          "agg": "71",
+          "nulls": 0
+        },
+        "cc_class": {
+          "agg": "32",
+          "nulls": 0
+        },
+        "cc_employees": {
+          "agg": "25",
+          "nulls": 0
+        },
+        "cc_sq_ft": {
+          "agg": "12498",
+          "nulls": 0
+        },
+        "cc_hours": {
+          "agg": "42",
+          "nulls": 0
+        },
+        "cc_manager": {
+          "agg": "75",
+          "nulls": 0
+        },
+        "cc_mkt_id": {
+          "agg": "19",
+          "nulls": 0
+        },
+        "cc_mkt_class": {
+          "agg": "245",
+          "nulls": 0
+        },
+        "cc_mkt_desc": {
+          "agg": "344",
+          "nulls": 0
+        },
+        "cc_market_manager": {
+          "agg": "76",
+          "nulls": 0
+        },
+        "cc_division": {
+          "agg": "22",
+          "nulls": 0
+        },
+        "cc_division_name": {
+          "agg": "22",
+          "nulls": 0
+        },
+        "cc_company": {
+          "agg": "18",
+          "nulls": 0
+        },
+        "cc_company_name": {
+          "agg": "23",
+          "nulls": 0
+        },
+        "cc_street_number": {
+          "agg": "18",
+          "nulls": 0
+        },
+        "cc_street_name": {
+          "agg": "45",
+          "nulls": 0
+        },
+        "cc_street_type": {
+          "agg": "28",
+          "nulls": 0
+        },
+        "cc_suite_number": {
+          "agg": "50",
+          "nulls": 0
+        },
+        "cc_city": {
+          "agg": "40",
+          "nulls": 0
+        },
+        "cc_county": {
+          "agg": "102",
+          "nulls": 0
+        },
+        "cc_state": {
+          "agg": "12",
+          "nulls": 0
+        },
+        "cc_zip": {
+          "agg": "30",
+          "nulls": 0
+        },
+        "cc_country": {
+          "agg": "78",
+          "nulls": 0
+        },
+        "cc_gmt_offset": {
+          "agg": "-30.00",
+          "nulls": 0
+        },
+        "cc_tax_percentage": {
+          "agg": "0.52",
+          "nulls": 0
+        }
+      }
+    },
+    "catalog_page": {
+      "rows": 11718,
+      "columns": {
+        "cp_catalog_page_sk": {
+          "agg": "68661621",
+          "nulls": 0
+        },
+        "cp_catalog_page_id": {
+          "agg": "187488",
+          "nulls": 0
+        },
+        "cp_start_date_sk": {
+          "agg": "28483523519",
+          "nulls": 101
+        },
+        "cp_end_date_sk": {
+          "agg": "28467056926",
+          "nulls": 108
+        },
+        "cp_department": {
+          "agg": "116160",
+          "nulls": 102
+        },
+        "cp_catalog_number": {
+          "agg": "634781",
+          "nulls": 120
+        },
+        "cp_catalog_page_number": {
+          "agg": "632112",
+          "nulls": 104
+        },
+        "cp_description": {
+          "agg": "866494",
+          "nulls": 116
+        },
+        "cp_type": {
+          "agg": "89073",
+          "nulls": 109
+        }
+      }
+    },
+    "catalog_returns": {
+      "rows": 144067,
+      "columns": {
+        "cr_returned_date_sk": {
+          "agg": "353240485169",
+          "nulls": 0
+        },
+        "cr_returned_time_sk": {
+          "agg": "7068926669",
+          "nulls": 0
+        },
+        "cr_item_sk": {
+          "agg": "1295586107",
+          "nulls": 0
+        },
+        "cr_refunded_customer_sk": {
+          "agg": "7061969247",
+          "nulls": 2883
+        },
+        "cr_refunded_cdemo_sk": {
+          "agg": "135670997389",
+          "nulls": 2922
+        },
+        "cr_refunded_hdemo_sk": {
+          "agg": "507818291",
+          "nulls": 2908
+        },
+        "cr_refunded_addr_sk": {
+          "agg": "3529013966",
+          "nulls": 2895
+        },
+        "cr_returning_customer_sk": {
+          "agg": "7053452878",
+          "nulls": 2895
+        },
+        "cr_returning_cdemo_sk": {
+          "agg": "135705663951",
+          "nulls": 2950
+        },
+        "cr_returning_hdemo_sk": {
+          "agg": "509421650",
+          "nulls": 2844
+        },
+        "cr_returning_addr_sk": {
+          "agg": "3536941053",
+          "nulls": 2913
+        },
+        "cr_call_center_sk": {
+          "agg": "386287",
+          "nulls": 2915
+        },
+        "cr_catalog_page_sk": {
+          "agg": "598623363",
+          "nulls": 2949
+        },
+        "cr_ship_mode_sk": {
+          "agg": "1483673",
+          "nulls": 2889
+        },
+        "cr_warehouse_sk": {
+          "agg": "422928",
+          "nulls": 2935
+        },
+        "cr_reason_sk": {
+          "agg": "2539058",
+          "nulls": 2861
+        },
+        "cr_order_number": {
+          "agg": "11537635517",
+          "nulls": 0
+        },
+        "cr_return_quantity": {
+          "agg": "3638414",
+          "nulls": 2905
+        },
+        "cr_return_amount": {
+          "agg": "184968598.10",
+          "nulls": 2928
+        },
+        "cr_return_tax": {
+          "agg": "8303804.18",
+          "nulls": 2940
+        },
+        "cr_return_amt_inc_tax": {
+          "agg": "193374931.01",
+          "nulls": 2887
+        },
+        "cr_fee": {
+          "agg": "7090081.58",
+          "nulls": 2991
+        },
+        "cr_return_ship_cost": {
+          "agg": "92345854.28",
+          "nulls": 2902
+        },
+        "cr_refunded_cash": {
+          "agg": "92343129.67",
+          "nulls": 2958
+        },
+        "cr_reversed_charge": {
+          "agg": "46653130.29",
+          "nulls": 2858
+        },
+        "cr_store_credit": {
+          "agg": "45975360.36",
+          "nulls": 2937
+        },
+        "cr_net_loss": {
+          "agg": "107701711.15",
+          "nulls": 2916
+        }
+      }
+    },
+    "catalog_sales": {
+      "rows": 1441548,
+      "columns": {
+        "cs_sold_date_sk": {
+          "agg": "3516727238561",
+          "nulls": 7191
+        },
+        "cs_sold_time_sk": {
+          "agg": "70371934013",
+          "nulls": 7193
+        },
+        "cs_ship_date_sk": {
+          "agg": "3516962399647",
+          "nulls": 7122
+        },
+        "cs_bill_customer_sk": {
+          "agg": "71757920617",
+          "nulls": 7130
+        },
+        "cs_bill_cdemo_sk": {
+          "agg": "1378455282398",
+          "nulls": 7183
+        },
+        "cs_bill_hdemo_sk": {
+          "agg": "5166864649",
+          "nulls": 7065
+        },
+        "cs_bill_addr_sk": {
+          "agg": "35886832615",
+          "nulls": 7181
+        },
+        "cs_ship_customer_sk": {
+          "agg": "71665913046",
+          "nulls": 7281
+        },
+        "cs_ship_cdemo_sk": {
+          "agg": "1378098798456",
+          "nulls": 7149
+        },
+        "cs_ship_hdemo_sk": {
+          "agg": "5168451499",
+          "nulls": 7124
+        },
+        "cs_ship_addr_sk": {
+          "agg": "35847904097",
+          "nulls": 7122
+        },
+        "cs_call_center_sk": {
+          "agg": "3918583",
+          "nulls": 7079
+        },
+        "cs_catalog_page_sk": {
+          "agg": "6076334179",
+          "nulls": 7185
+        },
+        "cs_ship_mode_sk": {
+          "agg": "15059759",
+          "nulls": 7164
+        },
+        "cs_warehouse_sk": {
+          "agg": "4301808",
+          "nulls": 7089
+        },
+        "cs_item_sk": {
+          "agg": "12966643339",
+          "nulls": 0
+        },
+        "cs_promo_sk": {
+          "agg": "215899801",
+          "nulls": 7135
+        },
+        "cs_order_number": {
+          "agg": "115363593013",
+          "nulls": 0
+        },
+        "cs_quantity": {
+          "agg": "72414337",
+          "nulls": 7082
+        },
+        "cs_wholesale_cost": {
+          "agg": "72405777.31",
+          "nulls": 7151
+        },
+        "cs_list_price": {
+          "agg": "144807717.02",
+          "nulls": 7167
+        },
+        "cs_sales_price": {
+          "agg": "72471493.48",
+          "nulls": 7172
+        },
+        "cs_ext_discount_amt": {
+          "agg": "3652130230.59",
+          "nulls": 7162
+        },
+        "cs_ext_sales_price": {
+          "agg": "3660948245.23",
+          "nulls": 7224
+        },
+        "cs_ext_wholesale_cost": {
+          "agg": "3655738336.84",
+          "nulls": 7193
+        },
+        "cs_ext_list_price": {
+          "agg": "7312160544.33",
+          "nulls": 7163
+        },
+        "cs_ext_tax": {
+          "agg": "148313544.65",
+          "nulls": 7115
+        },
+        "cs_coupon_amt": {
+          "agg": "365875379.14",
+          "nulls": 7044
+        },
+        "cs_ext_ship_cost": {
+          "agg": "1829588531.14",
+          "nulls": 7269
+        },
+        "cs_net_paid": {
+          "agg": "3294799813.17",
+          "nulls": 7165
+        },
+        "cs_net_paid_inc_tax": {
+          "agg": "3443127991.41",
+          "nulls": 7076
+        },
+        "cs_net_paid_inc_ship": {
+          "agg": "5150451467.79",
+          "nulls": 0
+        },
+        "cs_net_paid_inc_ship_tax": {
+          "agg": "5299487220.01",
+          "nulls": 0
+        },
+        "cs_net_profit": {
+          "agg": "-362990919.47",
+          "nulls": 0
+        }
+      }
+    },
+    "customer": {
+      "rows": 100000,
+      "columns": {
+        "c_customer_sk": {
+          "agg": "5000050000",
+          "nulls": 0
+        },
+        "c_customer_id": {
+          "agg": "1600000",
+          "nulls": 0
+        },
+        "c_current_cdemo_sk": {
+          "agg": "92954447110",
+          "nulls": 3438
+        },
+        "c_current_hdemo_sk": {
+          "agg": "346973454",
+          "nulls": 3431
+        },
+        "c_current_addr_sk": {
+          "agg": "2499498807",
+          "nulls": 0
+        },
+        "c_first_shipto_date_sk": {
+          "agg": "236647150817",
+          "nulls": 3443
+        },
+        "c_first_sales_date_sk": {
+          "agg": "236460509342",
+          "nulls": 3518
+        },
+        "c_salutation": {
+          "agg": "313090",
+          "nulls": 3410
+        },
+        "c_first_name": {
+          "agg": "563556",
+          "nulls": 3492
+        },
+        "c_last_name": {
+          "agg": "591061",
+          "nulls": 3497
+        },
+        "c_preferred_cust_flag": {
+          "agg": "96574",
+          "nulls": 3426
+        },
+        "c_birth_day": {
+          "agg": "1510737",
+          "nulls": 3461
+        },
+        "c_birth_month": {
+          "agg": "628122",
+          "nulls": 3449
+        },
+        "c_birth_year": {
+          "agg": "189043215",
+          "nulls": 3453
+        },
+        "c_birth_country": {
+          "agg": "840023",
+          "nulls": 3439
+        },
+        "c_login": {
+          "agg": "0",
+          "nulls": 3475
+        },
+        "c_email_address": {
+          "agg": "2648564",
+          "nulls": 3521
+        },
+        "c_last_review_date_sk": {
+          "agg": "236702107728",
+          "nulls": 3484
+        }
+      }
+    },
+    "customer_address": {
+      "rows": 50000,
+      "columns": {
+        "ca_address_sk": {
+          "agg": "1250025000",
+          "nulls": 0
+        },
+        "ca_address_id": {
+          "agg": "800000",
+          "nulls": 0
+        },
+        "ca_street_number": {
+          "agg": "140308",
+          "nulls": 1532
+        },
+        "ca_street_name": {
+          "agg": "422506",
+          "nulls": 1479
+        },
+        "ca_street_type": {
+          "agg": "204015",
+          "nulls": 1501
+        },
+        "ca_suite_number": {
+          "agg": "382491",
+          "nulls": 1485
+        },
+        "ca_city": {
+          "agg": "433565",
+          "nulls": 1519
+        },
+        "ca_county": {
+          "agg": "677569",
+          "nulls": 1464
+        },
+        "ca_state": {
+          "agg": "96900",
+          "nulls": 1550
+        },
+        "ca_zip": {
+          "agg": "242305",
+          "nulls": 1539
+        },
+        "ca_country": {
+          "agg": "630175",
+          "nulls": 1525
+        },
+        "ca_gmt_offset": {
+          "agg": "-284056.00",
+          "nulls": 1556
+        },
+        "ca_location_type": {
+          "agg": "436484",
+          "nulls": 1492
+        }
+      }
+    },
+    "customer_demographics": {
+      "rows": 1920800,
+      "columns": {
+        "cd_demo_sk": {
+          "agg": "1844737280400",
+          "nulls": 0
+        },
+        "cd_gender": {
+          "agg": "1920800",
+          "nulls": 0
+        },
+        "cd_marital_status": {
+          "agg": "1920800",
+          "nulls": 0
+        },
+        "cd_education_status": {
+          "agg": "18384800",
+          "nulls": 0
+        },
+        "cd_purchase_estimate": {
+          "agg": "10084200000",
+          "nulls": 0
+        },
+        "cd_credit_rating": {
+          "agg": "13445600",
+          "nulls": 0
+        },
+        "cd_dep_count": {
+          "agg": "5762400",
+          "nulls": 0
+        },
+        "cd_dep_employed_count": {
+          "agg": "5762400",
+          "nulls": 0
+        },
+        "cd_dep_college_count": {
+          "agg": "5762400",
+          "nulls": 0
+        }
+      }
+    },
+    "date_dim": {
+      "rows": 73049,
+      "columns": {
+        "d_date_sk": {
+          "agg": "179082983754",
+          "nulls": 0
+        },
+        "d_date_id": {
+          "agg": "1168784",
+          "nulls": 0
+        },
+        "d_date": {
+          "agg": "800470942",
+          "nulls": 0
+        },
+        "d_month_seq": {
+          "agg": "87626649",
+          "nulls": 0
+        },
+        "d_week_seq": {
+          "agg": "381190554",
+          "nulls": 0
+        },
+        "d_quarter_seq": {
+          "agg": "29282049",
+          "nulls": 0
+        },
+        "d_year": {
+          "agg": "146061700",
+          "nulls": 0
+        },
+        "d_dow": {
+          "agg": "219146",
+          "nulls": 0
+        },
+        "d_moy": {
+          "agg": "476498",
+          "nulls": 0
+        },
+        "d_dom": {
+          "agg": "1149021",
+          "nulls": 0
+        },
+        "d_qoy": {
+          "agg": "182799",
+          "nulls": 0
+        },
+        "d_fy_year": {
+          "agg": "146061700",
+          "nulls": 0
+        },
+        "d_fy_quarter_seq": {
+          "agg": "29282049",
+          "nulls": 0
+        },
+        "d_fy_week_seq": {
+          "agg": "381190554",
+          "nulls": 0
+        },
+        "d_day_name": {
+          "agg": "521779",
+          "nulls": 0
+        },
+        "d_quarter_name": {
+          "agg": "438294",
+          "nulls": 0
+        },
+        "d_holiday": {
+          "agg": "73049",
+          "nulls": 0
+        },
+        "d_weekend": {
+          "agg": "73049",
+          "nulls": 0
+        },
+        "d_following_holiday": {
+          "agg": "73049",
+          "nulls": 0
+        },
+        "d_first_dom": {
+          "agg": "179081907782",
+          "nulls": 0
+        },
+        "d_last_dom": {
+          "agg": "179094062952",
+          "nulls": 0
+        },
+        "d_same_day_ly": {
+          "agg": "179056302935",
+          "nulls": 0
+        },
+        "d_same_day_lq": {
+          "agg": "179076313587",
+          "nulls": 0
+        },
+        "d_current_day": {
+          "agg": "73049",
+          "nulls": 0
+        },
+        "d_current_week": {
+          "agg": "73049",
+          "nulls": 0
+        },
+        "d_current_month": {
+          "agg": "73049",
+          "nulls": 0
+        },
+        "d_current_quarter": {
+          "agg": "73049",
+          "nulls": 0
+        },
+        "d_current_year": {
+          "agg": "73049",
+          "nulls": 0
+        }
+      }
+    },
+    "household_demographics": {
+      "rows": 7200,
+      "columns": {
+        "hd_demo_sk": {
+          "agg": "25923600",
+          "nulls": 0
+        },
+        "hd_income_band_sk": {
+          "agg": "75600",
+          "nulls": 0
+        },
+        "hd_buy_potential": {
+          "agg": "54000",
+          "nulls": 0
+        },
+        "hd_dep_count": {
+          "agg": "32400",
+          "nulls": 0
+        },
+        "hd_vehicle_count": {
+          "agg": "10800",
+          "nulls": 0
+        }
+      }
+    },
+    "income_band": {
+      "rows": 20,
+      "columns": {
+        "ib_income_band_sk": {
+          "agg": "210",
+          "nulls": 0
+        },
+        "ib_lower_bound": {
+          "agg": "1900019",
+          "nulls": 0
+        },
+        "ib_upper_bound": {
+          "agg": "2100000",
+          "nulls": 0
+        }
+      }
+    },
+    "inventory": {
+      "rows": 11745000,
+      "columns": {
+        "inv_date_sk": {
+          "agg": "28795510125000",
+          "nulls": 0
+        },
+        "inv_item_sk": {
+          "agg": "105701850000",
+          "nulls": 0
+        },
+        "inv_warehouse_sk": {
+          "agg": "35235000",
+          "nulls": 0
+        },
+        "inv_quantity_on_hand": {
+          "agg": "5579475462",
+          "nulls": 586913
+        }
+      }
+    },
+    "item": {
+      "rows": 18000,
+      "columns": {
+        "i_item_sk": {
+          "agg": "162009000",
+          "nulls": 0
+        },
+        "i_item_id": {
+          "agg": "288000",
+          "nulls": 0
+        },
+        "i_rec_start_date": {
+          "agg": "192272309",
+          "nulls": 46
+        },
+        "i_rec_end_date": {
+          "agg": "101304000",
+          "nulls": 9000
+        },
+        "i_item_desc": {
+          "agg": "1808642",
+          "nulls": 51
+        },
+        "i_current_price": {
+          "agg": "170986.74",
+          "nulls": 45
+        },
+        "i_wholesale_cost": {
+          "agg": "103239.07",
+          "nulls": 46
+        },
+        "i_brand_id": {
+          "agg": "98797956881",
+          "nulls": 44
+        },
+        "i_brand": {
+          "agg": "290893",
+          "nulls": 40
+        },
+        "i_class_id": {
+          "agg": "97968",
+          "nulls": 35
+        },
+        "i_class": {
+          "agg": "139658",
+          "nulls": 43
+        },
+        "i_category_id": {
+          "agg": "98500",
+          "nulls": 42
+        },
+        "i_category": {
+          "agg": "105849",
+          "nulls": 43
+        },
+        "i_manufact_id": {
+          "agg": "6009586",
+          "nulls": 38
+        },
+        "i_manufact": {
+          "agg": "203686",
+          "nulls": 43
+        },
+        "i_size": {
+          "agg": "77949",
+          "nulls": 41
+        },
+        "i_formulation": {
+          "agg": "359140",
+          "nulls": 43
+        },
+        "i_color": {
+          "agg": "96736",
+          "nulls": 45
+        },
+        "i_units": {
+          "agg": "75278",
+          "nulls": 43
+        },
+        "i_container": {
+          "agg": "125727",
+          "nulls": 39
+        },
+        "i_manager_id": {
+          "agg": "606683",
+          "nulls": 41
+        },
+        "i_product_name": {
+          "agg": "324050",
+          "nulls": 36
+        }
+      }
+    },
+    "promotion": {
+      "rows": 300,
+      "columns": {
+        "p_promo_sk": {
+          "agg": "45150",
+          "nulls": 0
+        },
+        "p_promo_id": {
+          "agg": "4800",
+          "nulls": 0
+        },
+        "p_start_date_sk": {
+          "agg": "720454694",
+          "nulls": 6
+        },
+        "p_end_date_sk": {
+          "agg": "720464980",
+          "nulls": 6
+        },
+        "p_item_sk": {
+          "agg": "2636366",
+          "nulls": 7
+        },
+        "p_cost": {
+          "agg": "294000.00",
+          "nulls": 6
+        },
+        "p_response_target": {
+          "agg": "293",
+          "nulls": 7
+        },
+        "p_promo_name": {
+          "agg": "1170",
+          "nulls": 7
+        },
+        "p_channel_dmail": {
+          "agg": "295",
+          "nulls": 5
+        },
+        "p_channel_email": {
+          "agg": "295",
+          "nulls": 5
+        },
+        "p_channel_catalog": {
+          "agg": "296",
+          "nulls": 4
+        },
+        "p_channel_tv": {
+          "agg": "294",
+          "nulls": 6
+        },
+        "p_channel_radio": {
+          "agg": "294",
+          "nulls": 6
+        },
+        "p_channel_press": {
+          "agg": "293",
+          "nulls": 7
+        },
+        "p_channel_event": {
+          "agg": "296",
+          "nulls": 4
+        },
+        "p_channel_demo": {
+          "agg": "297",
+          "nulls": 3
+        },
+        "p_channel_details": {
+          "agg": "11904",
+          "nulls": 2
+        },
+        "p_purpose": {
+          "agg": "2072",
+          "nulls": 4
+        },
+        "p_discount_active": {
+          "agg": "293",
+          "nulls": 7
+        }
+      }
+    },
+    "reason": {
+      "rows": 35,
+      "columns": {
+        "r_reason_sk": {
+          "agg": "630",
+          "nulls": 0
+        },
+        "r_reason_id": {
+          "agg": "560",
+          "nulls": 0
+        },
+        "r_reason_desc": {
+          "agg": "578",
+          "nulls": 0
+        }
+      }
+    },
+    "ship_mode": {
+      "rows": 20,
+      "columns": {
+        "sm_ship_mode_sk": {
+          "agg": "210",
+          "nulls": 0
+        },
+        "sm_ship_mode_id": {
+          "agg": "320",
+          "nulls": 0
+        },
+        "sm_type": {
+          "agg": "150",
+          "nulls": 0
+        },
+        "sm_code": {
+          "agg": "87",
+          "nulls": 0
+        },
+        "sm_carrier": {
+          "agg": "133",
+          "nulls": 0
+        },
+        "sm_contract": {
+          "agg": "252",
+          "nulls": 0
+        }
+      }
+    },
+    "store": {
+      "rows": 12,
+      "columns": {
+        "s_store_sk": {
+          "agg": "78",
+          "nulls": 0
+        },
+        "s_store_id": {
+          "agg": "192",
+          "nulls": 0
+        },
+        "s_rec_start_date": {
+          "agg": "125772",
+          "nulls": 0
+        },
+        "s_rec_end_date": {
+          "agg": "66168",
+          "nulls": 6
+        },
+        "s_closed_date_sk": {
+          "agg": "7353143",
+          "nulls": 9
+        },
+        "s_store_name": {
+          "agg": "51",
+          "nulls": 0
+        },
+        "s_number_employees": {
+          "agg": "3180",
+          "nulls": 0
+        },
+        "s_floor_space": {
+          "agg": "92295824",
+          "nulls": 0
+        },
+        "s_hours": {
+          "agg": "85",
+          "nulls": 0
+        },
+        "s_manager": {
+          "agg": "144",
+          "nulls": 0
+        },
+        "s_market_id": {
+          "agg": "72",
+          "nulls": 0
+        },
+        "s_geography_class": {
+          "agg": "84",
+          "nulls": 0
+        },
+        "s_market_desc": {
+          "agg": "664",
+          "nulls": 0
+        },
+        "s_market_manager": {
+          "agg": "168",
+          "nulls": 0
+        },
+        "s_division_id": {
+          "agg": "12",
+          "nulls": 0
+        },
+        "s_division_name": {
+          "agg": "84",
+          "nulls": 0
+        },
+        "s_company_id": {
+          "agg": "12",
+          "nulls": 0
+        },
+        "s_company_name": {
+          "agg": "84",
+          "nulls": 0
+        },
+        "s_street_number": {
+          "agg": "34",
+          "nulls": 0
+        },
+        "s_street_name": {
+          "agg": "79",
+          "nulls": 0
+        },
+        "s_street_type": {
+          "agg": "58",
+          "nulls": 0
+        },
+        "s_suite_number": {
+          "agg": "99",
+          "nulls": 0
+        },
+        "s_city": {
+          "agg": "78",
+          "nulls": 0
+        },
+        "s_county": {
+          "agg": "204",
+          "nulls": 0
+        },
+        "s_state": {
+          "agg": "24",
+          "nulls": 0
+        },
+        "s_zip": {
+          "agg": "60",
+          "nulls": 0
+        },
+        "s_country": {
+          "agg": "156",
+          "nulls": 0
+        },
+        "s_gmt_offset": {
+          "agg": "-60.00",
+          "nulls": 0
+        },
+        "s_tax_percentage": {
+          "agg": "0.53",
+          "nulls": 0
+        }
+      }
+    },
+    "store_returns": {
+      "rows": 287867,
+      "columns": {
+        "sr_returned_date_sk": {
+          "agg": "680695706166",
+          "nulls": 10244
+        },
+        "sr_return_time_sk": {
+          "agg": "12500762898",
+          "nulls": 10119
+        },
+        "sr_item_sk": {
+          "agg": "2593338089",
+          "nulls": 0
+        },
+        "sr_customer_sk": {
+          "agg": "13870306465",
+          "nulls": 10091
+        },
+        "sr_cdemo_sk": {
+          "agg": "266618881124",
+          "nulls": 10192
+        },
+        "sr_hdemo_sk": {
+          "agg": "998385463",
+          "nulls": 10134
+        },
+        "sr_addr_sk": {
+          "agg": "6944015636",
+          "nulls": 10213
+        },
+        "sr_store_sk": {
+          "agg": "1478003",
+          "nulls": 10228
+        },
+        "sr_reason_sk": {
+          "agg": "5009504",
+          "nulls": 10108
+        },
+        "sr_ticket_number": {
+          "agg": "34579413610",
+          "nulls": 0
+        },
+        "sr_return_quantity": {
+          "agg": "7167993",
+          "nulls": 10195
+        },
+        "sr_return_amt": {
+          "agg": "270824609.25",
+          "nulls": 10185
+        },
+        "sr_return_tax": {
+          "agg": "12209503.95",
+          "nulls": 10200
+        },
+        "sr_return_amt_inc_tax": {
+          "agg": "283214248.47",
+          "nulls": 10165
+        },
+        "sr_fee": {
+          "agg": "13965772.93",
+          "nulls": 10168
+        },
+        "sr_return_ship_cost": {
+          "agg": "135439478.60",
+          "nulls": 10244
+        },
+        "sr_refunded_cash": {
+          "agg": "135738561.57",
+          "nulls": 10252
+        },
+        "sr_reversed_charge": {
+          "agg": "68380642.47",
+          "nulls": 10075
+        },
+        "sr_store_credit": {
+          "agg": "66932993.61",
+          "nulls": 10116
+        },
+        "sr_net_loss": {
+          "agg": "161533995.26",
+          "nulls": 10269
+        }
+      }
+    },
+    "store_sales": {
+      "rows": 2880404,
+      "columns": {
+        "ss_sold_date_sk": {
+          "agg": "6743748218439",
+          "nulls": 129850
+        },
+        "ss_sold_time_sk": {
+          "agg": "142264570160",
+          "nulls": 129166
+        },
+        "ss_item_sk": {
+          "agg": "25921306582",
+          "nulls": 0
+        },
+        "ss_customer_sk": {
+          "agg": "137456099674",
+          "nulls": 129392
+        },
+        "ss_cdemo_sk": {
+          "agg": "2644885278198",
+          "nulls": 129287
+        },
+        "ss_hdemo_sk": {
+          "agg": "9888202170",
+          "nulls": 129583
+        },
+        "ss_addr_sk": {
+          "agg": "68748444334",
+          "nulls": 129663
+        },
+        "ss_store_sk": {
+          "agg": "14690678",
+          "nulls": 129461
+        },
+        "ss_promo_sk": {
+          "agg": "413927923",
+          "nulls": 129182
+        },
+        "ss_ticket_number": {
+          "agg": "345489787278",
+          "nulls": 0
+        },
+        "ss_quantity": {
+          "agg": "138963631",
+          "nulls": 129838
+        },
+        "ss_wholesale_cost": {
+          "agg": "138905145.73",
+          "nulls": 129976
+        },
+        "ss_list_price": {
+          "agg": "208367244.76",
+          "nulls": 129688
+        },
+        "ss_sales_price": {
+          "agg": "104159495.71",
+          "nulls": 129744
+        },
+        "ss_ext_discount_amt": {
+          "agg": "527545197.40",
+          "nulls": 129642
+        },
+        "ss_ext_sales_price": {
+          "agg": "5262470646.52",
+          "nulls": 130137
+        },
+        "ss_ext_wholesale_cost": {
+          "agg": "7016175550.52",
+          "nulls": 129792
+        },
+        "ss_ext_list_price": {
+          "agg": "10525297512.40",
+          "nulls": 129457
+        },
+        "ss_ext_tax": {
+          "agg": "212982337.82",
+          "nulls": 129953
+        },
+        "ss_coupon_amt": {
+          "agg": "527609694.92",
+          "nulls": 129219
+        },
+        "ss_net_paid": {
+          "agg": "4736735182.53",
+          "nulls": 129616
+        },
+        "ss_net_paid_inc_tax": {
+          "agg": "4948930166.58",
+          "nulls": 129942
+        },
+        "ss_net_profit": {
+          "agg": "-2281616516.95",
+          "nulls": 129573
+        }
+      }
+    },
+    "time_dim": {
+      "rows": 86400,
+      "columns": {
+        "t_time_sk": {
+          "agg": "3732436800",
+          "nulls": 0
+        },
+        "t_time_id": {
+          "agg": "1382400",
+          "nulls": 0
+        },
+        "t_time": {
+          "agg": "3732436800",
+          "nulls": 0
+        },
+        "t_hour": {
+          "agg": "993600",
+          "nulls": 0
+        },
+        "t_minute": {
+          "agg": "2548800",
+          "nulls": 0
+        },
+        "t_second": {
+          "agg": "2548800",
+          "nulls": 0
+        },
+        "t_am_pm": {
+          "agg": "172800",
+          "nulls": 0
+        },
+        "t_shift": {
+          "agg": "460800",
+          "nulls": 0
+        },
+        "t_sub_shift": {
+          "agg": "597600",
+          "nulls": 0
+        },
+        "t_meal_time": {
+          "agg": "248400",
+          "nulls": 0
+        }
+      }
+    },
+    "warehouse": {
+      "rows": 5,
+      "columns": {
+        "w_warehouse_sk": {
+          "agg": "15",
+          "nulls": 0
+        },
+        "w_warehouse_id": {
+          "agg": "80",
+          "nulls": 0
+        },
+        "w_warehouse_name": {
+          "agg": "71",
+          "nulls": 1
+        },
+        "w_warehouse_sq_ft": {
+          "agg": "2031767",
+          "nulls": 1
+        },
+        "w_street_number": {
+          "agg": "12",
+          "nulls": 1
+        },
+        "w_street_name": {
+          "agg": "34",
+          "nulls": 1
+        },
+        "w_street_type": {
+          "agg": "21",
+          "nulls": 1
+        },
+        "w_suite_number": {
+          "agg": "31",
+          "nulls": 1
+        },
+        "w_city": {
+          "agg": "40",
+          "nulls": 0
+        },
+        "w_county": {
+          "agg": "85",
+          "nulls": 0
+        },
+        "w_state": {
+          "agg": "10",
+          "nulls": 0
+        },
+        "w_zip": {
+          "agg": "25",
+          "nulls": 0
+        },
+        "w_country": {
+          "agg": "65",
+          "nulls": 0
+        },
+        "w_gmt_offset": {
+          "agg": "-20.00",
+          "nulls": 1
+        }
+      }
+    },
+    "web_page": {
+      "rows": 60,
+      "columns": {
+        "wp_web_page_sk": {
+          "agg": "1830",
+          "nulls": 0
+        },
+        "wp_web_page_id": {
+          "agg": "960",
+          "nulls": 0
+        },
+        "wp_rec_start_date": {
+          "agg": "639300",
+          "nulls": 0
+        },
+        "wp_rec_end_date": {
+          "agg": "336060",
+          "nulls": 30
+        },
+        "wp_creation_date_sk": {
+          "agg": "144597865",
+          "nulls": 1
+        },
+        "wp_access_date_sk": {
+          "agg": "147155955",
+          "nulls": 0
+        },
+        "wp_autogen_flag": {
+          "agg": "60",
+          "nulls": 0
+        },
+        "wp_customer_sk": {
+          "agg": "1128874",
+          "nulls": 39
+        },
+        "wp_url": {
+          "agg": "1080",
+          "nulls": 0
+        },
+        "wp_type": {
+          "agg": "382",
+          "nulls": 1
+        },
+        "wp_char_count": {
+          "agg": "196321",
+          "nulls": 1
+        },
+        "wp_link_count": {
+          "agg": "785",
+          "nulls": 1
+        },
+        "wp_image_count": {
+          "agg": "234",
+          "nulls": 1
+        },
+        "wp_max_ad_count": {
+          "agg": "128",
+          "nulls": 1
+        }
+      }
+    },
+    "web_returns": {
+      "rows": 71654,
+      "columns": {
+        "wr_returned_date_sk": {
+          "agg": "167863849713",
+          "nulls": 3193
+        },
+        "wr_returned_time_sk": {
+          "agg": "3357772170",
+          "nulls": 3238
+        },
+        "wr_item_sk": {
+          "agg": "646487003",
+          "nulls": 0
+        },
+        "wr_refunded_customer_sk": {
+          "agg": "3429539284",
+          "nulls": 3139
+        },
+        "wr_refunded_cdemo_sk": {
+          "agg": "65930101982",
+          "nulls": 3130
+        },
+        "wr_refunded_hdemo_sk": {
+          "agg": "247099762",
+          "nulls": 3114
+        },
+        "wr_refunded_addr_sk": {
+          "agg": "1712405570",
+          "nulls": 3110
+        },
+        "wr_returning_customer_sk": {
+          "agg": "3424036866",
+          "nulls": 3203
+        },
+        "wr_returning_cdemo_sk": {
+          "agg": "65980775928",
+          "nulls": 3102
+        },
+        "wr_returning_hdemo_sk": {
+          "agg": "246597841",
+          "nulls": 3231
+        },
+        "wr_returning_addr_sk": {
+          "agg": "1710492635",
+          "nulls": 3175
+        },
+        "wr_web_page_sk": {
+          "agg": "2032675",
+          "nulls": 3203
+        },
+        "wr_reason_sk": {
+          "agg": "1235694",
+          "nulls": 3125
+        },
+        "wr_order_number": {
+          "agg": "2159948581",
+          "nulls": 0
+        },
+        "wr_return_quantity": {
+          "agg": "1761620",
+          "nulls": 3178
+        },
+        "wr_return_amt": {
+          "agg": "89050042.23",
+          "nulls": 3159
+        },
+        "wr_return_tax": {
+          "agg": "4024727.08",
+          "nulls": 3109
+        },
+        "wr_return_amt_inc_tax": {
+          "agg": "93195199.75",
+          "nulls": 3126
+        },
+        "wr_fee": {
+          "agg": "3457380.75",
+          "nulls": 3139
+        },
+        "wr_return_ship_cost": {
+          "agg": "44672338.67",
+          "nulls": 3151
+        },
+        "wr_refunded_cash": {
+          "agg": "44512339.45",
+          "nulls": 3206
+        },
+        "wr_reversed_charge": {
+          "agg": "22343385.97",
+          "nulls": 3178
+        },
+        "wr_account_credit": {
+          "agg": "22090975.87",
+          "nulls": 3208
+        },
+        "wr_net_loss": {
+          "agg": "52163228.21",
+          "nulls": 3125
+        }
+      }
+    },
+    "web_sales": {
+      "rows": 719384,
+      "columns": {
+        "ws_sold_date_sk": {
+          "agg": "1763317746770",
+          "nulls": 185
+        },
+        "ws_sold_time_sk": {
+          "agg": "35366812836",
+          "nulls": 185
+        },
+        "ws_ship_date_sk": {
+          "agg": "1763395627120",
+          "nulls": 171
+        },
+        "ws_item_sk": {
+          "agg": "6478329643",
+          "nulls": 0
+        },
+        "ws_bill_customer_sk": {
+          "agg": "36023069971",
+          "nulls": 170
+        },
+        "ws_bill_cdemo_sk": {
+          "agg": "688124698761",
+          "nulls": 170
+        },
+        "ws_bill_hdemo_sk": {
+          "agg": "2599962060",
+          "nulls": 177
+        },
+        "ws_bill_addr_sk": {
+          "agg": "17992318391",
+          "nulls": 169
+        },
+        "ws_ship_customer_sk": {
+          "agg": "36110753573",
+          "nulls": 170
+        },
+        "ws_ship_cdemo_sk": {
+          "agg": "690802908496",
+          "nulls": 180
+        },
+        "ws_ship_hdemo_sk": {
+          "agg": "2591999867",
+          "nulls": 164
+        },
+        "ws_ship_addr_sk": {
+          "agg": "18032136624",
+          "nulls": 171
+        },
+        "ws_web_page_sk": {
+          "agg": "21385342",
+          "nulls": 175
+        },
+        "ws_web_site_sk": {
+          "agg": "10580031",
+          "nulls": 173
+        },
+        "ws_ship_mode_sk": {
+          "agg": "7552950",
+          "nulls": 175
+        },
+        "ws_warehouse_sk": {
+          "agg": "2157857",
+          "nulls": 169
+        },
+        "ws_promo_sk": {
+          "agg": "108229141",
+          "nulls": 182
+        },
+        "ws_order_number": {
+          "agg": "21586607352",
+          "nulls": 0
+        },
+        "ws_quantity": {
+          "agg": "36284018",
+          "nulls": 173
+        },
+        "ws_wholesale_cost": {
+          "agg": "36389738.98",
+          "nulls": 163
+        },
+        "ws_list_price": {
+          "agg": "72792376.23",
+          "nulls": 180
+        },
+        "ws_sales_price": {
+          "agg": "36388551.82",
+          "nulls": 170
+        },
+        "ws_ext_discount_amt": {
+          "agg": "1838244457.89",
+          "nulls": 172
+        },
+        "ws_ext_sales_price": {
+          "agg": "1836347386.22",
+          "nulls": 172
+        },
+        "ws_ext_wholesale_cost": {
+          "agg": "1837129410.10",
+          "nulls": 181
+        },
+        "ws_ext_list_price": {
+          "agg": "3674577993.84",
+          "nulls": 187
+        },
+        "ws_ext_tax": {
+          "agg": "74239038.05",
+          "nulls": 177
+        },
+        "ws_coupon_amt": {
+          "agg": "185191954.99",
+          "nulls": 190
+        },
+        "ws_ext_ship_cost": {
+          "agg": "919624445.73",
+          "nulls": 189
+        },
+        "ws_net_paid": {
+          "agg": "1651211434.94",
+          "nulls": 159
+        },
+        "ws_net_paid_inc_tax": {
+          "agg": "1725358955.91",
+          "nulls": 179
+        },
+        "ws_net_paid_inc_ship": {
+          "agg": "2571433233.52",
+          "nulls": 0
+        },
+        "ws_net_paid_inc_ship_tax": {
+          "agg": "2645690016.06",
+          "nulls": 0
+        },
+        "ws_net_profit": {
+          "agg": "-186093811.70",
+          "nulls": 0
+        }
+      }
+    },
+    "web_site": {
+      "rows": 30,
+      "columns": {
+        "web_site_sk": {
+          "agg": "465",
+          "nulls": 0
+        },
+        "web_site_id": {
+          "agg": "480",
+          "nulls": 0
+        },
+        "web_rec_start_date": {
+          "agg": "319110",
+          "nulls": 0
+        },
+        "web_rec_end_date": {
+          "agg": "167760",
+          "nulls": 15
+        },
+        "web_name": {
+          "agg": "180",
+          "nulls": 0
+        },
+        "web_open_date_sk": {
+          "agg": "73520670",
+          "nulls": 0
+        },
+        "web_close_date_sk": {
+          "agg": "61199620",
+          "nulls": 5
+        },
+        "web_class": {
+          "agg": "210",
+          "nulls": 0
+        },
+        "web_manager": {
+          "agg": "370",
+          "nulls": 0
+        },
+        "web_mkt_id": {
+          "agg": "104",
+          "nulls": 0
+        },
+        "web_mkt_class": {
+          "agg": "1073",
+          "nulls": 0
+        },
+        "web_mkt_desc": {
+          "agg": "1683",
+          "nulls": 0
+        },
+        "web_market_manager": {
+          "agg": "369",
+          "nulls": 0
+        },
+        "web_company_id": {
+          "agg": "114",
+          "nulls": 0
+        },
+        "web_company_name": {
+          "agg": "121",
+          "nulls": 0
+        },
+        "web_street_number": {
+          "agg": "89",
+          "nulls": 0
+        },
+        "web_street_name": {
+          "agg": "272",
+          "nulls": 0
+        },
+        "web_street_type": {
+          "agg": "122",
+          "nulls": 0
+        },
+        "web_suite_number": {
+          "agg": "246",
+          "nulls": 0
+        },
+        "web_city": {
+          "agg": "202",
+          "nulls": 0
+        },
+        "web_county": {
+          "agg": "510",
+          "nulls": 0
+        },
+        "web_state": {
+          "agg": "60",
+          "nulls": 0
+        },
+        "web_zip": {
+          "agg": "150",
+          "nulls": 0
+        },
+        "web_country": {
+          "agg": "390",
+          "nulls": 0
+        },
+        "web_gmt_offset": {
+          "agg": "-150.00",
+          "nulls": 0
+        },
+        "web_tax_percentage": {
+          "agg": "1.93",
+          "nulls": 0
+        }
+      }
+    }
+  },
+  "snowflake": {
+    "target": "SLSTUDY.TPCDS_SF1",
+    "copy_query_ids": {
+      "call_center": "01c81865-0109-674b-0000-00129a92f0c1",
+      "catalog_page": "01c81865-0109-674b-0000-00129a92f0c5",
+      "catalog_returns": "01c81865-0109-7379-0000-00129a9290d9",
+      "catalog_sales": "01c81865-0109-674b-0000-00129a92f0cd",
+      "customer": "01c81865-0109-7c31-0000-00129a9260d9",
+      "customer_address": "01c81865-0109-7c31-0000-00129a9260dd",
+      "customer_demographics": "01c81865-0109-7c31-0000-00129a9260e1",
+      "date_dim": "01c81866-0109-69c9-0000-00129a92b0cd",
+      "household_demographics": "01c81866-0109-7c31-0000-00129a9260e9",
+      "income_band": "01c81866-0109-69c9-0000-00129a92b0d5",
+      "inventory": "01c81866-0109-69c9-0000-00129a92b0d9",
+      "item": "01c81866-0109-7379-0000-00129a9290e1",
+      "promotion": "01c81866-0109-69c9-0000-00129a92b0dd",
+      "reason": "01c81866-0109-69c9-0000-00129a92b0e1",
+      "ship_mode": "01c81866-0109-69c9-0000-00129a92b0e5",
+      "store": "01c81866-0109-7c31-0000-00129a9260f1",
+      "store_returns": "01c81866-0109-69c1-0000-00129a92a0b1",
+      "store_sales": "01c81866-0109-675f-0000-00129a92d0c5",
+      "time_dim": "01c81866-0109-7c31-0000-00129a9260f9",
+      "warehouse": "01c81866-0109-69c9-0000-00129a92b0ed",
+      "web_page": "01c81867-0109-69c1-0000-00129a92a0b9",
+      "web_returns": "01c81867-0109-7379-0000-00129a9290e9",
+      "web_sales": "01c81867-0109-7379-0000-00129a9290ed",
+      "web_site": "01c81867-0109-674b-0000-00129a92f0e5"
+    },
+    "checksums_match": true,
+    "mismatches": []
+  }
+}

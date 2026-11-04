@@ -1,0 +1,39 @@
+{
+  "schema": "sl1-freeze-v1",
+  "id": "FREEZE-PILOT",
+  "utc": "2026-10-31T09:50:09+00:00",
+  "scope": "Everything the pilot depends on: questions, gold queries, layers, prompts, plans, grader and comparison rules, executor, dispatcher, envelope. Any later change is a new, versioned file and is reported.",
+  "executor_image_id": "sha256:e5d9fe43ba6c247364a24f48c0f875723b51cda32af27f5ffd573d8acb77ff66",
+  "files_sha256": {
+    "tasks/questions-v1.yaml": "6b56c5422fefbe7922de1aa5f29a0f6db571f0306bb057850712bef1f67b8148",
+    "tasks/gold-b-v1.yaml": "26b59ec1a30c8f3f6cc656ca05df451a8712ead626cdc4b31d919cbb06309dd5",
+    "tasks/results.py": "bd1b873f6bfcec4d33f85ff605073959aae5f3a81466e45000e655869d483ce4",
+    "tasks/build_layers.py": "ded1833ac5512d40735f01fc28b930b6bd93c15ff6f4fdb4a313a29b3b807955",
+    "tasks/layers/MANIFEST.json": "26b5edb8805923e68545e7956a704b8e65e5ef3aa0dbc37fc128f23109a5ae47",
+    "tasks/ddl-five-tables.sql": "0041ade74bcac49da58d655c66761062ebf95f7891a2f95cf65212a98184a11c",
+    "run/build_prompts.py": "8eab839a8b010a9f9aa7804cb92f785a79ac191c3509a09d44d697e6194c2d26",
+    "run/plans/PLANS-MANIFEST.json": "62e87e8830ab7709106a185c1a401ee6b3784e237bab6039e90b9be5897f2501",
+    "run/plans/pilot.jsonl": "e63d724b9155907f0b2341da1657ffad0877bf954cf82c9d1a1d32a7d56491b2",
+    "run/plans/main.jsonl": "4c36a68b8385dd756b71affce3dc92d0ed0e9c01a1d4775a86f15b0e099f27eb",
+    "run/grade.py": "1fa5e15ff5935a58bc3283bbec1467af503c4fd358d44a6dbf6371aaae1ac336",
+    "run/dispatch_sl.py": "db7ad1d1d283139145ea2700322395af6b224bb1cd3d709f0e8fb69f28383715",
+    "harness/executor/execute.py": "1146a9d64920d9624aa2ee7f8b6fa4e46e723fd8a05bfb0c6ff92dd32fc45407",
+    "harness/executor/Dockerfile": "ddc47a5abb6f36d0ef286bc93c4368449faacd1698cd1ec133dfa95eaca63f15",
+    "operations/ENVELOPE-AMENDMENT-SL1-01.json": "e99a1bebef6f5996057b7464bb59511b0446830a738b5b076d40c11681a41ff3",
+    "run/tests/INFRA-TEST-RESULT.json": "5a1268fe1caa1281981dd1bfd59916cca83c4724d7eb837a6ce2e3e40602f338",
+    "tasks/gates/GATE-SNOWFLAKE-20261031.json": "adf4c03453030aa9d5fa4bf22b9209671dbeb22a0bdbd76e1dadb3f760a6b4e6",
+    "data/TPCDS-SF1-LOAD-RECEIPT.json": "1701a6c2a4e77950c4dc5b89d55ad590046cdbd7a11814323d731155f9b7f508",
+    "(msr) operations/llm/dispatch.py": "6f9a4382c635656cede57ae8fc368cf768ebd89a653a795e4bb40cc3da189dbb",
+    "(msr) operations/llm/models.py": "2419cd3338c9fb8093d7f374a810c0f1553f5d16ec9c8b5760b8d2409bd69708"
+  },
+  "grading_rules": "grade.py docstring and code (answer classes; D1 = layer-targeted concern naming a layer identifier, column used in the layer, or synonym phrase; D2 = D1 naming a mutated id, an identifier the fault changed, the moved synonym, or for value-mapping faults the mapped column; silent = fault arm, fault_match and no D1); results.py (row and column order ignored, numeric rel/abs tolerance 1e-9).",
+  "gates": {
+    "1_envelope_adopted": true,
+    "2_model_access_probes": true,
+    "3_frozen": true,
+    "4_discriminability_snowflake": true,
+    "5_fake_provider_test": true,
+    "6_snowflake_connection_check": true
+  },
+  "analysis_script": "not yet frozen; it is frozen before the main run (FREEZE-MAIN)"
+}

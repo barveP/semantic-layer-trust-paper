@@ -1,0 +1,27 @@
+{
+  "kind": "infrastructure check (gate 5), not a study result",
+  "utc": "2026-10-31T09:40:56+00:00",
+  "account": "owner's Snowflake trial account; identifier in local/snowflake-slstudy/ACCOUNT.json",
+  "checks": {
+    "loader": {
+      "user": "SLSTUDY_LOADER_USER",
+      "role": "SLSTUDY_LOADER",
+      "warehouse": "SLSTUDY_WH",
+      "region": "AWS_US_EAST_2",
+      "snowflake_version": "10.39.101",
+      "session_statement_timeout_s": "172800",
+      "can_create_schema": true
+    },
+    "ro": {
+      "user": "SLSTUDY_USER",
+      "role": "SLSTUDY_RO",
+      "warehouse": "SLSTUDY_WH",
+      "region": "AWS_US_EAST_2",
+      "snowflake_version": "10.39.101",
+      "session_statement_timeout_s": "120",
+      "write_refused": true,
+      "write_refusal_errno": 3001
+    }
+  },
+  "passed": true
+}

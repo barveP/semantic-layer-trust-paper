@@ -1,0 +1,36 @@
+{
+  "schema": "sl1-freeze-v1",
+  "id": "FREEZE-MAIN",
+  "utc": "2026-10-31T10:00:28+00:00",
+  "scope": "Everything the main run and its analysis depend on: question set v1.1, layers v1.1, prompts and plan v1.1, grader with grading amendment 01, analysis script (H1-H3b pre-registered; X1-X5 exploratory, added after the pilot), figures, executor, dispatcher, envelope.",
+  "main_plan_lines": 1512,
+  "envelope_usd": 170,
+  "executor_image_id": "sha256:e5d9fe43ba6c247364a24f48c0f875723b51cda32af27f5ffd573d8acb77ff66",
+  "files_sha256": {
+    "tasks/questions-v1.1.yaml": "83d188bfaf7c05d672980ddf03ce0633524d04c65d3aa7e418b931161eca5aa8",
+    "tasks/gold-b-v1.1.yaml": "c7d767d7369c9fab75a41a21f3bb7eb48779967fdfa1254072a7c03434711765",
+    "tasks/results.py": "bd1b873f6bfcec4d33f85ff605073959aae5f3a81466e45000e655869d483ce4",
+    "tasks/build_layers.py": "42019e9c8ad16520dbfb986b489b751984dd3bd987f1dba7f8992a9f230e77e7",
+    "tasks/layers-v1.1/MANIFEST.json": "98288cd2febe71265bbc1d2bf9af7426889886d845cee58598c24094ab604c45",
+    "tasks/ddl-five-tables.sql": "0041ade74bcac49da58d655c66761062ebf95f7891a2f95cf65212a98184a11c",
+    "run/build_prompts.py": "023c54e9cee3deb4fbac2ff09d5ee1e6ba89c054ecaffa44dafee9ee2a721da8",
+    "run/plans-v1.1/PLANS-MANIFEST.json": "200b8b8a9235bcd79c365dd03178755093519156c88448c62636bade92a3cc92",
+    "run/plans-v1.1/main.jsonl": "7259d4e7988fddb601f495c8b2d67a0ef460b84309fbc6bac5812d7aa860508b",
+    "run/grade.py": "164e5e595aecd08b6abee4e94a36efc84405137a99246c413ef114ff7c5dd63d",
+    "run/analyze.py": "daeba2b6acf19129d7e692947c594b9358e964865ccd705e77445e8f1160499f",
+    "run/figures.py": "d697974a9f9b451dc4cb3b0752ac4fb71704311cce9539ae389195dcab64a5b4",
+    "run/dispatch_sl.py": "db7ad1d1d283139145ea2700322395af6b224bb1cd3d709f0e8fb69f28383715",
+    "harness/executor/execute.py": "1146a9d64920d9624aa2ee7f8b6fa4e46e723fd8a05bfb0c6ff92dd32fc45407",
+    "harness/executor/Dockerfile": "ddc47a5abb6f36d0ef286bc93c4368449faacd1698cd1ec133dfa95eaca63f15",
+    "operations/ENVELOPE-AMENDMENT-SL1-01.json": "e99a1bebef6f5996057b7464bb59511b0446830a738b5b076d40c11681a41ff3",
+    "operations/POST-PILOT-AMENDMENT-01.md": "7e91c8a9abbab13f15b5efefb2bed4228972f5f7a38a6745bcbf346e0e1e7df4",
+    "run/tests/INFRA-TEST-RESULT-g1.1.json": "8dd1dee0f62fa69afe72a84f4133355a2a02385269d6a3dde964231dda49c422",
+    "tasks/gates/GATE-SNOWFLAKE-20261031-v1.1.json": "6d3627cd19d2ae33d4446685b4278d8c95e58c28f0b5ba86548cab39d99e7ecb",
+    "(msr) operations/llm/dispatch.py": "6f9a4382c635656cede57ae8fc368cf768ebd89a653a795e4bb40cc3da189dbb",
+    "(msr) operations/llm/models.py": "2419cd3338c9fb8093d7f374a810c0f1553f5d16ec9c8b5760b8d2409bd69708"
+  },
+  "pilot_reference": {
+    "freeze": "operations/FREEZE-PILOT.json",
+    "amendment": "operations/POST-PILOT-AMENDMENT-01.md"
+  }
+}
