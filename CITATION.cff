@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Please cite the preprint when using this artifact."
+title: "When the Semantic Layer Is Wrong: Do LLM Data Agents Follow or Flag Faulty Business Definitions?"
+type: article
+authors:
+  - family-names: Barve
+    given-names: Poorva
+repository-code: "https://github.com/barveP/semantic-layer-trust-paper"

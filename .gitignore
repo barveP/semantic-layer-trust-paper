@@ -1,4 +1,4 @@
-# Credentials, raw model responses, data files, ratings and build output
+# Credentials, raw responses, data files and local build output
 local/
 
 # LaTeX build output

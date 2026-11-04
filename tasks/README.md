@@ -1,3 +1,5 @@
+> Historical preparation notes. Completed results and current reproduction commands are in the root README.
+
 # Task material for the wrong-layer study (draft v1, 31 October 2026)
 
 **Not frozen.** These files are preparation for [protocol v0.2](../PROTOCOL-DRAFT-v0.2.md). No model has seen them and no API money has been spent. The gates below ran on a local DuckDB copy of the same TPC-DS SF1 data that goes into Snowflake. They will be repeated on Snowflake once access works.
