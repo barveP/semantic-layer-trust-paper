@@ -1,0 +1,610 @@
+{
+  "kind": "task-preparation gate on Snowflake as SLSTUDY_USER (not a study result)",
+  "utc": "2026-10-31T09:59:37+00:00",
+  "question_set": "v1.1",
+  "questions_sha256": "83d188bfaf7c05d672980ddf03ce0633524d04c65d3aa7e418b931161eca5aa8",
+  "gold_b_sha256": "c7d767d7369c9fab75a41a21f3bb7eb48779967fdfa1254072a7c03434711765",
+  "passed": true,
+  "failures": [],
+  "questions": [
+    {
+      "id": "Q01",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c9-0000-00129a92b399",
+        "faulty_gold": "01c81877-0109-7379-0000-00129a929319",
+        "gold_b": "01c81877-0109-7379-0000-00129a92931d"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "1019195414.78"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q02",
+      "query_ids": {
+        "gold_a": "01c81877-0109-675f-0000-00129a92d319",
+        "faulty_gold": "01c81877-0109-69c1-0000-00129a92a381",
+        "gold_b": "01c81877-0109-674b-0000-00129a92f375"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "Home",
+          "-45156168.70"
+        ],
+        [
+          "Shoes",
+          "-44770375.59"
+        ],
+        [
+          "Books",
+          "-42554626.81"
+        ],
+        [
+          "Men",
+          "-44679205.14"
+        ],
+        [
+          "Jewelry",
+          "-41826544.17"
+        ],
+        [
+          "Electronics",
+          "-45850839.21"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q03",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c1-0000-00129a92a385",
+        "faulty_gold": "01c81877-0109-7379-0000-00129a929321",
+        "gold_b": "01c81877-0109-7c31-0000-00129a9263d9"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "26792.07653064"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q04",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c1-0000-00129a92a389",
+        "faulty_gold": "01c81877-0109-69c1-0000-00129a92a38d",
+        "gold_b": "01c81877-0109-674b-0000-00129a92f379"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "2002",
+          "21385.69854195"
+        ],
+        [
+          "2000",
+          "21461.21600654"
+        ],
+        [
+          "1999",
+          "21359.05163221"
+        ],
+        [
+          "2001",
+          "21366.78018407"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q05",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c1-0000-00129a92a391",
+        "faulty_gold": "01c81877-0109-675f-0000-00129a92d31d",
+        "gold_b": "01c81877-0109-69c9-0000-00129a92b39d"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "Midway",
+          "834265632.51"
+        ],
+        [
+          "Fairview",
+          "167079520.63"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q06",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c1-0000-00129a92a395",
+        "faulty_gold": "01c81877-0109-674b-0000-00129a92f37d",
+        "gold_b": "01c81877-0109-69c1-0000-00129a92a399"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "Electronics",
+          "2772991"
+        ],
+        [
+          "Women",
+          "2725245"
+        ],
+        [
+          "Children",
+          "2737846"
+        ],
+        [
+          "Jewelry",
+          "2561083"
+        ],
+        [
+          "Sports",
+          "2681707"
+        ],
+        [
+          "Men",
+          "2702470"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q07",
+      "query_ids": {
+        "gold_a": "01c81877-0109-7c31-0000-00129a9263dd",
+        "faulty_gold": "01c81877-0109-7c31-0000-00129a9263e1",
+        "gold_b": "01c81877-0109-675f-0000-00129a92d321"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "-69024213.84"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q08",
+      "query_ids": {
+        "gold_a": "01c81877-0109-7379-0000-00129a929325",
+        "faulty_gold": "01c81877-0109-69c1-0000-00129a92a39d",
+        "gold_b": "01c81877-0109-7c31-0000-00129a9263e5"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "37923"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q09",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c9-0000-00129a92b3a1",
+        "faulty_gold": "01c81877-0109-674b-0000-00129a92f381",
+        "gold_b": "01c81877-0109-674b-0000-00129a92f385"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "1036555271.90"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q10",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c9-0000-00129a92b3a5",
+        "faulty_gold": "01c81877-0109-69c1-0000-00129a92a3a1",
+        "gold_b": "01c81877-0109-7c31-0000-00129a9263e9"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "Electronics",
+          "90464812.23"
+        ],
+        [
+          "Men",
+          "90087660.49"
+        ],
+        [
+          "Home",
+          "90194050.72"
+        ],
+        [
+          "Books",
+          "89228653.78"
+        ],
+        [
+          "Jewelry",
+          "89441615.44"
+        ],
+        [
+          "Sports",
+          "93043898.55"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q11",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c9-0000-00129a92b3a9",
+        "faulty_gold": "01c81877-0109-69c9-0000-00129a92b3ad",
+        "gold_b": "01c81877-0109-69c1-0000-00129a92a3a5"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "Shoes",
+          "2767719"
+        ],
+        [
+          "Children",
+          "2650553"
+        ],
+        [
+          "Home",
+          "2696730"
+        ],
+        [
+          "Books",
+          "2663474"
+        ],
+        [
+          "Jewelry",
+          "2571127"
+        ],
+        [
+          "Electronics",
+          "2749765"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q12",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c1-0000-00129a92a3a9",
+        "faulty_gold": "01c81877-0109-674b-0000-00129a92f389",
+        "gold_b": "01c81877-0109-7c31-0000-00129a9263ed"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "1998",
+          "-446002257.07"
+        ],
+        [
+          "2002",
+          "-445712807.07"
+        ],
+        [
+          "2001",
+          "-441614103.16"
+        ],
+        [
+          "1999",
+          "-440086740.75"
+        ],
+        [
+          "2000",
+          "-449428398.62"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q13",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c9-0000-00129a92b3b1",
+        "faulty_gold": "01c81877-0109-7379-0000-00129a929329",
+        "gold_b": "01c81877-0109-69c9-0000-00129a92b3b5"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "1031910937.27"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q14",
+      "query_ids": {
+        "gold_a": "01c81877-0109-674b-0000-00129a92f38d",
+        "faulty_gold": "01c81877-0109-7379-0000-00129a92932d",
+        "gold_b": "01c81877-0109-69c1-0000-00129a92a3ad"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "4",
+          "-172515741.98"
+        ],
+        [
+          "3",
+          "-146554035.80"
+        ],
+        [
+          "2",
+          "-64888904.72"
+        ],
+        [
+          "1",
+          "-60435764.40"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q15",
+      "query_ids": {
+        "gold_a": "01c81877-0109-7c31-0000-00129a9263f1",
+        "faulty_gold": "01c81877-0109-675f-0000-00129a92d325",
+        "gold_b": "01c81877-0109-7379-0000-00129a929331"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "2653590"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q16",
+      "query_ids": {
+        "gold_a": "01c81877-0109-7c31-0000-00129a9263f5",
+        "faulty_gold": "01c81877-0109-69c9-0000-00129a92b3b9",
+        "gold_b": "01c81877-0109-7379-0000-00129a929335"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "21352.70852881"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q17",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c1-0000-00129a92a3b1",
+        "faulty_gold": "01c81877-0109-675f-0000-00129a92d329",
+        "gold_b": "01c81877-0109-7379-0000-00129a929339"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "368155924.23"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q18",
+      "query_ids": {
+        "gold_a": "01c81877-0109-674b-0000-00129a92f391",
+        "faulty_gold": "01c81877-0109-675f-0000-00129a92d32d",
+        "gold_b": "01c81877-0109-69c1-0000-00129a92a3b5"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "AAAAAAAAKDEFBAAA",
+          "162178.72"
+        ],
+        [
+          "AAAAAAAACCCMAAAA",
+          "137356.23"
+        ],
+        [
+          "AAAAAAAACACIBAAA",
+          "134000.81"
+        ],
+        [
+          "AAAAAAAAIMAHAAAA",
+          "130873.00"
+        ],
+        [
+          "AAAAAAAAKONGAAAA",
+          "130227.66"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q19",
+      "query_ids": {
+        "gold_a": "01c81877-0109-675f-0000-00129a92d331",
+        "faulty_gold": "01c81877-0109-69c9-0000-00129a92b3bd",
+        "gold_b": "01c81877-0109-69c1-0000-00129a92a3b9"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "ese",
+          "170040235.32"
+        ],
+        [
+          "ought",
+          "167899295.33"
+        ],
+        [
+          "able",
+          "171171893.21"
+        ],
+        [
+          "bar",
+          "169896094.25"
+        ],
+        [
+          "ation",
+          "165061909.70"
+        ],
+        [
+          "eing",
+          "169725675.40"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q20",
+      "query_ids": {
+        "gold_a": "01c81877-0109-674b-0000-00129a92f395",
+        "faulty_gold": "01c81877-0109-7379-0000-00129a92933d",
+        "gold_b": "01c81877-0109-674b-0000-00129a92f399"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "ese",
+          "780216.65178899"
+        ],
+        [
+          "ought",
+          "699907.95563265"
+        ],
+        [
+          "able",
+          "721444.78110169"
+        ],
+        [
+          "ation",
+          "579953.34898990"
+        ],
+        [
+          "bar",
+          "581741.56292517"
+        ],
+        [
+          "eing",
+          "609723.53827338"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q21",
+      "query_ids": {
+        "gold_a": "01c81877-0109-675f-0000-00129a92d335",
+        "faulty_gold": "01c81877-0109-7379-0000-00129a929341",
+        "gold_b": "01c81877-0109-7379-0000-00129a929345"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "482430648.46"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q22",
+      "query_ids": {
+        "gold_a": "01c81877-0109-7c31-0000-00129a9263f9",
+        "faulty_gold": "01c81877-0109-69c9-0000-00129a92b3c1",
+        "gold_b": "01c81877-0109-674b-0000-00129a92f39d"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "292412778.22"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q23",
+      "query_ids": {
+        "gold_a": "01c81877-0109-69c9-0000-00129a92b3c5",
+        "faulty_gold": "01c81877-0109-69c9-0000-00129a92b3c9",
+        "gold_b": "01c81877-0109-69c1-0000-00129a92a3bd"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "310159540.57"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    },
+    {
+      "id": "Q24",
+      "query_ids": {
+        "gold_a": "01c81877-0109-674b-0000-00129a92f3a1",
+        "faulty_gold": "01c81877-0109-675f-0000-00129a92d339",
+        "gold_b": "01c81877-0109-69c1-0000-00129a92a3c1"
+      },
+      "errors": {},
+      "gold_a_preview": [
+        [
+          "505304700.23"
+        ]
+      ],
+      "discriminable": true,
+      "gold_agree": true,
+      "cross_engine": true
+    }
+  ]
+}

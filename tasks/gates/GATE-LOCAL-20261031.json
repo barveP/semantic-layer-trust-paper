@@ -1,0 +1,969 @@
+{
+  "kind": "task-preparation gate on local DuckDB (not a study result)",
+  "utc": "2026-10-31T09:18:58+00:00",
+  "duckdb": "1.2.2",
+  "questions_sha256": "6b56c5422fefbe7922de1aa5f29a0f6db571f0306bb057850712bef1f67b8148",
+  "gold_b_sha256": null,
+  "passed": true,
+  "failures": [],
+  "questions": [
+    {
+      "id": "Q01",
+      "operator": "formula_drift",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "1019195414.78"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "917918948.37"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q02",
+      "operator": "formula_drift",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 10,
+      "gold_a_preview": [
+        [
+          "Jewelry",
+          "-41826544.17"
+        ],
+        [
+          "Men",
+          "-44679205.14"
+        ],
+        [
+          "Electronics",
+          "-45850839.21"
+        ],
+        [
+          "Home",
+          "-45156168.70"
+        ],
+        [
+          "Books",
+          "-42554626.81"
+        ],
+        [
+          "Sports",
+          "-44726777.18"
+        ],
+        [
+          "Music",
+          "-45713791.77"
+        ],
+        [
+          "Children",
+          "-44497059.68"
+        ],
+        [
+          "Women",
+          "-45027929.33"
+        ],
+        [
+          "Shoes",
+          "-44770375.59"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "Jewelry",
+          "-37380446.36"
+        ],
+        [
+          "Books",
+          "-38143535.75"
+        ],
+        [
+          "Sports",
+          "-40167312.47"
+        ],
+        [
+          "Electronics",
+          "-41227406.48"
+        ],
+        [
+          "Home",
+          "-40351629.71"
+        ],
+        [
+          "Men",
+          "-40043948.71"
+        ],
+        [
+          "Children",
+          "-39848548.39"
+        ],
+        [
+          "Music",
+          "-40781071.33"
+        ],
+        [
+          "Women",
+          "-40403652.48"
+        ],
+        [
+          "Shoes",
+          "-40006820.95"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q03",
+      "operator": "formula_drift",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "26792.076530638922"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "1893.9816403903835"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q04",
+      "operator": "formula_drift",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 4,
+      "gold_a_preview": [
+        [
+          "1999",
+          "21359.051632205712"
+        ],
+        [
+          "2000",
+          "21461.216006542578"
+        ],
+        [
+          "2001",
+          "21366.780184067084"
+        ],
+        [
+          "2002",
+          "21385.698541953232"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "1999",
+          "423.62618568869215"
+        ],
+        [
+          "2001",
+          "423.0811752620545"
+        ],
+        [
+          "2000",
+          "424.13983022422826"
+        ],
+        [
+          "2002",
+          "423.6829673627611"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q05",
+      "operator": "hidden_filter",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 2,
+      "gold_a_preview": [
+        [
+          "Fairview",
+          "167079520.63"
+        ],
+        [
+          "Midway",
+          "834265632.51"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "Fairview",
+          "166002570.59"
+        ],
+        [
+          "Midway",
+          "829141185.99"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q06",
+      "operator": "hidden_filter",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 10,
+      "gold_a_preview": [
+        [
+          "Jewelry",
+          "2561083"
+        ],
+        [
+          "Shoes",
+          "2729048"
+        ],
+        [
+          "Men",
+          "2702470"
+        ],
+        [
+          "Children",
+          "2737846"
+        ],
+        [
+          "Women",
+          "2725245"
+        ],
+        [
+          "Home",
+          "2752126"
+        ],
+        [
+          "Electronics",
+          "2772991"
+        ],
+        [
+          "Music",
+          "2784875"
+        ],
+        [
+          "Books",
+          "2609418"
+        ],
+        [
+          "Sports",
+          "2681707"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "Men",
+          "2670450"
+        ],
+        [
+          "Electronics",
+          "2737975"
+        ],
+        [
+          "Home",
+          "2718834"
+        ],
+        [
+          "Jewelry",
+          "2526604"
+        ],
+        [
+          "Books",
+          "2578662"
+        ],
+        [
+          "Sports",
+          "2650362"
+        ],
+        [
+          "Shoes",
+          "2698777"
+        ],
+        [
+          "Music",
+          "2750758"
+        ],
+        [
+          "Women",
+          "2693237"
+        ],
+        [
+          "Children",
+          "2702775"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q07",
+      "operator": "hidden_filter",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "-69024213.84"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "-42218358.28"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q08",
+      "operator": "hidden_filter",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "37923"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "36530"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q09",
+      "operator": "synonym",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "1036555271.90"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "932928816.40"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q10",
+      "operator": "synonym",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 10,
+      "gold_a_preview": [
+        [
+          "Electronics",
+          "90464812.23"
+        ],
+        [
+          "Home",
+          "90194050.72"
+        ],
+        [
+          "Men",
+          "90087660.49"
+        ],
+        [
+          "Sports",
+          "93043898.55"
+        ],
+        [
+          "Books",
+          "89228653.78"
+        ],
+        [
+          "Jewelry",
+          "89441615.44"
+        ],
+        [
+          "Children",
+          "90247557.13"
+        ],
+        [
+          "Women",
+          "88710081.56"
+        ],
+        [
+          "Shoes",
+          "93626596.66"
+        ],
+        [
+          "Music",
+          "94925132.70"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "Men",
+          "100138451.17"
+        ],
+        [
+          "Sports",
+          "103237480.14"
+        ],
+        [
+          "Books",
+          "99060957.31"
+        ],
+        [
+          "Electronics",
+          "100213072.14"
+        ],
+        [
+          "Home",
+          "100314123.30"
+        ],
+        [
+          "Jewelry",
+          "99335430.76"
+        ],
+        [
+          "Children",
+          "99969853.84"
+        ],
+        [
+          "Shoes",
+          "104091799.30"
+        ],
+        [
+          "Music",
+          "105343341.32"
+        ],
+        [
+          "Women",
+          "98752768.50"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q11",
+      "operator": "synonym",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 10,
+      "gold_a_preview": [
+        [
+          "Jewelry",
+          "2571127"
+        ],
+        [
+          "Books",
+          "2663474"
+        ],
+        [
+          "Sports",
+          "2628862"
+        ],
+        [
+          "Men",
+          "2653005"
+        ],
+        [
+          "Home",
+          "2696730"
+        ],
+        [
+          "Electronics",
+          "2749765"
+        ],
+        [
+          "Music",
+          "2809853"
+        ],
+        [
+          "Shoes",
+          "2767719"
+        ],
+        [
+          "Children",
+          "2650553"
+        ],
+        [
+          "Women",
+          "2684433"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "fragrances",
+          "705767"
+        ],
+        [
+          "wireless",
+          "160223"
+        ],
+        [
+          "dresses",
+          "656686"
+        ],
+        [
+          "school-uniforms",
+          "668040"
+        ],
+        [
+          "womens",
+          "692786"
+        ],
+        [
+          "lighting",
+          "182698"
+        ],
+        [
+          "paint",
+          "165350"
+        ],
+        [
+          "consignment",
+          "122222"
+        ],
+        [
+          "memory",
+          "192875"
+        ],
+        [
+          "self-help",
+          "161584"
+        ],
+        [
+          "baseball",
+          "155778"
+        ],
+        [
+          "bracelets",
+          "161926"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q12",
+      "operator": "synonym",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 5,
+      "gold_a_preview": [
+        [
+          "1998",
+          "-446002257.07"
+        ],
+        [
+          "1999",
+          "-440086740.75"
+        ],
+        [
+          "2000",
+          "-449428398.62"
+        ],
+        [
+          "2001",
+          "-441614103.16"
+        ],
+        [
+          "2002",
+          "-445712807.07"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "1998",
+          "-338106450.05"
+        ],
+        [
+          "1999",
+          "-335059259.10"
+        ],
+        [
+          "2000",
+          "-341725956.32"
+        ],
+        [
+          "2001",
+          "-335587453.43"
+        ],
+        [
+          "2002",
+          "-337963660.36"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q13",
+      "operator": "fiscal_definition",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "1031910937.27"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "1027591981.63"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q14",
+      "operator": "fiscal_definition",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 4,
+      "gold_a_preview": [
+        [
+          "2.0",
+          "-64888904.72"
+        ],
+        [
+          "3.0",
+          "-146554035.80"
+        ],
+        [
+          "4.0",
+          "-172515741.98"
+        ],
+        [
+          "1.0",
+          "-60435764.40"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "4.0",
+          "-62670508.60"
+        ],
+        [
+          "1.0",
+          "-118271864.33"
+        ],
+        [
+          "2.0",
+          "-196679152.57"
+        ],
+        [
+          "3.0",
+          "-68155033.48"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q15",
+      "operator": "fiscal_definition",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "2653590"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "2664115"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q16",
+      "operator": "fiscal_definition",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "21352.708528805084"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "21328.10216838065"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q17",
+      "operator": "relationship_key",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "368155924.23"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "365288357.25"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q18",
+      "operator": "relationship_key",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 5,
+      "gold_a_preview": [
+        [
+          "AAAAAAAAKDEFBAAA",
+          "162178.72"
+        ],
+        [
+          "AAAAAAAACCCMAAAA",
+          "137356.23"
+        ],
+        [
+          "AAAAAAAACACIBAAA",
+          "134000.81"
+        ],
+        [
+          "AAAAAAAAIMAHAAAA",
+          "130873.00"
+        ],
+        [
+          "AAAAAAAAKONGAAAA",
+          "130227.66"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "AAAAAAAAOBHDAAAA",
+          "164369.85"
+        ],
+        [
+          "AAAAAAAAOHEAAAAA",
+          "152815.38"
+        ],
+        [
+          "AAAAAAAADMPDAAAA",
+          "151076.04"
+        ],
+        [
+          "AAAAAAAALFLHAAAA",
+          "147343.51"
+        ],
+        [
+          "AAAAAAAAIKDCAAAA",
+          "147100.28"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q19",
+      "operator": "relationship_key",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 6,
+      "gold_a_preview": [
+        [
+          "bar",
+          "169896094.25"
+        ],
+        [
+          "ation",
+          "165061909.70"
+        ],
+        [
+          "eing",
+          "169725675.40"
+        ],
+        [
+          "ought",
+          "167899295.33"
+        ],
+        [
+          "ese",
+          "170040235.32"
+        ],
+        [
+          "able",
+          "171171893.21"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "eing",
+          "342343786.42"
+        ],
+        [
+          "cally",
+          "169896094.25"
+        ],
+        [
+          "bar",
+          "169725675.40"
+        ],
+        [
+          "able",
+          "334787585.10"
+        ],
+        [
+          "ese",
+          "170040235.32"
+        ],
+        [
+          "anti",
+          "169725675.40"
+        ],
+        [
+          "ought",
+          "171171893.21"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q20",
+      "operator": "relationship_key",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 6,
+      "gold_a_preview": [
+        [
+          "eing",
+          "609723.5382733812"
+        ],
+        [
+          "bar",
+          "581741.5629251701"
+        ],
+        [
+          "ation",
+          "579953.348989899"
+        ],
+        [
+          "ought",
+          "699907.9556326531"
+        ],
+        [
+          "ese",
+          "780216.6517889908"
+        ],
+        [
+          "able",
+          "721444.7811016949"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "able",
+          "1448090.2046186442"
+        ],
+        [
+          "ese",
+          "780216.6517889908"
+        ],
+        [
+          "anti",
+          "588552.5820833333"
+        ],
+        [
+          "ought",
+          "694942.7279183674"
+        ],
+        [
+          "eing",
+          "1224899.0528057555"
+        ],
+        [
+          "bar",
+          "576541.3048979591"
+        ],
+        [
+          "cally",
+          "746864.7139737991"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q21",
+      "operator": "value_mapping",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "482430648.46"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "495771101.40"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q22",
+      "operator": "value_mapping",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "291302273.22"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "727893141.56"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q23",
+      "operator": "value_mapping",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "310159540.57"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "315521829.02"
+        ]
+      ],
+      "discriminable": true
+    },
+    {
+      "id": "Q24",
+      "operator": "value_mapping",
+      "gold_a_error": null,
+      "faulty_error": null,
+      "gold_a_rows": 1,
+      "gold_a_preview": [
+        [
+          "505304700.23"
+        ]
+      ],
+      "faulty_preview": [
+        [
+          "670724690.20"
+        ]
+      ],
+      "discriminable": true
+    }
+  ]
+}
