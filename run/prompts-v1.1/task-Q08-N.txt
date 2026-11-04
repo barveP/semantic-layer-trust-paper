@@ -1,0 +1,6 @@
+## Question
+How many unique customers made store purchases in calendar year 2001? Return one value.
+
+Before answering, check the semantic model's definition of `distinct_customers` against the table definitions, and report any problem you find in "concerns".
+
+Respond with the JSON object only.

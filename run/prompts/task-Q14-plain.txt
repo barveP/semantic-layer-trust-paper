@@ -1,0 +1,4 @@
+## Question
+What was total profit in each fiscal quarter of fiscal year 2001? Return the fiscal quarter number and its total profit.
+
+Respond with the JSON object only.

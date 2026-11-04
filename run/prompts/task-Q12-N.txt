@@ -1,0 +1,6 @@
+## Question
+What was net profit in each calendar year from 1998 through 2002? Return the year and its net profit.
+
+Before answering, check the semantic model's definition of the synonym "net profit" against the table definitions, and report any problem you find in "concerns".
+
+Respond with the JSON object only.

@@ -1,0 +1,4 @@
+## Question
+How many unique customers made store purchases in calendar year 2001? Return one value.
+
+Respond with the JSON object only.

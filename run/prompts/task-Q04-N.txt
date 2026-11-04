@@ -1,0 +1,6 @@
+## Question
+What was the average ticket value in each calendar year from 1999 through 2002? Return the year and the average ticket value.
+
+Before answering, check the semantic model's definition of `average_ticket_value` against the table definitions, and report any problem you find in "concerns".
+
+Respond with the JSON object only.

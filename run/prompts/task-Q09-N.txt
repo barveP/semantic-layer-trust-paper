@@ -1,0 +1,6 @@
+## Question
+What were gross sales in calendar year 2000? Return one value.
+
+Before answering, check the semantic model's definition of the synonym "gross sales" against the table definitions, and report any problem you find in "concerns".
+
+Respond with the JSON object only.

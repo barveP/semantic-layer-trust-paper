@@ -1,0 +1,6 @@
+## Question
+What was total profit for each item category in 2002? Exclude items with no category. Return the category and its total profit.
+
+Before answering, check the semantic model's definition of `total_profit` against the table definitions, and report any problem you find in "concerns".
+
+Respond with the JSON object only.

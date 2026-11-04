@@ -1,0 +1,4 @@
+## Question
+What were total sales in 1999 for each store city? Return the city and its total sales.
+
+Respond with the JSON object only.

@@ -1,0 +1,4 @@
+## Question
+How many units were sold in each department in 2001? Exclude items with no department. Return the department and the units sold.
+
+Respond with the JSON object only.

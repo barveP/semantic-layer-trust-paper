@@ -1,0 +1,4 @@
+## Question
+How many units were sold in each item category in 2002? Exclude items with no category. Return the category and the units sold.
+
+Respond with the JSON object only.

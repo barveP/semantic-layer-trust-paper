@@ -1,0 +1,4 @@
+## Question
+What was the average ticket value in each calendar year from 1999 through 2002? Return the year and the average ticket value.
+
+Respond with the JSON object only.

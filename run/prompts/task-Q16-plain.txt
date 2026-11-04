@@ -1,0 +1,4 @@
+## Question
+What was the average ticket value in fiscal year 2001? Return one value.
+
+Respond with the JSON object only.

@@ -1,0 +1,4 @@
+## Question
+What was net profit in each calendar year from 1998 through 2002? Return the year and its net profit.
+
+Respond with the JSON object only.

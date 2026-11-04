@@ -1,0 +1,4 @@
+## Question
+Which 5 customers had the highest total sales in calendar year 1999? Return each customer's customer ID and total sales.
+
+Respond with the JSON object only.

@@ -1,0 +1,4 @@
+## Question
+What were total sales in calendar year 2001 to customers born before 1950? Return one value.
+
+Respond with the JSON object only.

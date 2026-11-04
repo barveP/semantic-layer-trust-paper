@@ -1,0 +1,4 @@
+## Question
+What was total profit in the first quarter (January to March) of calendar year 2000? Return one value.
+
+Respond with the JSON object only.

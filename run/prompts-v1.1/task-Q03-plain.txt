@@ -1,0 +1,4 @@
+## Question
+What was customer lifetime value (CLV), computed over store sales made in 2000 only? Return one value.
+
+Respond with the JSON object only.

@@ -1,0 +1,6 @@
+## Question
+What were total sales in calendar year 2001? Return one value.
+
+Before answering, check the semantic model against the table definitions and the question, and report any problem you find in "concerns".
+
+Respond with the JSON object only.

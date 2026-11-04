@@ -1,0 +1,624 @@
+## Table definitions (Snowflake)
+```sql
+CREATE TABLE SLSTUDY.TPCDS_SF1.customer (
+  c_customer_sk INTEGER,
+  c_customer_id VARCHAR,
+  c_current_cdemo_sk INTEGER,
+  c_current_hdemo_sk INTEGER,
+  c_current_addr_sk INTEGER,
+  c_first_shipto_date_sk INTEGER,
+  c_first_sales_date_sk INTEGER,
+  c_salutation VARCHAR,
+  c_first_name VARCHAR,
+  c_last_name VARCHAR,
+  c_preferred_cust_flag VARCHAR,
+  c_birth_day INTEGER,
+  c_birth_month INTEGER,
+  c_birth_year INTEGER,
+  c_birth_country VARCHAR,
+  c_login VARCHAR,
+  c_email_address VARCHAR,
+  c_last_review_date_sk INTEGER
+);
+
+CREATE TABLE SLSTUDY.TPCDS_SF1.date_dim (
+  d_date_sk INTEGER,
+  d_date_id VARCHAR,
+  d_date DATE,
+  d_month_seq INTEGER,
+  d_week_seq INTEGER,
+  d_quarter_seq INTEGER,
+  d_year INTEGER,
+  d_dow INTEGER,
+  d_moy INTEGER,
+  d_dom INTEGER,
+  d_qoy INTEGER,
+  d_fy_year INTEGER,
+  d_fy_quarter_seq INTEGER,
+  d_fy_week_seq INTEGER,
+  d_day_name VARCHAR,
+  d_quarter_name VARCHAR,
+  d_holiday VARCHAR,
+  d_weekend VARCHAR,
+  d_following_holiday VARCHAR,
+  d_first_dom INTEGER,
+  d_last_dom INTEGER,
+  d_same_day_ly INTEGER,
+  d_same_day_lq INTEGER,
+  d_current_day VARCHAR,
+  d_current_week VARCHAR,
+  d_current_month VARCHAR,
+  d_current_quarter VARCHAR,
+  d_current_year VARCHAR
+);
+
+CREATE TABLE SLSTUDY.TPCDS_SF1.item (
+  i_item_sk INTEGER,
+  i_item_id VARCHAR,
+  i_rec_start_date DATE,
+  i_rec_end_date DATE,
+  i_item_desc VARCHAR,
+  i_current_price NUMBER(7,2),
+  i_wholesale_cost NUMBER(7,2),
+  i_brand_id INTEGER,
+  i_brand VARCHAR,
+  i_class_id INTEGER,
+  i_class VARCHAR,
+  i_category_id INTEGER,
+  i_category VARCHAR,
+  i_manufact_id INTEGER,
+  i_manufact VARCHAR,
+  i_size VARCHAR,
+  i_formulation VARCHAR,
+  i_color VARCHAR,
+  i_units VARCHAR,
+  i_container VARCHAR,
+  i_manager_id INTEGER,
+  i_product_name VARCHAR
+);
+
+CREATE TABLE SLSTUDY.TPCDS_SF1.store (
+  s_store_sk INTEGER,
+  s_store_id VARCHAR,
+  s_rec_start_date DATE,
+  s_rec_end_date DATE,
+  s_closed_date_sk INTEGER,
+  s_store_name VARCHAR,
+  s_number_employees INTEGER,
+  s_floor_space INTEGER,
+  s_hours VARCHAR,
+  s_manager VARCHAR,
+  s_market_id INTEGER,
+  s_geography_class VARCHAR,
+  s_market_desc VARCHAR,
+  s_market_manager VARCHAR,
+  s_division_id INTEGER,
+  s_division_name VARCHAR,
+  s_company_id INTEGER,
+  s_company_name VARCHAR,
+  s_street_number VARCHAR,
+  s_street_name VARCHAR,
+  s_street_type VARCHAR,
+  s_suite_number VARCHAR,
+  s_city VARCHAR,
+  s_county VARCHAR,
+  s_state VARCHAR,
+  s_zip VARCHAR,
+  s_country VARCHAR,
+  s_gmt_offset NUMBER(5,2),
+  s_tax_percentage NUMBER(5,2)
+);
+
+CREATE TABLE SLSTUDY.TPCDS_SF1.store_sales (
+  ss_sold_date_sk INTEGER,
+  ss_sold_time_sk INTEGER,
+  ss_item_sk INTEGER,
+  ss_customer_sk INTEGER,
+  ss_cdemo_sk INTEGER,
+  ss_hdemo_sk INTEGER,
+  ss_addr_sk INTEGER,
+  ss_store_sk INTEGER,
+  ss_promo_sk INTEGER,
+  ss_ticket_number INTEGER,
+  ss_quantity INTEGER,
+  ss_wholesale_cost NUMBER(7,2),
+  ss_list_price NUMBER(7,2),
+  ss_sales_price NUMBER(7,2),
+  ss_ext_discount_amt NUMBER(7,2),
+  ss_ext_sales_price NUMBER(7,2),
+  ss_ext_wholesale_cost NUMBER(7,2),
+  ss_ext_list_price NUMBER(7,2),
+  ss_ext_tax NUMBER(7,2),
+  ss_coupon_amt NUMBER(7,2),
+  ss_net_paid NUMBER(7,2),
+  ss_net_paid_inc_tax NUMBER(7,2),
+  ss_net_profit NUMBER(7,2)
+);
+```
+
+## Semantic model (Apache Ossie YAML)
+```yaml
+version: 0.2.0.dev0
+name: tpcds_retail_model
+datasets:
+- name: store_sales
+  source: SLSTUDY.TPCDS_SF1.store_sales
+  primary_key:
+  - ss_item_sk
+  - ss_ticket_number
+  unique_keys:
+  - - ss_item_sk
+    - ss_ticket_number
+  fields:
+  - name: ss_sold_date_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_sold_date_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: ss_item_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_item_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: ss_ticket_number
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_ticket_number
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: ss_customer_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_customer_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: ss_store_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_store_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: ss_quantity
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_quantity
+    datatype: Integer
+  - name: ss_sales_price
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_sales_price
+    datatype: Decimal
+  - name: ss_ext_sales_price
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_ext_sales_price
+    datatype: Decimal
+  - name: ss_net_profit
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_net_profit
+    datatype: Decimal
+  - name: ss_net_paid
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_net_paid
+    datatype: Decimal
+  - name: ss_net_paid_inc_tax
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_net_paid_inc_tax
+    datatype: Decimal
+  - name: ss_ext_wholesale_cost
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_ext_wholesale_cost
+    datatype: Decimal
+  - name: ss_coupon_amt
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: ss_coupon_amt
+    datatype: Decimal
+  metrics:
+  - name: total_quantity
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: SUM(ss_quantity)
+    datatype: Integer
+- name: date_dim
+  source: SLSTUDY.TPCDS_SF1.date_dim
+  primary_key:
+  - d_date_sk
+  unique_keys:
+  - - d_date_sk
+  fields:
+  - name: d_date_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: d_date_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: d_date
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: d_date
+    datatype: Date
+    dimension: {}
+  - name: d_year
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: d_year
+    datatype: Integer
+    dimension:
+      is_time: true
+  - name: d_quarter_name
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: d_quarter_name
+    dimension:
+      is_time: true
+  - name: d_moy
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: d_moy
+    dimension:
+      is_time: true
+  - name: fiscal_year
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: CASE WHEN d_moy >= 2 THEN d_year ELSE d_year - 1 END
+    dimension:
+      is_time: false
+    datatype: Integer
+  - name: fiscal_quarter
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: FLOOR(MOD(d_moy + 10, 12) / 3) + 1
+    dimension:
+      is_time: false
+    datatype: Integer
+  - name: is_weekend
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: d_weekend = 'Y'
+    dimension:
+      is_time: false
+    datatype: Boolean
+- name: customer
+  source: SLSTUDY.TPCDS_SF1.customer
+  primary_key:
+  - c_customer_sk
+  unique_keys:
+  - - c_customer_sk
+  - - c_customer_id
+  fields:
+  - name: c_customer_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_customer_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: c_customer_id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_customer_id
+    datatype: String
+    dimension:
+      is_time: false
+  - name: c_first_name
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_first_name
+    datatype: String
+    dimension:
+      is_time: false
+  - name: c_last_name
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_last_name
+    datatype: String
+    dimension:
+      is_time: false
+  - name: customer_full_name
+    expression:
+      sql: c_first_name || ' ' || c_last_name
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_first_name || ' ' || c_last_name
+    datatype: String
+    dimension:
+      is_time: false
+  - name: c_email_address
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_email_address
+    datatype: String
+    dimension:
+      is_time: false
+  - name: c_birth_year
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_birth_year
+    dimension:
+      is_time: false
+    datatype: Integer
+  - name: is_preferred_customer
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: c_preferred_cust_flag = 'Y'
+    dimension:
+      is_time: false
+    datatype: Boolean
+- name: item
+  source: SLSTUDY.TPCDS_SF1.item
+  primary_key:
+  - i_item_sk
+  unique_keys:
+  - - i_item_sk
+  fields:
+  - name: i_item_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_item_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: i_item_id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_item_id
+    datatype: String
+    dimension:
+      is_time: false
+  - name: i_item_desc
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_item_desc
+    datatype: String
+    dimension:
+      is_time: false
+  - name: i_brand
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_brand
+    datatype: String
+    dimension:
+      is_time: false
+  - name: i_category
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_category
+    datatype: String
+    dimension:
+      is_time: false
+  - name: i_current_price
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_current_price
+    datatype: Decimal
+    dimension:
+      is_time: false
+  - name: i_class
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_class
+    dimension:
+      is_time: false
+    datatype: String
+  - name: is_apparel
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: i_category IN ('Men', 'Women', 'Children')
+    dimension:
+      is_time: false
+    datatype: Boolean
+- name: store
+  source: SLSTUDY.TPCDS_SF1.store
+  primary_key:
+  - s_store_sk
+  unique_keys:
+  - - s_store_sk
+  fields:
+  - name: s_store_sk
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: s_store_sk
+    datatype: Integer
+    dimension:
+      is_time: false
+  - name: s_store_id
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: s_store_id
+    datatype: String
+    dimension:
+      is_time: false
+  - name: s_store_name
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: s_store_name
+    datatype: String
+    dimension:
+      is_time: false
+  - name: s_city
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: s_city
+    datatype: String
+    dimension:
+      is_time: false
+  - name: s_state
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: s_state
+    datatype: String
+    dimension:
+      is_time: false
+  - name: s_number_employees
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: s_number_employees
+    datatype: Integer
+  - name: store_size_class
+    expression:
+      dialects:
+      - dialect: ANSI_SQL
+        expression: CASE WHEN s_number_employees >= 270 THEN 'large' ELSE 'standard' END
+    dimension:
+      is_time: false
+    datatype: String
+relationships:
+- name: store_sales_to_date
+  from: store_sales
+  to: date_dim
+  from_columns:
+  - ss_sold_date_sk
+  to_columns:
+  - d_date_sk
+- name: store_sales_to_customer
+  from: store_sales
+  to: customer
+  from_columns:
+  - ss_customer_sk
+  to_columns:
+  - c_customer_sk
+- name: store_sales_to_item
+  from: store_sales
+  to: item
+  from_columns:
+  - ss_item_sk
+  to_columns:
+  - i_item_sk
+- name: store_sales_to_store
+  from: store_sales
+  to: store
+  from_columns:
+  - ss_store_sk
+  to_columns:
+  - s_store_sk
+metrics:
+- name: total_sales
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_ext_sales_price)
+  datatype: Decimal
+- name: total_profit
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_net_profit)
+  datatype: Decimal
+- name: customer_lifetime_value
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_ext_sales_price) / COUNT(DISTINCT customer.c_customer_sk)
+  datatype: Decimal
+- name: sales_by_brand
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_ext_sales_price)
+  datatype: Decimal
+- name: store_productivity
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_ext_sales_price) / NULLIF(MAX(store.s_number_employees), 0)
+  datatype: Decimal
+- name: cumulative_sales
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(SUM(store_sales.ss_ext_sales_price)) OVER (ORDER BY date_dim.d_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+  datatype: Decimal
+- name: brand_rank_in_store
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: RANK() OVER (PARTITION BY store.s_store_sk ORDER BY SUM(store_sales.ss_ext_sales_price) DESC)
+  datatype: Integer
+- name: monthly_sales_change
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_ext_sales_price) - LAG(SUM(store_sales.ss_ext_sales_price), 1) OVER (ORDER BY date_dim.d_year, date_dim.d_moy)
+  datatype: Decimal
+- name: net_sales
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_net_paid)
+  datatype: Decimal
+- name: gross_profit
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_ext_sales_price - store_sales.ss_ext_wholesale_cost)
+  datatype: Decimal
+- name: average_ticket_value
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: SUM(store_sales.ss_ext_sales_price) / COUNT(DISTINCT store_sales.ss_ticket_number)
+  datatype: Decimal
+- name: distinct_customers
+  expression:
+    dialects:
+    - dialect: ANSI_SQL
+      expression: COUNT(DISTINCT store_sales.ss_customer_sk)
+  datatype: Integer
+```
+

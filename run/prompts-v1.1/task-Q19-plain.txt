@@ -1,0 +1,4 @@
+## Question
+What were total sales in calendar year 2002 for each store, by store name? Return the store name and its total sales.
+
+Respond with the JSON object only.

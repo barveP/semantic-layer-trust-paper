@@ -1,0 +1,4 @@
+## Question
+What was store productivity (sales per employee) for each store in calendar year 2000, by store name? Return the store name and its productivity.
+
+Respond with the JSON object only.

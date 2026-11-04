@@ -1,0 +1,6 @@
+## Question
+What were total sales in calendar year 2001 to customers born before 1950? Return one value.
+
+Before answering, check the semantic model's definition of `store_sales_to_customer` against the table definitions, and report any problem you find in "concerns".
+
+Respond with the JSON object only.

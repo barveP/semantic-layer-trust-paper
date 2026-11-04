@@ -1,0 +1,143 @@
+{
+  "question_set": "v1.1",
+  "builder_sha256": "023c54e9cee3deb4fbac2ff09d5ee1e6ba89c054ecaffa44dafee9ee2a721da8",
+  "models": {
+    "opus": "claude-opus-5-5@high",
+    "sol": "gpt-6.1-sol@high",
+    "haiku": "claude-haiku-5-5@medium"
+  },
+  "arms": {
+    "C0": [
+      "C0",
+      "plain"
+    ],
+    "C1": [
+      "C1",
+      "plain"
+    ],
+    "E": [
+      "E",
+      "plain"
+    ],
+    "F1": [
+      "F1",
+      "plain"
+    ],
+    "F2": [
+      "F2",
+      "plain"
+    ],
+    "C1A": [
+      "C1",
+      "A"
+    ],
+    "F1A": [
+      "F1",
+      "A"
+    ],
+    "F2A": [
+      "F2",
+      "A"
+    ],
+    "C1N": [
+      "C1",
+      "N"
+    ],
+    "F1N": [
+      "F1",
+      "N"
+    ],
+    "F2N": [
+      "F2",
+      "N"
+    ],
+    "C1a": [
+      "C1a",
+      "plain"
+    ],
+    "C1b": [
+      "C1b",
+      "plain"
+    ]
+  },
+  "stages": {
+    "pilot": {
+      "questions": [
+        "Q01",
+        "Q02",
+        "Q05",
+        "Q06",
+        "Q09",
+        "Q10",
+        "Q13",
+        "Q14",
+        "Q17",
+        "Q18",
+        "Q21",
+        "Q22"
+      ],
+      "arms": [
+        "C0",
+        "C1",
+        "F1",
+        "F2",
+        "F2A"
+      ],
+      "reps": 1
+    },
+    "main": [
+      {
+        "questions": "all",
+        "arms": [
+          "C0",
+          "C1",
+          "E",
+          "F1",
+          "F2",
+          "C1A",
+          "F1A",
+          "F2A"
+        ],
+        "reps": 2
+      },
+      {
+        "questions": [
+          "Q01",
+          "Q02",
+          "Q05",
+          "Q06",
+          "Q09",
+          "Q10",
+          "Q13",
+          "Q14",
+          "Q17",
+          "Q18",
+          "Q21",
+          "Q22"
+        ],
+        "arms": [
+          "C1N",
+          "F1N",
+          "F2N",
+          "C1a",
+          "C1b"
+        ],
+        "reps": 2
+      }
+    ]
+  },
+  "plans": {
+    "pilot": {
+      "lines": 180,
+      "sha256": "4845ff42c5f43caf2d3ae3508c83fe617e44c138dad5f383c653cea2a3d1f0ac"
+    },
+    "main": {
+      "lines": 1512,
+      "sha256": "7259d4e7988fddb601f495c8b2d67a0ef460b84309fbc6bac5812d7aa860508b"
+    },
+    "probe": {
+      "lines": 3,
+      "sha256": "ecb74af17d69cd6417a74cc7ac6e431ea04e33e209148786487d0f112f765078"
+    }
+  }
+}

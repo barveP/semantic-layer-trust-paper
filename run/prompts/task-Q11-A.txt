@@ -1,0 +1,6 @@
+## Question
+How many units were sold in each department in 2001? Exclude items with no department. Return the department and the units sold.
+
+Before answering, check the semantic model against the table definitions and the question, and report any problem you find in "concerns".
+
+Respond with the JSON object only.
