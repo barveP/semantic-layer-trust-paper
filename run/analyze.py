@@ -143,8 +143,25 @@ def main():
                "gee_check": gee_check(df, outcome, a, b), "per_model": {}}
         for model, g in df.groupby("model"):
             res["per_model"][model] = paired_diff(g, outcome, a, b, rng=rng)
-        res["status"] = "pre-registered" if name in HYPOTHESES else "exploratory (added after the pilot)"
+        res["status"] = "protocol-specified" if name in HYPOTHESES else "exploratory (added after the pilot)"
         out["hypotheses"][name] = res
+
+    out["flagged_following"] = {}
+    for (model, arm), g in fa.groupby(["model", "arm"]):
+        follows = g[g["fault_match"] == 1]
+        out["flagged_following"][f"{model}/{arm}"] = {
+            "followed": int(len(follows)),
+            "any_layer_concern": int(follows["d1"].sum()),
+            "located_concern": int(follows["d2"].sum()),
+            "without_located_concern": int(len(follows) - follows["d2"].sum())}
+
+    if stage == "main":
+        rq2 = {"description": "Protocol RQ2: wrong layer versus no layer; direction not specified in advance.",
+               "C0_minus_F1_correct": paired_diff(df, "correct", "C0", "F1"),
+               "C0_minus_F2_correct": paired_diff(df, "correct", "C0", "F2"),
+               "per_model_C0_minus_F1": {model: paired_diff(g, "correct", "C0", "F1")
+                                         for model, g in df.groupby("model")}}
+        (RES / "main-RQ2-WRONG-VS-NONE.json").write_text(json.dumps(rq2, indent=2) + "\n")
 
     (RES / f"{stage}-ANALYSIS.json").write_text(json.dumps(out, indent=2, default=float) + "\n")
 
