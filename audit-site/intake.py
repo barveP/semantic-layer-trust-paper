@@ -79,7 +79,11 @@ def load_rows(sample_path=SAMPLE, ratings_path=RATINGS):
     for s in sample:
         rating = indexed[s['item']]
         match = TRIAL.fullmatch(s['trial_id'])
-        if not match or rating['trial_id'] != s['trial_id']:
+        supplied_trial = rating.get('trial_id')
+        sample_hash = hashlib.sha256(sample_path.read_bytes()).hexdigest()
+        if supplied_trial is None and rating.get('sample_csv_sha256') != sample_hash:
+            raise ValueError(f"Sample checksum mismatch for item {s['item']}")
+        if not match or (supplied_trial is not None and supplied_trial != s['trial_id']):
             raise ValueError(f"Trial identifier mismatch for item {s['item']}")
         arm = match.group(3)
         fault = arm in FAULT_ARMS
