@@ -1,0 +1,565 @@
+# Question set v1.1 for the wrong-layer study (31 October 2026; used by the main run).
+# Changed from v1 after the pilot, before any main-run call (see operations/POST-PILOT-AMENDMENT-01.md):
+#   Q22 redesigned. In TPC-DS SF1 the source flag d_weekend = 'Y' marks Fridays and Saturdays, so
+#   the v1 base layer's is_weekend (d_weekend = 'Y') was itself semantically wrong (an agent noticed
+#   it on the correct layer in the pilot). v1.1 base: is_weekend = d_day_name IN ('Saturday', 'Sunday');
+#   fault: trust the source flag (d_weekend = 'Y').
+# Every other question is unchanged from v1.
+#
+# Each question is anchored on one layer element that one fault operator changes.
+#   gold_a       correct answer under the base (correct) layer
+#   faulty_gold  the answer an agent gets by following the faulted layer faithfully
+#   fault        edits applied to the base layer. F2 applies every edit except descriptions;
+#                F1 applies descriptions too, so the layer text agrees with the fault.
+#   remove       elements deleted in arm E (element removed)
+#   mutated_ids  identifiers that count as "located" (D2) for this question
+# SQL is written in a subset that runs on both DuckDB and Snowflake, against unqualified
+# table names in schema TPCDS_SF1. Element kinds: metric (model-level), dataset_metric,
+# field (dataset.name), relationship, synonym.
+
+questions:
+
+# ---------------------------------------------------------------- formula drift
+- id: Q01
+  operator: formula_drift
+  question: "What were total sales in calendar year 2001? Return one value."
+  mutated_ids: [total_sales]
+  remove: [{kind: metric, name: total_sales}]
+  fault:
+    - kind: metric
+      name: total_sales
+      expression: "SUM(store_sales.ss_net_paid)"
+      f1_description: "Total sales revenue: sum of the net amount paid (after discounts and coupons, excluding tax) across all store sales transactions"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2001
+  faulty_gold: |
+    SELECT SUM(ss.ss_net_paid) AS total_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2001
+
+- id: Q02
+  operator: formula_drift
+  question: "What was total profit for each item category in 2002? Exclude items with no category. Return the category and its total profit."
+  mutated_ids: [total_profit]
+  remove: [{kind: metric, name: total_profit}]
+  fault:
+    - kind: metric
+      name: total_profit
+      expression: "SUM(store_sales.ss_net_paid_inc_tax - store_sales.ss_ext_wholesale_cost)"
+      f1_description: "Total net profit from store sales: net amount paid including tax, minus the extended wholesale cost"
+  gold_a: |
+    SELECT i.i_category, SUM(ss.ss_net_profit) AS total_profit
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2002 AND i.i_category IS NOT NULL
+    GROUP BY i.i_category
+  faulty_gold: |
+    SELECT i.i_category, SUM(ss.ss_net_paid_inc_tax - ss.ss_ext_wholesale_cost) AS total_profit
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2002 AND i.i_category IS NOT NULL
+    GROUP BY i.i_category
+
+- id: Q03
+  operator: formula_drift
+  question: "What was customer lifetime value (CLV), computed over store sales made in 2000 only? Return one value."
+  mutated_ids: [customer_lifetime_value]
+  remove: [{kind: metric, name: customer_lifetime_value}]
+  fault:
+    - kind: metric
+      name: customer_lifetime_value
+      expression: "SUM(store_sales.ss_ext_sales_price) / COUNT(customer.c_customer_sk)"
+      f1_description: "Average sales value per customer purchase line: total extended sales price divided by the number of sales lines with a customer"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) / COUNT(DISTINCT c.c_customer_sk) AS clv
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_customer_sk = c.c_customer_sk
+    WHERE d.d_year = 2000
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) / COUNT(c.c_customer_sk) AS clv
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_customer_sk = c.c_customer_sk
+    WHERE d.d_year = 2000
+
+- id: Q04
+  operator: formula_drift
+  question: "What was the average ticket value in each calendar year from 1999 through 2002? Return the year and the average ticket value."
+  mutated_ids: [average_ticket_value]
+  remove: [{kind: metric, name: average_ticket_value}]
+  fault:
+    - kind: metric
+      name: average_ticket_value
+      expression: "SUM(store_sales.ss_sales_price) / COUNT(DISTINCT store_sales.ss_ticket_number)"
+      f1_description: "Average value of a sales ticket: sum of unit sales prices divided by the number of distinct tickets"
+  gold_a: |
+    SELECT d.d_year, SUM(ss.ss_ext_sales_price) / COUNT(DISTINCT ss.ss_ticket_number) AS avg_ticket
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year BETWEEN 1999 AND 2002
+    GROUP BY d.d_year
+  faulty_gold: |
+    SELECT d.d_year, SUM(ss.ss_sales_price) / COUNT(DISTINCT ss.ss_ticket_number) AS avg_ticket
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year BETWEEN 1999 AND 2002
+    GROUP BY d.d_year
+
+# ---------------------------------------------------------------- hidden scope filter
+- id: Q05
+  operator: hidden_filter
+  question: "What were total sales in 1999 for each store city? Return the city and its total sales."
+  mutated_ids: [total_sales]
+  remove: [{kind: metric, name: total_sales}]
+  fault:
+    - kind: metric
+      name: total_sales
+      expression: "SUM(CASE WHEN store_sales.ss_customer_sk IS NOT NULL THEN store_sales.ss_ext_sales_price END)"
+      f1_description: "Total sales revenue: sum of the extended sales price (quantity × unit sales price, before discounts and coupons) across store sales transactions with an identified customer; anonymous sales are excluded"
+  gold_a: |
+    SELECT s.s_city, SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_store_sk
+    WHERE d.d_year = 1999
+    GROUP BY s.s_city
+  faulty_gold: |
+    SELECT s.s_city, SUM(CASE WHEN ss.ss_customer_sk IS NOT NULL THEN ss.ss_ext_sales_price END) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_store_sk
+    WHERE d.d_year = 1999
+    GROUP BY s.s_city
+
+- id: Q06
+  operator: hidden_filter
+  question: "How many units were sold in each item category in 2002? Exclude items with no category. Return the category and the units sold."
+  mutated_ids: [total_quantity]
+  remove: [{kind: dataset_metric, dataset: store_sales, name: total_quantity}]
+  fault:
+    - kind: dataset_metric
+      dataset: store_sales
+      name: total_quantity
+      expression: "SUM(CASE WHEN ss_store_sk IS NOT NULL THEN ss_quantity END)"
+      f1_description: "Total quantity sold across store sales that are attributed to a store; sales with no store recorded are excluded"
+  gold_a: |
+    SELECT i.i_category, SUM(ss.ss_quantity) AS units
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2002 AND i.i_category IS NOT NULL
+    GROUP BY i.i_category
+  faulty_gold: |
+    SELECT i.i_category, SUM(CASE WHEN ss.ss_store_sk IS NOT NULL THEN ss.ss_quantity END) AS units
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2002 AND i.i_category IS NOT NULL
+    GROUP BY i.i_category
+
+- id: Q07
+  operator: hidden_filter
+  question: "What was total profit in the first quarter (January to March) of calendar year 2000? Return one value."
+  mutated_ids: [total_profit]
+  remove: [{kind: metric, name: total_profit}]
+  fault:
+    - kind: metric
+      name: total_profit
+      expression: "SUM(CASE WHEN store_sales.ss_coupon_amt = 0 THEN store_sales.ss_net_profit END)"
+      f1_description: "Total net profit from store sales made without a coupon (net amount paid after discounts, minus extended wholesale cost); coupon sales are excluded"
+  gold_a: |
+    SELECT SUM(ss.ss_net_profit) AS total_profit
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2000 AND d.d_moy BETWEEN 1 AND 3
+  faulty_gold: |
+    SELECT SUM(CASE WHEN ss.ss_coupon_amt = 0 THEN ss.ss_net_profit END) AS total_profit
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2000 AND d.d_moy BETWEEN 1 AND 3
+
+- id: Q08
+  operator: hidden_filter
+  question: "How many unique customers made store purchases in calendar year 2001? Return one value."
+  mutated_ids: [distinct_customers]
+  remove: [{kind: metric, name: distinct_customers}]
+  fault:
+    - kind: metric
+      name: distinct_customers
+      expression: "COUNT(DISTINCT CASE WHEN store_sales.ss_net_profit > 0 THEN store_sales.ss_customer_sk END)"
+      f1_description: "Number of distinct identified customers with at least one profitable store purchase"
+  gold_a: |
+    SELECT COUNT(DISTINCT ss.ss_customer_sk) AS customers
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2001
+  faulty_gold: |
+    SELECT COUNT(DISTINCT CASE WHEN ss.ss_net_profit > 0 THEN ss.ss_customer_sk END) AS customers
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2001
+
+# ---------------------------------------------------------------- synonym mis-mapping
+- id: Q09
+  operator: synonym
+  question: "What were gross sales in calendar year 2000? Return one value."
+  mutated_ids: [total_sales, net_sales]
+  remove: [{kind: synonym, owner: {kind: metric, name: total_sales}, synonym: "gross sales"}]
+  fault:
+    - kind: synonym
+      synonym: "gross sales"
+      from: {kind: metric, name: total_sales}
+      to: {kind: metric, name: net_sales}
+      f1_to_description: "Gross sales: net amount paid after discounts and coupons, excluding tax"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS gross_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2000
+  faulty_gold: |
+    SELECT SUM(ss.ss_net_paid) AS gross_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2000
+
+- id: Q10
+  operator: synonym
+  question: "What was net revenue for each item category in 1999? Exclude items with no category. Return the category and its net revenue."
+  mutated_ids: [net_sales, total_sales]
+  remove: [{kind: synonym, owner: {kind: metric, name: net_sales}, synonym: "net revenue"}]
+  fault:
+    - kind: synonym
+      synonym: "net revenue"
+      from: {kind: metric, name: net_sales}
+      to: {kind: metric, name: total_sales}
+      f1_from_description: "Sales after discounts and coupons, excluding tax"
+      f1_to_description: "Total sales revenue, also reported as net revenue: sum of the extended sales price (quantity × unit sales price, before discounts and coupons) across all store sales transactions"
+  gold_a: |
+    SELECT i.i_category, SUM(ss.ss_net_paid) AS net_revenue
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 1999 AND i.i_category IS NOT NULL
+    GROUP BY i.i_category
+  faulty_gold: |
+    SELECT i.i_category, SUM(ss.ss_ext_sales_price) AS net_revenue
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 1999 AND i.i_category IS NOT NULL
+    GROUP BY i.i_category
+
+- id: Q11
+  operator: synonym
+  question: "How many units were sold in each department in 2001? Exclude items with no department. Return the department and the units sold."
+  mutated_ids: [i_category, i_class]
+  remove: [{kind: synonym, owner: {kind: field, dataset: item, name: i_category}, synonym: "department"}]
+  fault:
+    - kind: synonym
+      synonym: "department"
+      from: {kind: field, dataset: item, name: i_category}
+      to: {kind: field, dataset: item, name: i_class}
+      f1_to_description: "Department (item class) that the item belongs to"
+  gold_a: |
+    SELECT i.i_category, SUM(ss.ss_quantity) AS units
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2001 AND i.i_category IS NOT NULL
+    GROUP BY i.i_category
+  faulty_gold: |
+    SELECT i.i_class, SUM(ss.ss_quantity) AS units
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2001 AND i.i_class IS NOT NULL
+    GROUP BY i.i_class
+
+- id: Q12
+  operator: synonym
+  question: "What was net profit in each calendar year from 1998 through 2002? Return the year and its net profit."
+  mutated_ids: [total_profit, gross_profit]
+  remove: [{kind: synonym, owner: {kind: metric, name: total_profit}, synonym: "net profit"}]
+  fault:
+    - kind: synonym
+      synonym: "net profit"
+      from: {kind: metric, name: total_profit}
+      to: {kind: metric, name: gross_profit}
+      f1_from_description: "Total profit from store sales: net amount paid (after discounts and coupons, excluding tax) minus the extended wholesale cost"
+      f1_to_description: "Net profit: extended sales price minus extended wholesale cost"
+  gold_a: |
+    SELECT d.d_year, SUM(ss.ss_net_profit) AS net_profit
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year BETWEEN 1998 AND 2002
+    GROUP BY d.d_year
+  faulty_gold: |
+    SELECT d.d_year, SUM(ss.ss_ext_sales_price - ss.ss_ext_wholesale_cost) AS net_profit
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year BETWEEN 1998 AND 2002
+    GROUP BY d.d_year
+
+# ---------------------------------------------------------------- fiscal-year definition
+# Base: the fiscal year starts on 1 February and is named for the calendar year in which it
+# starts. Fault: it starts on 1 July. Both fiscal fields change together.
+- id: Q13
+  operator: fiscal_definition
+  question: "What were total sales in fiscal year 2000? Return one value."
+  mutated_ids: [fiscal_year, fiscal_quarter]
+  remove: [{kind: field, dataset: date_dim, name: fiscal_year}, {kind: field, dataset: date_dim, name: fiscal_quarter}]
+  fault: &fiscal_july
+    - kind: field
+      dataset: date_dim
+      name: fiscal_year
+      expression: "CASE WHEN d_moy >= 7 THEN d_year ELSE d_year - 1 END"
+      f1_description: "Fiscal year. The fiscal year starts on 1 July and is named for the calendar year in which it starts (FY2000 runs from 1 July 2000 to 30 June 2001)"
+    - kind: field
+      dataset: date_dim
+      name: fiscal_quarter
+      expression: "FLOOR(MOD(d_moy + 5, 12) / 3) + 1"
+      f1_description: "Fiscal quarter (1-4) within the fiscal year; Q1 is July to September"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE (CASE WHEN d.d_moy >= 2 THEN d.d_year ELSE d.d_year - 1 END) = 2000
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE (CASE WHEN d.d_moy >= 7 THEN d.d_year ELSE d.d_year - 1 END) = 2000
+
+- id: Q14
+  operator: fiscal_definition
+  question: "What was total profit in each fiscal quarter of fiscal year 2001? Return the fiscal quarter number and its total profit."
+  mutated_ids: [fiscal_year, fiscal_quarter]
+  remove: [{kind: field, dataset: date_dim, name: fiscal_year}, {kind: field, dataset: date_dim, name: fiscal_quarter}]
+  fault: *fiscal_july
+  gold_a: |
+    SELECT FLOOR(MOD(d.d_moy + 10, 12) / 3) + 1 AS fiscal_quarter, SUM(ss.ss_net_profit) AS total_profit
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE (CASE WHEN d.d_moy >= 2 THEN d.d_year ELSE d.d_year - 1 END) = 2001
+    GROUP BY FLOOR(MOD(d.d_moy + 10, 12) / 3) + 1
+  faulty_gold: |
+    SELECT FLOOR(MOD(d.d_moy + 5, 12) / 3) + 1 AS fiscal_quarter, SUM(ss.ss_net_profit) AS total_profit
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE (CASE WHEN d.d_moy >= 7 THEN d.d_year ELSE d.d_year - 1 END) = 2001
+    GROUP BY FLOOR(MOD(d.d_moy + 5, 12) / 3) + 1
+
+- id: Q15
+  operator: fiscal_definition
+  question: "How many units of Electronics items were sold in fiscal year 1999? Return one value."
+  mutated_ids: [fiscal_year, fiscal_quarter]
+  remove: [{kind: field, dataset: date_dim, name: fiscal_year}, {kind: field, dataset: date_dim, name: fiscal_quarter}]
+  fault: *fiscal_july
+  gold_a: |
+    SELECT SUM(ss.ss_quantity) AS units
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE i.i_category = 'Electronics'
+      AND (CASE WHEN d.d_moy >= 2 THEN d.d_year ELSE d.d_year - 1 END) = 1999
+  faulty_gold: |
+    SELECT SUM(ss.ss_quantity) AS units
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE i.i_category = 'Electronics'
+      AND (CASE WHEN d.d_moy >= 7 THEN d.d_year ELSE d.d_year - 1 END) = 1999
+
+- id: Q16
+  operator: fiscal_definition
+  question: "What was the average ticket value in fiscal year 2001? Return one value."
+  mutated_ids: [fiscal_year, fiscal_quarter]
+  remove: [{kind: field, dataset: date_dim, name: fiscal_year}, {kind: field, dataset: date_dim, name: fiscal_quarter}]
+  fault: *fiscal_july
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) / COUNT(DISTINCT ss.ss_ticket_number) AS avg_ticket
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE (CASE WHEN d.d_moy >= 2 THEN d.d_year ELSE d.d_year - 1 END) = 2001
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) / COUNT(DISTINCT ss.ss_ticket_number) AS avg_ticket
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE (CASE WHEN d.d_moy >= 7 THEN d.d_year ELSE d.d_year - 1 END) = 2001
+
+# ---------------------------------------------------------------- wrong relationship key
+- id: Q17
+  operator: relationship_key
+  question: "What were total sales in calendar year 2001 to customers born before 1950? Return one value."
+  mutated_ids: [store_sales_to_customer]
+  remove: [{kind: relationship, name: store_sales_to_customer}]
+  fault: &cust_addr
+    - kind: relationship
+      name: store_sales_to_customer
+      from_columns: [ss_addr_sk]
+      f1_instructions: "Each sale links to its customer through the sale's address key: store_sales.ss_addr_sk = customer.c_customer_sk."
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_customer_sk = c.c_customer_sk
+    WHERE d.d_year = 2001 AND c.c_birth_year < 1950
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_addr_sk = c.c_customer_sk
+    WHERE d.d_year = 2001 AND c.c_birth_year < 1950
+
+- id: Q18
+  operator: relationship_key
+  question: "Which 5 customers had the highest total sales in calendar year 1999? Return each customer's customer ID and total sales."
+  mutated_ids: [store_sales_to_customer]
+  remove: [{kind: relationship, name: store_sales_to_customer}]
+  fault: *cust_addr
+  gold_a: |
+    SELECT c.c_customer_id, SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_customer_sk = c.c_customer_sk
+    WHERE d.d_year = 1999
+    GROUP BY c.c_customer_id
+    ORDER BY total_sales DESC, c.c_customer_id
+    LIMIT 5
+  faulty_gold: |
+    SELECT c.c_customer_id, SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_addr_sk = c.c_customer_sk
+    WHERE d.d_year = 1999
+    GROUP BY c.c_customer_id
+    ORDER BY total_sales DESC, c.c_customer_id
+    LIMIT 5
+
+- id: Q19
+  operator: relationship_key
+  question: "What were total sales in calendar year 2002 for each store, by store name? Return the store name and its total sales."
+  mutated_ids: [store_sales_to_store]
+  remove: [{kind: relationship, name: store_sales_to_store}]
+  fault: &store_market
+    - kind: relationship
+      name: store_sales_to_store
+      to_columns: [s_market_id]
+      f1_instructions: "Each sale links to the stores of its market: store_sales.ss_store_sk = store.s_market_id."
+  gold_a: |
+    SELECT s.s_store_name, SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_store_sk
+    WHERE d.d_year = 2002
+    GROUP BY s.s_store_name
+  faulty_gold: |
+    SELECT s.s_store_name, SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_market_id
+    WHERE d.d_year = 2002
+    GROUP BY s.s_store_name
+
+- id: Q20
+  operator: relationship_key
+  question: "What was store productivity (sales per employee) for each store in calendar year 2000, by store name? Return the store name and its productivity."
+  mutated_ids: [store_sales_to_store]
+  remove: [{kind: relationship, name: store_sales_to_store}]
+  fault: *store_market
+  gold_a: |
+    SELECT s.s_store_name, SUM(ss.ss_ext_sales_price) / NULLIF(MAX(s.s_number_employees), 0) AS productivity
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_store_sk
+    WHERE d.d_year = 2000
+    GROUP BY s.s_store_name
+  faulty_gold: |
+    SELECT s.s_store_name, SUM(ss.ss_ext_sales_price) / NULLIF(MAX(s.s_number_employees), 0) AS productivity
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_market_id
+    WHERE d.d_year = 2000
+    GROUP BY s.s_store_name
+
+# ---------------------------------------------------------------- value mapping
+- id: Q21
+  operator: value_mapping
+  question: "What were total sales to preferred customers in calendar year 2002? Return one value."
+  mutated_ids: [is_preferred_customer]
+  remove: [{kind: field, dataset: customer, name: is_preferred_customer}]
+  fault:
+    - kind: field
+      dataset: customer
+      name: is_preferred_customer
+      expression: "c_preferred_cust_flag = 'N'"
+      f1_description: "True when the customer is enrolled in the preferred-customer program (source flag c_preferred_cust_flag = 'N')"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_customer_sk = c.c_customer_sk
+    WHERE d.d_year = 2002 AND c.c_preferred_cust_flag = 'Y'
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN customer c ON ss.ss_customer_sk = c.c_customer_sk
+    WHERE d.d_year = 2002 AND c.c_preferred_cust_flag = 'N'
+
+- id: Q22
+  operator: value_mapping
+  question: "What were total sales on weekends in calendar year 2001? Return one value."
+  mutated_ids: [is_weekend]
+  remove: [{kind: field, dataset: date_dim, name: is_weekend}]
+  fault:
+    - kind: field
+      dataset: date_dim
+      name: is_weekend
+      expression: "d_weekend = 'Y'"
+      f1_description: "True when the date falls on a weekend (source flag d_weekend = 'Y')"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2001 AND d.d_day_name IN ('Saturday', 'Sunday')
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    WHERE d.d_year = 2001 AND d.d_weekend = 'Y'
+
+- id: Q23
+  operator: value_mapping
+  question: "What were total sales of apparel items in calendar year 2000? Return one value."
+  mutated_ids: [is_apparel]
+  remove: [{kind: field, dataset: item, name: is_apparel}]
+  fault:
+    - kind: field
+      dataset: item
+      name: is_apparel
+      expression: "i_category IN ('Men', 'Women', 'Shoes')"
+      f1_description: "True for apparel items, defined as the Men, Women and Shoes categories"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2000 AND i.i_category IN ('Men', 'Women', 'Children')
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN item i ON ss.ss_item_sk = i.i_item_sk
+    WHERE d.d_year = 2000 AND i.i_category IN ('Men', 'Women', 'Shoes')
+
+- id: Q24
+  operator: value_mapping
+  question: "What were total sales at large stores in calendar year 2001? Return one value."
+  mutated_ids: [store_size_class]
+  remove: [{kind: field, dataset: store, name: store_size_class}]
+  fault:
+    - kind: field
+      dataset: store
+      name: store_size_class
+      expression: "CASE WHEN s_number_employees >= 240 THEN 'large' ELSE 'standard' END"
+      f1_description: "Store size class: 'large' when the store has at least 240 employees, otherwise 'standard'"
+  gold_a: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_store_sk
+    WHERE d.d_year = 2001 AND s.s_number_employees >= 270
+  faulty_gold: |
+    SELECT SUM(ss.ss_ext_sales_price) AS total_sales
+    FROM store_sales ss
+    JOIN date_dim d ON ss.ss_sold_date_sk = d.d_date_sk
+    JOIN store s ON ss.ss_store_sk = s.s_store_sk
+    WHERE d.d_year = 2001 AND s.s_number_employees >= 240

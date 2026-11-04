@@ -1,0 +1,50 @@
+note: Question texts only, for writing independent gold queries. Generated from questions-v1.yaml; contains no SQL.
+questions:
+- id: Q01
+  question: What were total sales in calendar year 2001? Return one value.
+- id: Q02
+  question: What was total profit for each item category in 2002? Exclude items with no category. Return the category and its total profit.
+- id: Q03
+  question: What was customer lifetime value (CLV), computed over store sales made in 2000 only? Return one value.
+- id: Q04
+  question: What was the average ticket value in each calendar year from 1999 through 2002? Return the year and the average ticket value.
+- id: Q05
+  question: What were total sales in 1999 for each store city? Return the city and its total sales.
+- id: Q06
+  question: How many units were sold in each item category in 2002? Exclude items with no category. Return the category and the units sold.
+- id: Q07
+  question: What was total profit in the first quarter (January to March) of calendar year 2000? Return one value.
+- id: Q08
+  question: How many unique customers made store purchases in calendar year 2001? Return one value.
+- id: Q09
+  question: What were gross sales in calendar year 2000? Return one value.
+- id: Q10
+  question: What was net revenue for each item category in 1999? Exclude items with no category. Return the category and its net revenue.
+- id: Q11
+  question: How many units were sold in each department in 2001? Exclude items with no department. Return the department and the units sold.
+- id: Q12
+  question: What was net profit in each calendar year from 1998 through 2002? Return the year and its net profit.
+- id: Q13
+  question: What were total sales in fiscal year 2000? Return one value.
+- id: Q14
+  question: What was total profit in each fiscal quarter of fiscal year 2001? Return the fiscal quarter number and its total profit.
+- id: Q15
+  question: How many units of Electronics items were sold in fiscal year 1999? Return one value.
+- id: Q16
+  question: What was the average ticket value in fiscal year 2001? Return one value.
+- id: Q17
+  question: What were total sales in calendar year 2001 to customers born before 1950? Return one value.
+- id: Q18
+  question: Which 5 customers had the highest total sales in calendar year 1999? Return each customer's customer ID and total sales.
+- id: Q19
+  question: What were total sales in calendar year 2002 for each store, by store name? Return the store name and its total sales.
+- id: Q20
+  question: What was store productivity (sales per employee) for each store in calendar year 2000, by store name? Return the store name and its productivity.
+- id: Q21
+  question: What were total sales to preferred customers in calendar year 2002? Return one value.
+- id: Q22
+  question: What were total sales on weekends in calendar year 2001? Return one value.
+- id: Q23
+  question: What were total sales of apparel items in calendar year 2000? Return one value.
+- id: Q24
+  question: What were total sales at large stores in calendar year 2001? Return one value.

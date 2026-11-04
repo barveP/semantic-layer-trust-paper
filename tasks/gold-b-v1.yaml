@@ -1,0 +1,221 @@
+author: "independent gold writer (a separate LLM); read only questions-text-v1.yaml, layers/C1.yaml, ddl-five-tables.sql"
+queries:
+  - id: Q01
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE date_dim.d_year = 2001
+    notes: ""
+  - id: Q02
+    sql: |
+      SELECT item.i_category AS category, SUM(store_sales.ss_net_profit) AS total_profit
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN item ON store_sales.ss_item_sk = item.i_item_sk
+      WHERE date_dim.d_year = 2002
+        AND item.i_category IS NOT NULL
+      GROUP BY item.i_category
+      ORDER BY item.i_category
+    notes: "Category is item.i_category (the model lists 'product category' and 'department' as its synonyms). total_profit = SUM(ss_net_profit)."
+  - id: Q03
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) / COUNT(DISTINCT customer.c_customer_sk) AS customer_lifetime_value
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN customer ON store_sales.ss_customer_sk = customer.c_customer_sk
+      WHERE date_dim.d_year = 2000
+    notes: "CLV metric references customer.c_customer_sk, so store_sales is joined to customer through store_sales_to_customer (inner join). This drops sales with NULL ss_customer_sk from the numerator as well as the denominator; the model's metric text ('total extended sales price of customers' store purchases') supports that, but a reading that keeps all 2000 sales in the numerator would give a different value."
+  - id: Q04
+    sql: |
+      SELECT date_dim.d_year AS year,
+             SUM(store_sales.ss_ext_sales_price) / COUNT(DISTINCT store_sales.ss_ticket_number) AS average_ticket_value
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE date_dim.d_year BETWEEN 1999 AND 2002
+      GROUP BY date_dim.d_year
+      ORDER BY date_dim.d_year
+    notes: "Ticket numbers are counted distinct within each year group."
+  - id: Q05
+    sql: |
+      SELECT store.s_city AS city, SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN store ON store_sales.ss_store_sk = store.s_store_sk
+      WHERE date_dim.d_year = 1999
+      GROUP BY store.s_city
+      ORDER BY store.s_city
+    notes: ""
+  - id: Q06
+    sql: |
+      SELECT item.i_category AS category, SUM(store_sales.ss_quantity) AS units_sold
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN item ON store_sales.ss_item_sk = item.i_item_sk
+      WHERE date_dim.d_year = 2002
+        AND item.i_category IS NOT NULL
+      GROUP BY item.i_category
+      ORDER BY item.i_category
+    notes: "Units sold = SUM(ss_quantity) (total_quantity metric / 'units sold' synonym)."
+  - id: Q07
+    sql: |
+      SELECT SUM(store_sales.ss_net_profit) AS total_profit
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE date_dim.d_year = 2000
+        AND date_dim.d_moy BETWEEN 1 AND 3
+    notes: "Calendar Q1 (Jan-Mar), explicitly not the fiscal quarter."
+  - id: Q08
+    sql: |
+      SELECT COUNT(DISTINCT store_sales.ss_customer_sk) AS distinct_customers
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE date_dim.d_year = 2001
+    notes: "distinct_customers metric counts ss_customer_sk directly (NULL customers are not counted), so no customer-table join is needed."
+  - id: Q09
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE date_dim.d_year = 2000
+    notes: "'Gross sales' is a synonym of total_sales (SUM(ss_ext_sales_price)); it is NOT the gross_profit metric."
+  - id: Q10
+    sql: |
+      SELECT item.i_category AS category, SUM(store_sales.ss_net_paid) AS net_revenue
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN item ON store_sales.ss_item_sk = item.i_item_sk
+      WHERE date_dim.d_year = 1999
+        AND item.i_category IS NOT NULL
+      GROUP BY item.i_category
+      ORDER BY item.i_category
+    notes: "'Net revenue' is a synonym of net_sales = SUM(ss_net_paid). (Note total_sales also lists 'total revenue' as a synonym, but 'net revenue' maps to net_sales.)"
+  - id: Q11
+    sql: |
+      SELECT item.i_category AS department, SUM(store_sales.ss_quantity) AS units_sold
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN item ON store_sales.ss_item_sk = item.i_item_sk
+      WHERE date_dim.d_year = 2001
+        AND item.i_category IS NOT NULL
+      GROUP BY item.i_category
+      ORDER BY item.i_category
+    notes: "The model lists 'department' as a synonym of item.i_category (there is no separate department field in the model or the DDL)."
+  - id: Q12
+    sql: |
+      SELECT date_dim.d_year AS year, SUM(store_sales.ss_net_profit) AS net_profit
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE date_dim.d_year BETWEEN 1998 AND 2002
+      GROUP BY date_dim.d_year
+      ORDER BY date_dim.d_year
+    notes: "'Net profit' is a synonym of total_profit = SUM(ss_net_profit); it is NOT net_sales (net paid)."
+  - id: Q13
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE CASE WHEN date_dim.d_moy >= 2 THEN date_dim.d_year ELSE date_dim.d_year - 1 END = 2000
+    notes: "fiscal_year expression from the model (FY2000 = Feb 2000 through Jan 2001); d_fy_year column deliberately not used."
+  - id: Q14
+    sql: |
+      SELECT FLOOR(MOD(date_dim.d_moy + 10, 12) / 3) + 1 AS fiscal_quarter,
+             SUM(store_sales.ss_net_profit) AS total_profit
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE CASE WHEN date_dim.d_moy >= 2 THEN date_dim.d_year ELSE date_dim.d_year - 1 END = 2001
+      GROUP BY FLOOR(MOD(date_dim.d_moy + 10, 12) / 3) + 1
+      ORDER BY FLOOR(MOD(date_dim.d_moy + 10, 12) / 3) + 1
+    notes: "Uses the model's fiscal_year and fiscal_quarter expressions. Portability: the division inside FLOOR is float in DuckDB and decimal in Snowflake, but FLOOR makes the result the same integer."
+  - id: Q15
+    sql: |
+      SELECT SUM(store_sales.ss_quantity) AS units_sold
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN item ON store_sales.ss_item_sk = item.i_item_sk
+      WHERE CASE WHEN date_dim.d_moy >= 2 THEN date_dim.d_year ELSE date_dim.d_year - 1 END = 1999
+        AND item.i_category = 'Electronics'
+    notes: "'Electronics items' read as item.i_category = 'Electronics' (the model has no dedicated Electronics field)."
+  - id: Q16
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) / COUNT(DISTINCT store_sales.ss_ticket_number) AS average_ticket_value
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE CASE WHEN date_dim.d_moy >= 2 THEN date_dim.d_year ELSE date_dim.d_year - 1 END = 2001
+    notes: ""
+  - id: Q17
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN customer ON store_sales.ss_customer_sk = customer.c_customer_sk
+      WHERE date_dim.d_year = 2001
+        AND customer.c_birth_year < 1950
+    notes: "Customers with NULL birth year are excluded (NULL < 1950 is not true)."
+  - id: Q18
+    sql: |
+      SELECT customer.c_customer_id AS customer_id, SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN customer ON store_sales.ss_customer_sk = customer.c_customer_sk
+      WHERE date_dim.d_year = 1999
+      GROUP BY customer.c_customer_id
+      ORDER BY SUM(store_sales.ss_ext_sales_price) DESC, customer.c_customer_id ASC
+      LIMIT 5
+    notes: "'Customer ID' is the model synonym of c_customer_id (business key), not the surrogate key c_customer_sk. Ties broken by c_customer_id ascending. Sales with NULL customer are excluded by the inner join."
+  - id: Q19
+    sql: |
+      SELECT store.s_store_name AS store_name, SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN store ON store_sales.ss_store_sk = store.s_store_sk
+      WHERE date_dim.d_year = 2002
+      GROUP BY store.s_store_name
+      ORDER BY store.s_store_name
+    notes: "Minor ambiguity: s_store_name is not unique in the store table (stores 1/11/12 are all 'ought', 2/3 are 'able', 8/9 are 'eing'), so I grouped literally by s_store_name. In the data only stores 1, 2, 4, 7, 8, 10 (plus NULL ss_store_sk, dropped by the inner join) have sales and their names are distinct, so grouping by s_store_sk would give the same 6 rows."
+  - id: Q20
+    sql: |
+      SELECT store.s_store_name AS store_name,
+             SUM(store_sales.ss_ext_sales_price) / NULLIF(MAX(store.s_number_employees), 0) AS store_productivity
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN store ON store_sales.ss_store_sk = store.s_store_sk
+      WHERE date_dim.d_year = 2000
+      GROUP BY store.s_store_sk, store.s_store_name
+      ORDER BY store.s_store_name, store.s_store_sk
+    notes: "Minor ambiguity: the metric is sales per employee for one store and requires grouping by store, but s_store_name is not unique in the store table (see Q19). I grouped by s_store_sk and s_store_name so the metric is per physical store and returned only name and productivity. In the data only stores 1, 2, 4, 7, 8, 10 have sales and their names are distinct, so grouping by name alone gives identical rows. Differs in grouping style from Q19 only because this metric (MAX of employees) is meaningful per store."
+  - id: Q21
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN customer ON store_sales.ss_customer_sk = customer.c_customer_sk
+      WHERE date_dim.d_year = 2002
+        AND customer.c_preferred_cust_flag = 'Y'
+    notes: ""
+  - id: Q22
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      WHERE date_dim.d_year = 2001
+        AND date_dim.d_weekend = 'Y'
+    notes: ""
+  - id: Q23
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN item ON store_sales.ss_item_sk = item.i_item_sk
+      WHERE date_dim.d_year = 2000
+        AND item.i_category IN ('Men', 'Women', 'Children')
+    notes: ""
+  - id: Q24
+    sql: |
+      SELECT SUM(store_sales.ss_ext_sales_price) AS total_sales
+      FROM store_sales
+      JOIN date_dim ON store_sales.ss_sold_date_sk = date_dim.d_date_sk
+      JOIN store ON store_sales.ss_store_sk = store.s_store_sk
+      WHERE date_dim.d_year = 2001
+        AND store.s_number_employees >= 270
+    notes: "Large store = s_number_employees >= 270 per store_size_class; stores with sales that qualify are 7, 8 and 10 (297, 278, 294 employees)."
