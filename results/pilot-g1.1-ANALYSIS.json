@@ -1,0 +1,1048 @@
+{
+  "stage": "pilot-g1.1",
+  "trials": 180,
+  "seed": 20261031,
+  "bootstrap_resamples": 10000,
+  "answer_counts": {
+    "correct": 143,
+    "fault_match": 29,
+    "other_wrong": 8
+  },
+  "cost_usd": {
+    "haiku": 0.084076,
+    "opus": 3.061264,
+    "sol": 0.877708
+  },
+  "by_model_arm": [
+    {
+      "model": "haiku",
+      "arm": "C0",
+      "n": 12,
+      "correct": 0.8333333333333334,
+      "fault_match": 0.0,
+      "other_wrong": 0.16666666666666666,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "model": "haiku",
+      "arm": "C1",
+      "n": 12,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.0,
+      "d2": 0.0,
+      "silent": NaN
+    },
+    {
+      "model": "haiku",
+      "arm": "F1",
+      "n": 12,
+      "correct": 0.5,
+      "fault_match": 0.5,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.6666666666666666,
+      "d2": 0.5833333333333334,
+      "silent": 0.3333333333333333
+    },
+    {
+      "model": "haiku",
+      "arm": "F2",
+      "n": 12,
+      "correct": 0.8333333333333334,
+      "fault_match": 0.16666666666666666,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "model": "haiku",
+      "arm": "F2A",
+      "n": 12,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "model": "opus",
+      "arm": "C0",
+      "n": 12,
+      "correct": 0.8333333333333334,
+      "fault_match": 0.0,
+      "other_wrong": 0.16666666666666666,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "model": "opus",
+      "arm": "C1",
+      "n": 12,
+      "correct": 0.9166666666666666,
+      "fault_match": 0.0,
+      "other_wrong": 0.08333333333333333,
+      "failed": 0.0,
+      "d1": 0.3333333333333333,
+      "d2": 0.16666666666666666,
+      "silent": NaN
+    },
+    {
+      "model": "opus",
+      "arm": "F1",
+      "n": 12,
+      "correct": 0.5833333333333334,
+      "fault_match": 0.4166666666666667,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.8333333333333334,
+      "d2": 0.8333333333333334,
+      "silent": 0.16666666666666666
+    },
+    {
+      "model": "opus",
+      "arm": "F2",
+      "n": 12,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "model": "opus",
+      "arm": "F2A",
+      "n": 12,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "model": "sol",
+      "arm": "C0",
+      "n": 12,
+      "correct": 0.8333333333333334,
+      "fault_match": 0.0,
+      "other_wrong": 0.16666666666666666,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "model": "sol",
+      "arm": "C1",
+      "n": 12,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.0,
+      "d2": 0.0,
+      "silent": NaN
+    },
+    {
+      "model": "sol",
+      "arm": "F1",
+      "n": 12,
+      "correct": 0.16666666666666666,
+      "fault_match": 0.75,
+      "other_wrong": 0.08333333333333333,
+      "failed": 0.0,
+      "d1": 0.5,
+      "d2": 0.5,
+      "silent": 0.5
+    },
+    {
+      "model": "sol",
+      "arm": "F2",
+      "n": 12,
+      "correct": 0.5,
+      "fault_match": 0.5,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "model": "sol",
+      "arm": "F2A",
+      "n": 12,
+      "correct": 0.9166666666666666,
+      "fault_match": 0.08333333333333333,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    }
+  ],
+  "by_arm": [
+    {
+      "arm": "C0",
+      "n": 36,
+      "correct": 0.8333333333333334,
+      "fault_match": 0.0,
+      "other_wrong": 0.16666666666666666,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "arm": "C1",
+      "n": 36,
+      "correct": 0.9722222222222222,
+      "fault_match": 0.0,
+      "other_wrong": 0.027777777777777776,
+      "failed": 0.0,
+      "d1": 0.1111111111111111,
+      "d2": 0.05555555555555555,
+      "silent": NaN
+    },
+    {
+      "arm": "F1",
+      "n": 36,
+      "correct": 0.4166666666666667,
+      "fault_match": 0.5555555555555556,
+      "other_wrong": 0.027777777777777776,
+      "failed": 0.0,
+      "d1": 0.6666666666666666,
+      "d2": 0.6388888888888888,
+      "silent": 0.3333333333333333
+    },
+    {
+      "arm": "F2",
+      "n": 36,
+      "correct": 0.7777777777777778,
+      "fault_match": 0.2222222222222222,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "arm": "F2A",
+      "n": 36,
+      "correct": 0.9722222222222222,
+      "fault_match": 0.027777777777777776,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    }
+  ],
+  "by_operator_arm": [
+    {
+      "operator": "fiscal_definition",
+      "arm": "C0",
+      "n": 6,
+      "correct": 0.0,
+      "fault_match": 0.0,
+      "other_wrong": 1.0,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "operator": "fiscal_definition",
+      "arm": "C1",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.0,
+      "d2": 0.0,
+      "silent": NaN
+    },
+    {
+      "operator": "fiscal_definition",
+      "arm": "F1",
+      "n": 6,
+      "correct": 0.0,
+      "fault_match": 1.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.0,
+      "d2": 0.0,
+      "silent": 1.0
+    },
+    {
+      "operator": "fiscal_definition",
+      "arm": "F2",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "fiscal_definition",
+      "arm": "F2A",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "formula_drift",
+      "arm": "C0",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "operator": "formula_drift",
+      "arm": "C1",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.0,
+      "d2": 0.0,
+      "silent": NaN
+    },
+    {
+      "operator": "formula_drift",
+      "arm": "F1",
+      "n": 6,
+      "correct": 0.16666666666666666,
+      "fault_match": 0.8333333333333334,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.6666666666666666,
+      "d2": 0.5,
+      "silent": 0.3333333333333333
+    },
+    {
+      "operator": "formula_drift",
+      "arm": "F2",
+      "n": 6,
+      "correct": 0.5,
+      "fault_match": 0.5,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "formula_drift",
+      "arm": "F2A",
+      "n": 6,
+      "correct": 0.8333333333333334,
+      "fault_match": 0.16666666666666666,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "hidden_filter",
+      "arm": "C0",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "operator": "hidden_filter",
+      "arm": "C1",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.16666666666666666,
+      "d2": 0.0,
+      "silent": NaN
+    },
+    {
+      "operator": "hidden_filter",
+      "arm": "F1",
+      "n": 6,
+      "correct": 0.16666666666666666,
+      "fault_match": 0.8333333333333334,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.5,
+      "d2": 0.5,
+      "silent": 0.5
+    },
+    {
+      "operator": "hidden_filter",
+      "arm": "F2",
+      "n": 6,
+      "correct": 0.5,
+      "fault_match": 0.5,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "hidden_filter",
+      "arm": "F2A",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "relationship_key",
+      "arm": "C0",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "operator": "relationship_key",
+      "arm": "C1",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.0,
+      "d2": 0.0,
+      "silent": NaN
+    },
+    {
+      "operator": "relationship_key",
+      "arm": "F1",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "relationship_key",
+      "arm": "F2",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "relationship_key",
+      "arm": "F2A",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "synonym",
+      "arm": "C0",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "operator": "synonym",
+      "arm": "C1",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 0.3333333333333333,
+      "d2": 0.16666666666666666,
+      "silent": NaN
+    },
+    {
+      "operator": "synonym",
+      "arm": "F1",
+      "n": 6,
+      "correct": 0.5,
+      "fault_match": 0.5,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "synonym",
+      "arm": "F2",
+      "n": 6,
+      "correct": 0.6666666666666666,
+      "fault_match": 0.3333333333333333,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "synonym",
+      "arm": "F2A",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "value_mapping",
+      "arm": "C0",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": NaN,
+      "d2": NaN,
+      "silent": NaN
+    },
+    {
+      "operator": "value_mapping",
+      "arm": "C1",
+      "n": 6,
+      "correct": 0.8333333333333334,
+      "fault_match": 0.0,
+      "other_wrong": 0.16666666666666666,
+      "failed": 0.0,
+      "d1": 0.16666666666666666,
+      "d2": 0.16666666666666666,
+      "silent": NaN
+    },
+    {
+      "operator": "value_mapping",
+      "arm": "F1",
+      "n": 6,
+      "correct": 0.6666666666666666,
+      "fault_match": 0.16666666666666666,
+      "other_wrong": 0.16666666666666666,
+      "failed": 0.0,
+      "d1": 0.8333333333333334,
+      "d2": 0.8333333333333334,
+      "silent": 0.16666666666666666
+    },
+    {
+      "operator": "value_mapping",
+      "arm": "F2",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    },
+    {
+      "operator": "value_mapping",
+      "arm": "F2A",
+      "n": 6,
+      "correct": 1.0,
+      "fault_match": 0.0,
+      "other_wrong": 0.0,
+      "failed": 0.0,
+      "d1": 1.0,
+      "d2": 1.0,
+      "silent": 0.0
+    }
+  ],
+  "silent_failure": {
+    "haiku/F1": {
+      "trials": 12,
+      "fault_match": 6,
+      "silent": 4,
+      "silent_over_trials": 0.3333333333333333,
+      "silent_over_fault_match": 0.6666666666666666
+    },
+    "haiku/F2": {
+      "trials": 12,
+      "fault_match": 2,
+      "silent": 0,
+      "silent_over_trials": 0.0,
+      "silent_over_fault_match": 0.0
+    },
+    "haiku/F2A": {
+      "trials": 12,
+      "fault_match": 0,
+      "silent": 0,
+      "silent_over_trials": 0.0,
+      "silent_over_fault_match": null
+    },
+    "opus/F1": {
+      "trials": 12,
+      "fault_match": 5,
+      "silent": 2,
+      "silent_over_trials": 0.16666666666666666,
+      "silent_over_fault_match": 0.4
+    },
+    "opus/F2": {
+      "trials": 12,
+      "fault_match": 0,
+      "silent": 0,
+      "silent_over_trials": 0.0,
+      "silent_over_fault_match": null
+    },
+    "opus/F2A": {
+      "trials": 12,
+      "fault_match": 0,
+      "silent": 0,
+      "silent_over_trials": 0.0,
+      "silent_over_fault_match": null
+    },
+    "sol/F1": {
+      "trials": 12,
+      "fault_match": 9,
+      "silent": 6,
+      "silent_over_trials": 0.5,
+      "silent_over_fault_match": 0.6666666666666666
+    },
+    "sol/F2": {
+      "trials": 12,
+      "fault_match": 6,
+      "silent": 0,
+      "silent_over_trials": 0.0,
+      "silent_over_fault_match": 0.0
+    },
+    "sol/F2A": {
+      "trials": 12,
+      "fault_match": 1,
+      "silent": 0,
+      "silent_over_trials": 0.0,
+      "silent_over_fault_match": 0.0
+    }
+  },
+  "false_alarms": {
+    "haiku/C1": 0.0,
+    "opus/C1": 0.3333333333333333,
+    "sol/C1": 0.0
+  },
+  "hypotheses": {
+    "H1": {
+      "outcome": "fault_match",
+      "arm_a": "F1",
+      "arm_b": "F2",
+      "pooled": {
+        "estimate": 0.3333333333333333,
+        "ci95": [
+          0.16666666666666666,
+          0.5277777777777778
+        ],
+        "clusters": 12,
+        "mean_a": 0.5555555555555555,
+        "mean_b": 0.2222222222222222,
+        "share_of_bootstrap_above_0": 1.0
+      },
+      "pooled_by_operator_clusters": {
+        "estimate": 0.3333333333333334,
+        "ci95": [
+          0.11111111111111112,
+          0.6111111111111112
+        ],
+        "clusters": 6,
+        "mean_a": 0.5555555555555556,
+        "mean_b": 0.2222222222222222,
+        "share_of_bootstrap_above_0": 1.0
+      },
+      "gee_check": {
+        "log_odds_treat": 1.732572499466532,
+        "ci95": [
+          0.733722816865847,
+          2.7314221820672167
+        ],
+        "p_value": 0.0006746218674028822
+      },
+      "per_model": {
+        "haiku": {
+          "estimate": 0.3333333333333333,
+          "ci95": [
+            0.08333333333333333,
+            0.5833333333333334
+          ],
+          "clusters": 12,
+          "mean_a": 0.5,
+          "mean_b": 0.16666666666666666,
+          "share_of_bootstrap_above_0": 0.9924
+        },
+        "opus": {
+          "estimate": 0.4166666666666667,
+          "ci95": [
+            0.16666666666666666,
+            0.6666666666666666
+          ],
+          "clusters": 12,
+          "mean_a": 0.4166666666666667,
+          "mean_b": 0.0,
+          "share_of_bootstrap_above_0": 0.9982
+        },
+        "sol": {
+          "estimate": 0.25,
+          "ci95": [
+            0.0,
+            0.5
+          ],
+          "clusters": 12,
+          "mean_a": 0.75,
+          "mean_b": 0.5,
+          "share_of_bootstrap_above_0": 0.9654
+        }
+      },
+      "status": "pre-registered"
+    },
+    "H2": {
+      "outcome": "correct",
+      "arm_a": "E",
+      "arm_b": "F1",
+      "pooled": null,
+      "pooled_by_operator_clusters": null,
+      "gee_check": {
+        "note": "outcome or arm constant; model not fitted"
+      },
+      "per_model": {
+        "haiku": null,
+        "opus": null,
+        "sol": null
+      },
+      "status": "pre-registered"
+    },
+    "H3a": {
+      "outcome": "d2",
+      "arm_a": "F2A",
+      "arm_b": "F2",
+      "pooled": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "clusters": 12,
+        "mean_a": 1.0,
+        "mean_b": 1.0,
+        "share_of_bootstrap_above_0": 0.0
+      },
+      "pooled_by_operator_clusters": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "clusters": 6,
+        "mean_a": 1.0,
+        "mean_b": 1.0,
+        "share_of_bootstrap_above_0": 0.0
+      },
+      "gee_check": {
+        "note": "outcome or arm constant; model not fitted"
+      },
+      "per_model": {
+        "haiku": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "clusters": 12,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "share_of_bootstrap_above_0": 0.0
+        },
+        "opus": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "clusters": 12,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "share_of_bootstrap_above_0": 0.0
+        },
+        "sol": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "clusters": 12,
+          "mean_a": 1.0,
+          "mean_b": 1.0,
+          "share_of_bootstrap_above_0": 0.0
+        }
+      },
+      "status": "pre-registered"
+    },
+    "H3b": {
+      "outcome": "d1",
+      "arm_a": "C1A",
+      "arm_b": "C1",
+      "pooled": null,
+      "pooled_by_operator_clusters": null,
+      "gee_check": {
+        "note": "outcome or arm constant; model not fitted"
+      },
+      "per_model": {
+        "haiku": null,
+        "opus": null,
+        "sol": null
+      },
+      "status": "pre-registered"
+    },
+    "X1": {
+      "outcome": "fault_match",
+      "arm_a": "F2",
+      "arm_b": "F2A",
+      "pooled": {
+        "estimate": 0.19444444444444442,
+        "ci95": [
+          0.08333333333333333,
+          0.30624999999999
+        ],
+        "clusters": 12,
+        "mean_a": 0.2222222222222222,
+        "mean_b": 0.027777777777777776,
+        "share_of_bootstrap_above_0": 0.9997
+      },
+      "pooled_by_operator_clusters": {
+        "estimate": 0.19444444444444445,
+        "ci95": [
+          0.05555555555555555,
+          0.36111111111111116
+        ],
+        "clusters": 6,
+        "mean_a": 0.2222222222222222,
+        "mean_b": 0.027777777777777776,
+        "share_of_bootstrap_above_0": 0.9849
+      },
+      "gee_check": {
+        "log_odds_treat": NaN,
+        "ci95": [
+          NaN,
+          NaN
+        ],
+        "p_value": NaN
+      },
+      "per_model": {
+        "haiku": {
+          "estimate": 0.16666666666666666,
+          "ci95": [
+            0.0,
+            0.4166666666666667
+          ],
+          "clusters": 12,
+          "mean_a": 0.16666666666666666,
+          "mean_b": 0.0,
+          "share_of_bootstrap_above_0": 0.8853
+        },
+        "opus": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "clusters": 12,
+          "mean_a": 0.0,
+          "mean_b": 0.0,
+          "share_of_bootstrap_above_0": 0.0
+        },
+        "sol": {
+          "estimate": 0.4166666666666667,
+          "ci95": [
+            0.16666666666666666,
+            0.6666666666666666
+          ],
+          "clusters": 12,
+          "mean_a": 0.5,
+          "mean_b": 0.08333333333333333,
+          "share_of_bootstrap_above_0": 0.9981
+        }
+      },
+      "status": "exploratory (added after the pilot)"
+    },
+    "X2": {
+      "outcome": "fault_match",
+      "arm_a": "F1",
+      "arm_b": "F1A",
+      "pooled": null,
+      "pooled_by_operator_clusters": null,
+      "gee_check": {
+        "note": "outcome or arm constant; model not fitted"
+      },
+      "per_model": {
+        "haiku": null,
+        "opus": null,
+        "sol": null
+      },
+      "status": "exploratory (added after the pilot)"
+    },
+    "X3": {
+      "outcome": "silent",
+      "arm_a": "F1",
+      "arm_b": "F1A",
+      "pooled": null,
+      "pooled_by_operator_clusters": null,
+      "gee_check": {
+        "note": "outcome or arm constant; model not fitted"
+      },
+      "per_model": {
+        "haiku": null,
+        "opus": null,
+        "sol": null
+      },
+      "status": "exploratory (added after the pilot)"
+    },
+    "X4": {
+      "outcome": "correct",
+      "arm_a": "C1",
+      "arm_b": "C0",
+      "pooled": {
+        "estimate": 0.13888888888888887,
+        "ci95": [
+          -0.05555555555555556,
+          0.38888888888888884
+        ],
+        "clusters": 12,
+        "mean_a": 0.9722222222222222,
+        "mean_b": 0.8333333333333334,
+        "share_of_bootstrap_above_0": 0.8613
+      },
+      "pooled_by_operator_clusters": {
+        "estimate": 0.1388888888888889,
+        "ci95": [
+          -0.08333333333333331,
+          0.5
+        ],
+        "clusters": 6,
+        "mean_a": 0.9722222222222222,
+        "mean_b": 0.8333333333333334,
+        "share_of_bootstrap_above_0": 0.6685
+      },
+      "gee_check": {
+        "log_odds_treat": 1.9239034459609567,
+        "ci95": [
+          -0.6094009991370659,
+          4.45720789105898
+        ],
+        "p_value": 0.13662347230780128
+      },
+      "per_model": {
+        "haiku": {
+          "estimate": 0.16666666666666666,
+          "ci95": [
+            0.0,
+            0.4166666666666667
+          ],
+          "clusters": 12,
+          "mean_a": 1.0,
+          "mean_b": 0.8333333333333334,
+          "share_of_bootstrap_above_0": 0.8863
+        },
+        "opus": {
+          "estimate": 0.08333333333333333,
+          "ci95": [
+            -0.16666666666666666,
+            0.3333333333333333
+          ],
+          "clusters": 12,
+          "mean_a": 0.9166666666666666,
+          "mean_b": 0.8333333333333334,
+          "share_of_bootstrap_above_0": 0.6181
+        },
+        "sol": {
+          "estimate": 0.16666666666666666,
+          "ci95": [
+            0.0,
+            0.4166666666666667
+          ],
+          "clusters": 12,
+          "mean_a": 1.0,
+          "mean_b": 0.8333333333333334,
+          "share_of_bootstrap_above_0": 0.8904
+        }
+      },
+      "status": "exploratory (added after the pilot)"
+    },
+    "X5": {
+      "outcome": "correct",
+      "arm_a": "E",
+      "arm_b": "C0",
+      "pooled": null,
+      "pooled_by_operator_clusters": null,
+      "gee_check": {
+        "note": "outcome or arm constant; model not fitted"
+      },
+      "per_model": {
+        "haiku": null,
+        "opus": null,
+        "sol": null
+      },
+      "status": "exploratory (added after the pilot)"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "description": "RQ2 second comparison named in protocol v0.2 (wrong layer vs no layer); no direction pre-registered. Computed with analyze.paired_diff after the main run.",
+  "C0_minus_F1_correct": {
+    "estimate": 0.2569444444444445,
+    "ci95": [
+      0.09027777777777779,
+      0.4305555555555556
+    ],
+    "clusters": 24,
+    "mean_a": 0.6458333333333334,
+    "mean_b": 0.38888888888888884,
+    "share_of_bootstrap_above_0": 0.9992
+  },
+  "C0_minus_F2_correct": {
+    "estimate": -0.1875,
+    "ci95": [
+      -0.40277777777777773,
+      0.020833333333333315
+    ],
+    "clusters": 24,
+    "mean_a": 0.6458333333333334,
+    "mean_b": 0.8333333333333334,
+    "share_of_bootstrap_above_0": 0.0355
+  },
+  "per_model_C0_minus_F1": {
+    "haiku": {
+      "estimate": 0.1875,
+      "ci95": [
+        -0.020833333333333332,
+        0.3958333333333333
+      ],
+      "clusters": 24,
+      "mean_a": 0.6041666666666666,
+      "mean_b": 0.4166666666666667,
+      "share_of_bootstrap_above_0": 0.959
+    },
+    "opus": {
+      "estimate": 0.1875,
+      "ci95": [
+        0.0,
+        0.3958333333333333
+      ],
+      "clusters": 24,
+      "mean_a": 0.7083333333333334,
+      "mean_b": 0.5208333333333334,
+      "share_of_bootstrap_above_0": 0.9657
+    },
+    "sol": {
+      "estimate": 0.3958333333333333,
+      "ci95": [
+        0.20833333333333334,
+        0.5833333333333334
+      ],
+      "clusters": 24,
+      "mean_a": 0.625,
+      "mean_b": 0.22916666666666666,
+      "share_of_bootstrap_above_0": 1.0
+    }
+  }
+}
